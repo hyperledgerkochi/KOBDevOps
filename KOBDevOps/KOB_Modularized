@@ -58,9 +58,12 @@ then
         read -s -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
         
 	read -p "Enter the port?[eg :8080,443..etc]          :" port
-        read -p "Enter AD ID? [eg :ai318974]                 :" uname
+        echo -e "\n"
+	read -p "Enter AD ID? [eg :ai318974]                 :" uname
         read -s -p "Enter password?[your login password]        : " pword
-        read -p "Enter email ID?                             :" emil
+        echo -e "\n"
+	read -p "Enter AD ID? [eg :ai318974]                 :" uname
+	read -p "Enter email ID?                             :" emil
         unset http_proxy
         unset ftp_proxy
         unset https_proxy
