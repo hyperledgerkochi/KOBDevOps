@@ -188,14 +188,12 @@ fun_docker_install()
         echo -e "\n\r**********************************";
         echo -e "\n\r*    Docker Login                *"
 	echo -e "\n\r**********************************";
-	rm ~/.docker/config.json
-	#mkdir -p /root/.docker
-	#touch /root/.docker/config.json
+	rm -rf /root/.docker/
         docker login
         sed -i '$ d' /root/.docker/config.json
-        
 
-echo -e "\n "\""proxies"\"": {\n\t\t "\""default"\"": {\n\t\t\t "\""httpProxy"\"": "\""http"\""://${uname}:${pword}@${prox}:${port}"\"",\n\t\t\t "\""httpsProxy"\"": "\""https"\""://${uname}:${pword}@${prox}:${port}"\"",\n\t\t\t "\""noProxy"\"": "\""localhost,127.0.0.0/8,*.local,host.docker.internal"\""\n\t\t}\n\t}}">>/root/.docker/config.json
+	echo -e ",\n "\""proxies"\"": {\n\t "\""default"\"": {\n\t\t "\""httpProxy"\"": "\""http://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""httpsProxy"\"": "\""https://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""noProxy"\"": "\""localhost,127.0.0.0/8,*.local,host.docker.internal"\"" \n\t\t}\n\t}\n}">>/root/.docker/config.json
+root@blockchain-VirtualBox:~# cat /root/.docker/config.json
 
 
 }
@@ -313,8 +311,7 @@ case $COMMAND in
                 apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
                 mkdir -p /home/KOB
                 cd /home/KOB
-		fun_dflow_build
-		
+		fun_kob_build
 		;;
 		KOBDflow)
 			echo "Proceeding with KOBDflow"
@@ -328,8 +325,7 @@ case $COMMAND in
                 apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
                 mkdir -p /home/KOB
                 cd /home/KOB
-		fun_kob_build
-		
+		fun_dflow_build
 		;;
 	KOBConnect)
 			echo "Proceeding with KOBConnect"	
@@ -341,7 +337,7 @@ case $COMMAND in
 		;;
 
 	AllKOBProjects)
-			echo "Proceeding with All KOB Projects"
+		echo "Proceeding with All KOB Projects"
                 fun_check_proxy
                 fun_ubuntu_upgrade
                 fun_git_install
@@ -355,6 +351,13 @@ case $COMMAND in
 		fun_kob_build
       		fun_dflow_build
 		
+		;;
+	DOCKER)
+		fun_check_proxy
+                fun_ubuntu_upgrade
+                fun_git_install
+                fun_python_install
+                fun_docker_install
 		;;
 	esac
 
