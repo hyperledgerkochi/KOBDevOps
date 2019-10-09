@@ -55,14 +55,13 @@ fun_check_proxy()
 if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
 
 then
-        read -s -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
-        
+        read -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
+        echo -e "\n"
 	read -p "Enter the port?[eg :8080,443..etc]          :" port
         echo -e "\n"
 	read -p "Enter AD ID? [eg :ai318974]                 :" uname
         read -s -p "Enter password?[your login password]        : " pword
         echo -e "\n"
-	read -p "Enter AD ID? [eg :ai318974]                 :" uname
 	read -p "Enter email ID?                             :" emil
         unset http_proxy
         unset ftp_proxy
@@ -194,7 +193,10 @@ fun_docker_install()
 	#touch /root/.docker/config.json
         docker login
         sed -i '$ d' /root/.docker/config.json
-        echo -e "\n "proxies": {\n\t\t "default": {\n\t\t\t "httpProxy": "http://${uname}:${pword}@${prox}:${port}",\n\t\t\t "httpsProxy": "https://${uname}:${pword}@${prox}:${port}",\n\t\t\t "noProxy": "localhost,127.0.0.0/8,*.local,host.docker.internal"\n\t\t}\n\t}}">>/root/.docker/config.json
+        
+
+echo -e "\n "\""proxies"\"": {\n\t\t "\""default"\"": {\n\t\t\t "\""httpProxy"\"": "\""http"\""://${uname}:${pword}@${prox}:${port}"\"",\n\t\t\t "\""httpsProxy"\"": "\""https"\""://${uname}:${pword}@${prox}:${port}"\"",\n\t\t\t "\""noProxy"\"": "\""localhost,127.0.0.0/8,*.local,host.docker.internal"\""\n\t\t}\n\t}}">>/root/.docker/config.json
+
 
 }
 fun_npm_install()
