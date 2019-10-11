@@ -56,6 +56,7 @@ if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply
 
 then
 	proxychk=1
+	echo "Proxy check = " $proxychk
         read -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
         echo -e "\n"
 	read -p "Enter the port?[eg :8080,443..etc]          :" port
@@ -193,7 +194,7 @@ fun_docker_install()
 	echo -e "\n\r**********************************";
 	rm -rf /root/.docker/
         docker login
-        if [ proxychk -eq "1"]
+        if [ $proxychk -eq 1 ]
 	then 
 		sed -i '$ d' /root/.docker/config.json
 		echo -e ",\n "\""proxies"\"": {\n\t "\""default"\"": {\n\t\t "\""httpProxy"\"": "\""http://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""httpsProxy"\"": "\""https://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""noProxy"\"": "\""localhost,127.0.0.0/8,*.local,host.docker.internal"\"" \n\t\t}\n\t}\n}">>/root/.docker/config.json
@@ -246,7 +247,7 @@ fun_von_build()
 }
 fun_von_start()
 {
-	read -p "Do you want to setup GreenLight instance in your system?" reply
+	read -p "Do you want to start KOB VON instance in your system?" reply
         if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
         then
 	/home/KOB/von-network/manage start
@@ -254,8 +255,7 @@ fi
 }	
 fun_kob_build()
 {
-	#KOB-OrgBook
-read -p "Do you want to setup KOB instance in your system?" reply
+	read -p "Do you want to setup KOB instance in your system?" reply
         if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
         then
 
@@ -266,16 +266,16 @@ read -p "Do you want to setup KOB instance in your system?" reply
                 mv s2i sti /usr/local/bin/
                 /home/KOB/TheOrgBook/docker/manage rm
                 /home/KOB/TheOrgBook/docker/manage build
+		sed -i -e 's/- 3000/- 3100/g' /home/KOB/TheOrgBook/docker/docker-compose.yml
         fi
 
 
 }
 fun_kob_start()
 {
-read -p "Do you want to setup GreenLight instance in your system?" reply
+read -p "Do you want to start KOB instance in your system?" reply
         if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
         then
-	sed -i -e 's/- 3000/- 3100/g' /home/KOB/TheOrgBook/docker/docker-compose.yml
 	/home/KOB/TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
 	fi
 }
@@ -303,9 +303,8 @@ fun_Dflow_start()
 	read -p "Do you want to setup GreenLight instance in your system?" reply
         if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
         then
-	
-	/home/KOB/greenlight/docker/manage start 
-fi
+		/home/KOB/greenlight/docker/manage start 
+	fi
 }
 COMMAND=$1 
 
@@ -381,12 +380,17 @@ case $COMMAND in
       		fun_Dflow_build
 		fun_von_start
 		;;
-	DOCKER)
+	DEV)
 		fun_check_proxy
                 fun_ubuntu_upgrade
                 fun_git_install
                 fun_python_install
                 fun_docker_install
+		fun_npm_install
+                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
+                mkdir -p /home/KOB
+                cd /home/KOB
+
 		;;
 	esac
 
