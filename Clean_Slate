@@ -1,0 +1,24 @@
+#!/bin/bash
+
+
+rm /etc/apt/apt.conf
+rm /root/.gitconfig
+rm /etc/systemd/system/docker.service.d/https-proxy.conf
+rm /root/.docker/config.json
+rm /etc/environment
+
+unset http_proxy
+unset ftp_proxy
+unset https_proxy
+unset socks_proxy
+unset SOCKS_PROXY
+unset FTP_PROXY
+unset HTTPS_PROXY
+unset HTTP_PROXY
+
+npm config rm proxy
+npm config rm proxy --global
+npm config rm https-proxy
+npm config rm https-proxy --global
+npm config rm registry 
+npm cache clean
