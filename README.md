@@ -4,6 +4,11 @@
 
 
 ### KOB Automated script (Developer's Environment setup script)
+
+* Download and Install  Virtual box in your machine.
+* Create a Ubuntu 18.04 Virtual Machine 
+* Run the above given "KOB" script with root privilages (this is for temp)
+
 The script should run as given below:
 
         ./KOB KOBVON
