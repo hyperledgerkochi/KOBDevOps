@@ -1,6 +1,7 @@
 # KOBDevOps
 
-KochiOrgBook is a HyperLedger Indy based project designing for the city of Kochi
+<a href="https://github.com/hyperledgerkochi/KochiOrgBook/wiki">KochiOrgBook</a> is a <a href="https://github.com/hyperledgerkochi/KochiOrgBook/wiki/Videos-for-Reference-(HyperLedger-Indy)">HyperLedger Indy</a> based project designing for the city of Kochi
+
 
 ### KOB Automated script (Developer's Environment setup script)
 The script should run as given below:
