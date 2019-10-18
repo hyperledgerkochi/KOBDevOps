@@ -11,12 +11,17 @@
 
 The script should run as given below:
 
+        ./KOB All
+
+
+Other available combinations
+
         ./KOB KOBVON
         ./KOB KochiOrgBook
         ./KOB KOBDflow
         ./KOB KOBConnect
         ./KOB KOBRegistry
-        ./KOB All
+
 
 
 **Checkout the listed topic links quick start:**
