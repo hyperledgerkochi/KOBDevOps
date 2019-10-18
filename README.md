@@ -10,8 +10,8 @@
         ./KOB All
 
 
-**Checkout our Home page for quick start:**
-https://github.com/EtricKombat/KOBDevOps/wiki
+**Checkout the listed topic links quick start:**
+
 
 
 
