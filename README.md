@@ -1,6 +1,6 @@
 # KOBDevOps
 
-KOB is a HyperLedger Indy based project designing for the city of Kochi
+KochiOrgBook is a HyperLedger Indy based project designing for the city of Kochi
 
 ### KOB Automated script (Developer's Environment setup script)
 The script should run as given below:
