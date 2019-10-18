@@ -5,9 +5,9 @@ You can download and perform asciinema playback each of this file for getting an
 
 ## steps to perform
 
-*   **git clonehttps://github.com/EtricKombat/KOBDevOps.git**
+*   git clonehttps://github.com/EtricKombat/KOBDevOps.git
 
-*   **asciinema play /home/[$uname]/KOBDevOps/docs/cast/02_git_installation.cast**
+*   asciinema play /home/[$uname]/KOBDevOps/docs/cast/02_git_installation.cast
 
 
 
