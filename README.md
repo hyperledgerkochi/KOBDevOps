@@ -1,5 +1,7 @@
 # KOBDevOps
 
+KOB is a HyperLedger Indy based project designing for the city of Kochi
+
 ### KOB Automated script should run as given below:
         
         ./KOB KOBVON
