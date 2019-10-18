@@ -5,7 +5,7 @@
 
 ### KOB Automated script (Developer's Environment setup script)
 
-* <a href="https://www.virtualbox.org">Download</a> and Install  Virtual box in your machine.
+* <a href="https://www.virtualbox.org">Download</a> & Install  Virtual box in your machine.
 * <a href="https://ubuntu.com/download/desktop/thank-you?version=18.04.3&architecture=amd64">Download</a> & create a Ubuntu 18.04 Virtual Machine 
 * Run the above given "KOB" script with root privilages (this is for temp)
 
