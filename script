@@ -1,0 +1,38 @@
+#!/bin/bash
+
+echo "* = " $*
+echo "@ = " $@
+echo "# = " $#
+
+ONE=$1
+TWO=$2
+THREE=$3
+
+pattern_1="--dev"
+pattern_2="KOBVON"
+
+if [ "$ONE" = "install" ]
+then
+        case $TWO in
+               --dev)
+                        if [ "$THREE" = "All" ]
+			then
+				echo "install all the dev environment to do development"
+			elif [ $THREE = "KOBVON" ]
+			then
+				echo "to install just the KOBVON project for development"
+			else
+				echo "INvalid Command"
+			fi
+		;;
+		KOBVON)
+			echo "Deploy KOBVON for testing"
+		;;
+		*)
+			if [ -z $TWO ]
+			then
+				echo "install default projects i.e KOBVON, KOBDflow,KOBConnect, KOBRegistry, TheKochOrgBook"
+			fi		
+		;;
+	esac
+fi
