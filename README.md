@@ -11,17 +11,11 @@
 
 The script should run as given below:
 
-        ./KOB All
-
-
-Other available combinations
-
-        ./KOB KOBVON
-        ./KOB KochiOrgBook
-        ./KOB KOBDflow
-        ./KOB KOBConnect
-        ./KOB KOBRegistry
-
+   
+        KOB install   // install default projects i.e KOBVON, KOBDflow,KOBConnect, KOBRegistry, TheKochOrgBook
+        KOB install --dev All // install all the dev environment to do development
+        KOB install --dev KOBVON // to install just the KOBVON project for development
+        KOB install KOBVON // Deploy KOBVON for testing
 
 
 **Checkout the listed topic links quick start:**
