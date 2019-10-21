@@ -77,7 +77,8 @@ fun_check_proxy()
 if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
 
 then
-        read -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
+       	proxychk=1 
+	read -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
         echo -e "\n"
 	read -p "Enter the port?[eg :8080,443..etc]          :" port
         echo -e "\n"
@@ -103,7 +104,7 @@ then
         echo "**********************"
         git config --global user.name "${uname}"
         git config --global user.email "${emil}"
-        apt install ca-certificates
+        apt install ca-certificates -y
         git config --global http.sslVerify false
         git config --global http.proxy http://${uname}:${pword}@${prox}:${port}
 else
@@ -129,8 +130,8 @@ fun_python_install()
         apt install software-properties-common -y
         sudo -E add-apt-repository ppa:ubuntu-toolchain-r/ppa
         apt install Python3.7 -y
-	apt install python-pip
-	pip install --upgrade pip
+	apt install python-pip -y
+	pip install --upgrade pip -y
 	
 }
 fun_docker_install()
@@ -144,7 +145,7 @@ fun_docker_install()
         echo "*    Installing Docker...         *";
         echo -e "**********************************\n\n\r";
         apt-get update -y
-        apt install docker.io
+        apt install docker.io -y
         echo -e "\n\r************************************************************************";
         echo "*    Installing packages to allow apt to use a repository over HTTPS...   *";
         echo -e "*************************************************************************\n\n\r";
@@ -224,7 +225,7 @@ fun_npm_install()
 	echo "*    Installing NPM Components              *";
 	echo -e "\n\r***********************************";
 
-	sudo apt-get install nodejs nodejs-dev node-gyp libssl1.0-dev npm
+	sudo apt-get install nodejs nodejs-dev node-gyp libssl1.0-dev npm -y
 
 	npm config set https-proxy http://${uname}:${pword}@${prox}:${port}--global
 	npm config set https-proxy http://${uname}:${pword}@${prox}:${port}
@@ -320,7 +321,7 @@ then
 		                fun_python_install
 		                fun_docker_install
                			fun_npm_install
-		                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
+		                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
 		                mkdir -p /home/KOB
 		                cd /home/KOB
 
@@ -333,7 +334,7 @@ then
 		                fun_python_install
 		                fun_docker_install
 		                fun_npm_install
-		                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
+		                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
 		                mkdir -p /home/KOB
 		                cd /home/KOB
 		                fun_von_build
@@ -349,7 +350,7 @@ then
 	                fun_python_install
 	                fun_docker_install
 	                fun_npm_install
-	                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
+	                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
 	                mkdir -p /home/KOB
 	                cd /home/KOB
 	                fun_von_build
@@ -367,11 +368,12 @@ then
 		                fun_python_install
                 		fun_docker_install
 		                fun_npm_install
-                		apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
+                		apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
 		                mkdir -p /home/KOB
                 		cd /home/KOB
                 		fun_PROXY_ENV
-		                fun_von_build
+				fun_ubuntu_upgrade
+				fun_von_build
                 		fun_kob_build
 		                fun_Dflow_build
 
