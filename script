@@ -8,8 +8,6 @@ ONE=$1
 TWO=$2
 THREE=$3
 
-pattern_1="--dev"
-pattern_2="KOBVON"
 
 if [ "$ONE" = "install" ]
 then
