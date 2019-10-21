@@ -306,93 +306,90 @@ fun_Dflow_start()
 		/home/KOB/greenlight/docker/manage start 
 	fi
 }
-COMMAND=$1 
 
-echo $COMMAND
-case $COMMAND in
-		
-	KOBVON)
-		echo "Proceeding with KOB-VON"
-		fun_check_proxy
-		fun_ubuntu_upgrade
-		fun_git_install
-		fun_python_install
-		fun_docker_install
-		fun_npm_install
-		apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
-		mkdir -p /home/KOB
-		cd /home/KOB
-		fun_von_build
-		fun_von_start
-		;;
-	KochiOrgBook)
- 		echo "Proceeding with KochiOrgBook"
-		echo "Proceeding with KOB-VON"
-                fun_check_proxy
-                fun_ubuntu_upgrade
-                fun_git_install
-                fun_python_install
-                fun_docker_install
-                fun_npm_install
-                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
-                mkdir -p /home/KOB
-                cd /home/KOB
-		fun_kob_build
-		fun_kob_start
-		;;
-	KOBDflow)
-		echo "Proceeding with KOBDflow"
-		echo "Proceeding with KOB-VON"
-                fun_check_proxy
-                fun_ubuntu_upgrade
-                fun_git_install
-                fun_python_install
-                fun_docker_install
-                fun_npm_install
-                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
-                mkdir -p /home/KOB
-                cd /home/KOB
-		fun_Dflow_build
-		fun_Dflow_start	
-		;;
-	KOBConnect)
-			echo "Proceeding with KOBConnect"	
-		
-		;;
-	KOBRegistry)
-			echo "Proceeding with KOBregistry"
-		
-		;;
 
-	All)
-		echo "Proceeding with All KOB Projects"
-                fun_check_proxy
-                fun_ubuntu_upgrade
-                fun_git_install
-                fun_python_install
-                fun_docker_install
-                fun_npm_install
-                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
-                mkdir -p /home/KOB
-                cd /home/KOB
-		fun_von_build
-		fun_kob_build
-      		fun_Dflow_build
-		fun_von_start
-		;;
-	DEV)
-		fun_check_proxy
-                fun_ubuntu_upgrade
-                fun_git_install
-                fun_python_install
-                fun_docker_install
-		fun_npm_install
-                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
-                mkdir -p /home/KOB
-                cd /home/KOB
+######################################################################
 
-		;;
-	esac
+
+
+ONE=$1
+TWO=$2
+THREE=$3
+
+
+if [ "$ONE" = "install" ]
+then
+        case $TWO in
+               --dev)
+                        if [ "$THREE" = "All" ]
+                        then
+                                echo "install all the dev environment to do development"
+				fun_check_proxy
+		                fun_ubuntu_upgrade
+                		fun_git_install
+		                fun_python_install
+		                fun_docker_install
+               			fun_npm_install
+		                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
+		                mkdir -p /home/KOB
+		                cd /home/KOB
+
+                        elif [ $THREE = "KOBVON" ]
+                        then
+                                echo "to install just the KOBVON project for development"
+				fun_check_proxy
+		                fun_ubuntu_upgrade
+		                fun_git_install
+		                fun_python_install
+		                fun_docker_install
+		                fun_npm_install
+		                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
+		                mkdir -p /home/KOB
+		                cd /home/KOB
+		                fun_von_build
+                        else
+                                echo "INvalid Command"
+                        fi
+                ;;
+                KOBVON)
+                        echo "Deploy KOBVON for testing"
+			fun_check_proxy
+	                fun_ubuntu_upgrade
+	                fun_git_install
+	                fun_python_install
+	                fun_docker_install
+	                fun_npm_install
+	                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
+	                mkdir -p /home/KOB
+	                cd /home/KOB
+	                fun_von_build
+	                fun_von_start
+
+                ;;
+                *)
+                        if [ -z $TWO ]
+                        then
+                                echo "Install default projects i.e KOBVON, KOBDflow,KOBConnect, KOBRegistry, TheKochOrgBook"
+				
+                		fun_check_proxy
+		                fun_ubuntu_upgrade
+                		fun_git_install
+		                fun_python_install
+                		fun_docker_install
+		                fun_npm_install
+                		apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
+		                mkdir -p /home/KOB
+                		cd /home/KOB
+		                fun_von_build
+                		fun_kob_build
+		                fun_Dflow_build
+
+                        fi
+                ;;
+        esac
+fi
+
+
 
 #	fun_pre_req
 #	fun_vim_Fix
