@@ -1,0 +1,7 @@
+{"version": 2, "width": 80, "height": 24, "timestamp": 1571662473, "env": {"SHELL": "/bin/bash", "TERM": "xterm-256color"}}
+[0.022743, "o", "\u001b]0;root@blockchain-VirtualBox: /home/blockchain\u0007root@blockchain-VirtualBox:/home/blockchain# "]
+[1.258148, "o", "curl -L \"https://github.com/mholt/ca\raddy/releases/download/v0.10.10/caddy_v0.10.10_linux_amd64.tar.gz\""]
+[2.433447, "o", "\r\n"]
+[2.642216, "o", "curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 \r\n"]
+[2.645061, "o", "\u001b]0;root@blockchain-VirtualBox: /home/blockchain\u0007root@blockchain-VirtualBox:/home/blockchain# "]
+[7.737185, "o", "exit\r\n"]

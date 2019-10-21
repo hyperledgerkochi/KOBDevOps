@@ -1,0 +1,11 @@
+Check out Time 13:45 , you can find the curl proxy error here. 
+
+https://asciinema.org/a/adS2frIdl64Yg2u0MkAnHr4us
+
+
+This is causing because proxy environment variable is not set
+so when we 
+
+
+
+curl -L "https://github.com/mholt/caddy/releases/download/v0.10.10/caddy_v0.10.10_linux_amd64.tar.gz"
