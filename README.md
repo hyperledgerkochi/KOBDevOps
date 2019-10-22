@@ -9,13 +9,13 @@
 * <a href="https://ubuntu.com/download/desktop/thank-you?version=18.04.3&architecture=amd64">Download</a> & create a Ubuntu 18.04 Virtual Machine 
 * Run the above given "KOB" script with root privilages (this is for temp)
 
-The script should run as given below:
+The script should run as given below (from the KOBDevOps Directory):
 
    
-        KOB install   // install default projects i.e KOBVON, KOBDflow,KOBConnect, KOBRegistry, TheKochOrgBook
-        KOB install --dev All // install all the dev environment to do development
-        KOB install --dev KOBVON // to install just the KOBVON project for development
-        KOB install KOBVON // Deploy KOBVON for testing
+        ./KOB install   // install default projects i.e KOBVON, KOBDflow,KOBConnect, KOBRegistry, TheKochOrgBook
+        ./KOB install --dev All // install all the dev environment to do development
+        ./KOB install --dev KOBVON // to install just the KOBVON project for development
+        ./KOB install KOBVON // Deploy KOBVON for testing
 
 
 **Checkout the listed topic links quick start:**
