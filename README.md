@@ -18,10 +18,14 @@ The script should run as given below (from the KOBDevOps Directory):
         ./KOB install KOBVON // Deploy KOBVON for testing
 
 
-Checkout the listed links once the projects are started:
+**Checkout the listed links once the projects are started:**
+
 KOBVON - http://localhost:9000
+
 KOB    - http://localhost:8080/en/home
+
 Dflow  - http://localhost:5000/ 
+
 **Checkout the listed topic links quick start:**
 
 
