@@ -128,10 +128,9 @@ fun_python_install()
 	echo "*      Installing Python?        *"
 	echo "**********************************"
         apt install software-properties-common -y
-        sudo -E add-apt-repository ppa:ubuntu-toolchain-r/ppa
         apt install Python3.7 -y
 	apt install python-pip -y
-	pip install --upgrade pip -y
+	
 	
 }
 fun_docker_install()
