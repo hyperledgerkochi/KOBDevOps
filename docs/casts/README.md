@@ -1,7 +1,7 @@
-# What is Cast files?
+# What is Asciinema cast files?
 
 
-<a href="https://www.youtube.com/watch?v=d7pEklAsTow"><img src="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/5Pz7-WC6.png" width="300"/></a>
+<a href="https://www.youtube.com/watch?v=d7pEklAsTow"><img src="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/5Pz7-WC6.png" width="300"/>Click me</a>
 
 ASCIINEMA Quickstart Guide : https://github.com/asciinema/asciinema/wiki/Getting-Started-Guide
 
