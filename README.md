@@ -21,7 +21,7 @@ Run the following command son the terminal.
 
 <table>
 <tr><th>No:</th><th>Topic </th><th>Description</th></tr>
-<tr><td>1.</td><td><a href="https://github.com/EtricKombat/KOBDevOps/wiki/1.Manuel-Steps-to-setup-KOB">Manuel Step</a></td><td>You can find the Manuel steps (bash script) of each steps involved in KochiOrgBook (KOB) Setup here</td></tr>
+<tr><td>1.</td><td><a href="https://github.com/EtricKombat/KOBDevOps/wiki/1.Manuel-Steps-to-setup-KOB">Manuelly setting up KOB Project</a></td><td>You can find the Manuel steps (bash script) of each steps involved in KochiOrgBook (KOB) Setup here</td></tr>
 <tr><td>2.</td><td><a href="https://github.com/EtricKombat/KOBDevOps/wiki/2.Asciinema-Recordings">Asciinema Recordings</a></td><td>You can find the Asciinema recordings of each steps involved in KochiOrgBook Setup here</td></tr><tr><td>3.</td><td><a href="https://github.com/EtricKombat/KOBDevOps/wiki/3.Automated-Scripts">Automated Dev Environment Setup Script</a></td><td>You can find the automated bash script of KochiOrgBook Setup here</td></tr>
 
 <tr><td>4.</td><td><a href="https://github.com/EtricKombat/KOBDevOps/issues?q=is%3Aopen+is%3Aissue">Opened Issue</a></td><td>Collection of known issue</td></tr>
