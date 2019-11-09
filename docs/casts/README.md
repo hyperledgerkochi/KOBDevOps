@@ -13,7 +13,14 @@ Some useful commands
         
         
         We have recorded and put these cast files for you to understand what are the expected outputs while you try running the below listed steps :
-        
+  
+  ## Check-out KOB Asciinema Recorded Sessions:
+  
+  https://github.com/EtricKombat/KOBDevOps/wiki/2.Tutorials-------Asciinema-Records
+  
+  
+  
+  ## Table of contents
         
 <table>
 <tr><th>No:</th><th>Topic </th><th>Description</th></tr>
