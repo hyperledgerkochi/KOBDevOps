@@ -25,7 +25,7 @@
 <tr><td>4.</td><td><a href="https://github.com/EtricKombat/KOBDevOps/issues?q=is%3Aopen+is%3Aissue">Opened Issue</a></td><td>Collection of known issue</td></tr>
 <tr><td>5.</td><td><a href="https://github.com/EtricKombat/KOBDevOps/issues?q=is%3Aissue+is%3Aclosed">Closed Issue</a></td><td>Collection of known issue</td></tr>
 
-<tr><td>9.</td><td><a href="https://github.com/EtricKombat/KOBDevOps/wiki/Contact-us">Contact us Contribute with us</a></td><td>Community meetup details</td></tr>
+<tr><td>9.</td><td><a href="https://github.com/EtricKombat/KOBDevOps/wiki/Contact-us-------Contribute-with-us-!</a></td><td>Community meetup details</td></tr>
 </table>
 
 ## How to use the scripts 
@@ -42,3 +42,4 @@ The script should be executed in the listed formats :
  KOB install --dev KOB      
  KOB install --dev TOB –namespace http://github/hyperledgerkochi
 ```
+
