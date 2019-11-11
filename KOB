@@ -337,7 +337,33 @@ then
 		                mkdir -p /home/KOB
 		                cd /home/KOB
 		                fun_von_build
-                        else
+
+                        elif [ $THREE = "KOB" ]
+                        then
+                                echo "to install the KOB project for development"
+				fun_check_proxy
+		                fun_ubuntu_upgrade
+		                fun_git_install
+		                fun_python_install
+		                fun_docker_install
+		                fun_npm_install
+		                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
+		                mkdir -p /home/KOB
+		                cd /home/KOB
+ 
+                        elif [ $THREE = "TOB" ]
+                        then
+                                echo "to install the KOB project for development"
+				fun_check_proxy
+		                fun_ubuntu_upgrade
+		                fun_git_install
+		                fun_python_install
+		                fun_docker_install
+		                fun_npm_install
+		                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
+		                mkdir -p /home/KOB
+		                cd /home/KOB
+                       else
                                 echo "INvalid Command"
                         fi
                 ;;
