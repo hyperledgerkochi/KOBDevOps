@@ -23,8 +23,7 @@ This steps should perform on an 64 bit
 </table>
 
 ## How to use the scripts 
-
-Run the following command son the terminal.
+The script should be executed in the listed formats : 
 
 ```code
  KOB install              // install default projects i.e KOBVON, KOBDflow,KOBConnect, KOBRegistry, TheKochOrgBook
