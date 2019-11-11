@@ -1,5 +1,7 @@
-# KOBDevOps
-Repository for all KOB DevOps Tools and Scripts
+# Setting Up environment
+
+This steps should perform on an 64 bit 
+<a href="https://ubuntu.com/download/desktop/thank-you?version=18.04.3&architecture=amd64">Ubuntu 18.04 </a> Distribution (preferably use <a href="https://download.virtualbox.org/virtualbox/6.0.14/VirtualBox-6.0.14-133895-Win.exe">VirtualBox </a> as Hypervisor ) .
 
 
 # How to use the scripts 
