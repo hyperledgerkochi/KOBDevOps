@@ -30,7 +30,7 @@ The script should be executed in the listed formats :
  KOB install --dev All    // install all the dev environment to do development
  KOB install --dev KOBVON // to install just the KOBVON project for development
  KOB install KOBVON       // Deploy KOBVON for testing
- KOB install –dev KOBVON 
- KOB install –dev KOB      
- KOB install –dev TOB –namespace http://github/hyperledgerkochi
+ KOB install --dev KOBVON 
+ KOB install --dev KOB      
+ KOB install --dev TOB –namespace http://github/hyperledgerkochi
 ```
