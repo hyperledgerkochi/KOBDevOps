@@ -1,6 +1,6 @@
 # Setting up dev environment for KochiOrgBook Project
 
-### QuickStart Steps:
+### QuickStart Guide:
 * Use 64 bit <a href="https://ubuntu.com/download/desktop/thank-you?version=18.04.3&architecture=amd64">Ubuntu 18.04 ISO</a> Distribution 
 * Use <a href="https://download.virtualbox.org/virtualbox/6.0.14/VirtualBox-6.0.14-133895-Win.exe">VirtualBox </a> as Hypervisor
 * Once Ubuntu 18.04 is turned on, install <a href="https://github.com/EtricKombat/KOBDevOps/wiki/3.Automated-Scripts">git </a>  in your system
