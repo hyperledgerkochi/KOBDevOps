@@ -3,6 +3,11 @@
 This steps should perform on an 64 bit 
 <a href="https://ubuntu.com/download/desktop/thank-you?version=18.04.3&architecture=amd64">Ubuntu 18.04 </a> Distribution (preferably use <a href="https://download.virtualbox.org/virtualbox/6.0.14/VirtualBox-6.0.14-133895-Win.exe">VirtualBox </a> as Hypervisor ) .
 
+Once Ubuntu 18.04 is turned on install <a href="https://ubuntu.com/download/desktop/thank-you?version=18.04.3&architecture=amd64">git </a>  in your system
+
+## Clone this repo :
+git clone https://github.com/EtricKombat/KOBDevOps.git and try out the shell commands listed at the bottom of this page
+
 
  
 
@@ -26,10 +31,12 @@ This steps should perform on an 64 bit
 The script should be executed in the listed formats : 
 
 ```code
+
  KOB install              // install default projects i.e KOBVON, KOBDflow,KOBConnect, KOBRegistry, TheKochOrgBook
+ KOB install KOBVON       // Deploy KOBVON for testing
  KOB install --dev All    // install all the dev environment to do development
  KOB install --dev KOBVON // to install just the KOBVON project for development
- KOB install KOBVON       // Deploy KOBVON for testing
+ 
  KOB install --dev KOBVON 
  KOB install --dev KOB      
  KOB install --dev TOB –namespace http://github/hyperledgerkochi
