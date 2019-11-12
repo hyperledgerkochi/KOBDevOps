@@ -1,4 +1,8 @@
-# Setting up dev environment for KochiOrgBook Project
+# KOBDevOps
+
+Repository for all KOB DevOps Tools and Scripts
+
+# Steps to setup developmet environment for KochiOrgBook Projects
 
 ### QuickStart Guide:
 * **Step 1:**
