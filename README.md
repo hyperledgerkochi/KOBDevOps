@@ -7,7 +7,7 @@ Download & use <a href="https://download.virtualbox.org/virtualbox/6.0.14/Virtua
 * **Step 2:**
 Download & use 64 bit <a href="https://ubuntu.com/download/desktop/thank-you?version=18.04.3&architecture=amd64">Ubuntu 18.04 ISO</a> Distribution
 * **Step 3:**
-Once Ubuntu 18.04 is hosted on VirtualBox, install <a href="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/AutomatedScript.md">git </a>  in your system
+Once Ubuntu 18.04 is hosted on VirtualBox, <a href="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/AutomatedScript.md">install git </a>  in your system
 
 * **Step 4:**
 Clone this repo :
