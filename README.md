@@ -4,7 +4,7 @@ Repository for all KOB DevOps Tools and Scripts
 
 # How to use the scripts 
 
-Run the following command son the terminal.
+Run the following commands on the terminal.
 
 ```code
  KOB install   // install default projects i.e KOBVON, KOBDflow,KOBConnect, KOBRegistry, TheKochOrgBook
