@@ -9,6 +9,8 @@
         
         git clone https://github.com/EtricKombat/KOBDevOps.git and try out the shell commands listed at the bottom of this page
 
+* Create an docker hub account [requires to <a href="https://hub.docker.com/signup">sign in</a> as an docker user ]
+
 
 ## Table of Content [for References]
 
