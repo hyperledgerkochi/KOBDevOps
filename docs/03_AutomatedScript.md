@@ -10,9 +10,9 @@ click on the cog wheel for reviewing the automation code
 
 **Step 1:** Fork the repo https://github.com/EtricKombat/KOBDevOps.git into your namespace
 
-**Step 2:** Clone the repo https://github.com/<yournamespace>/KOBDevOps.git 
+**Step 2:** Clone the repo https://github.com/_yournamespace_/KOBDevOps.git into your local machine
 
-**Step 3:** Run the KOB shell script on Ubuntu 18.04 VM 
+**Step 3:** Run the KOB shell script as listed below and report back to us if you want to post a question on the code.
 
 Command:
 git clone https://github.com/EtricKombat/KOBDevOps.git
