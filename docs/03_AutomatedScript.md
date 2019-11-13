@@ -22,7 +22,10 @@ click on the cog wheel for reviewing the automation code
         git clone https://github.com/EtricKombat/KOBDevOps.git
 
 ## Once KOBDevOps repo is downloaded into you local system 
-### Script should run like :
+
+
+### How to use the scripts 
+Run the following commands on the terminal. 
 
          KOB install              // install default projects i.e KOBVON, KOBDflow,KOBConnect, KOBRegistry, TheKochOrgBook
          KOB install KOBVON       // Deploy KOBVON for testing
