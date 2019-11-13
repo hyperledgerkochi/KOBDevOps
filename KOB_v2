@@ -380,7 +380,7 @@ then
 				
 			else
                                 echo "INvalid Command"
-                        fi ;;
+                        fi 
                 KOBVON)
                         echo "Deploy KOBVON for testing"
 			fun_check_proxy

@@ -196,7 +196,8 @@ fun_docker_install()
 	echo -e "\n\r**********************************";
 	rm -rf /root/.docker/
         docker login
-        if [ $proxychk -eq 1 ]
+        
+	if [[ "$proxychk" -eq 1 ]]
 	then 
 		sed -i '$ d' /root/.docker/config.json
 		echo -e ",\n "\""proxies"\"": {\n\t "\""default"\"": {\n\t\t "\""httpProxy"\"": "\""http://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""httpsProxy"\"": "\""https://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""noProxy"\"": "\""localhost,127.0.0.0/8,*.local,host.docker.internal"\"" \n\t\t}\n\t}\n}">>/root/.docker/config.json
@@ -256,7 +257,7 @@ fun_kob_build()
 {
 		echo "Setting-up KOB instance in your system?" 
                 git clone https://github.com/EtricKombat/TheOrgBook.git
-                wget https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+                wget --no-proxy https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
                 tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
                 mv s2i sti /usr/local/bin/
                 /home/KOB/TheOrgBook/docker/manage rm
@@ -278,7 +279,7 @@ fun_Dflow_build()
 		echo "Setting-up GreenLight instance in your system"
 
                 git clone https://github.com/EtricKombat/greenlight.git
-                wget https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+                wget --no-proxy https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
                 tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
                 mv s2i sti /usr/local/bin/
                 /home/KOB/greenlight/docker/manage rm
