@@ -7,10 +7,12 @@ click on the cog wheel for reviewing the automation code
 
 
 ## Cloning KOB automated Script into your local system using git , preferably use VirtualBox as Hypervisior
-Steps:
--Fork the repo https://github.com/EtricKombat/KOBDevOps.git into your namespace
--Clone the repo https://github.com/<yournamespace>/KOBDevOps.git 
--Run the KOB shell script on Ubuntu 18.04 VM 
+
+**Step 1:** Fork the repo https://github.com/EtricKombat/KOBDevOps.git into your namespace
+
+**Step 2:** Clone the repo https://github.com/<yournamespace>/KOBDevOps.git 
+
+**Step 3:** Run the KOB shell script on Ubuntu 18.04 VM 
 
 Command:
 git clone https://github.com/EtricKombat/KOBDevOps.git
