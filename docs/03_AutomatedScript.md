@@ -14,8 +14,12 @@ click on the cog wheel for reviewing the automation code
 
 **Step 3:** Run the KOB shell script as listed below and report back to us if you want to post a question on the code.
 
-Command:
-git clone https://github.com/EtricKombat/KOBDevOps.git
+https://github.com/EtricKombat/KOBDevOps/issues
+
+
+**Command:**
+
+        git clone https://github.com/EtricKombat/KOBDevOps.git
 
 ## Once KOBDevOps repo is downloaded into you local system 
 ### Script should run like :
