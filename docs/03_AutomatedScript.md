@@ -12,10 +12,10 @@ click on the cog wheel for reviewing the automation code
 
 **Step 2:** Clone the repo https://github.com/_yournamespace_/KOBDevOps.git into your local machine
 
-**Step 3:** Run the KOB shell script as listed below and report back to us if you want to post a question on the code.
+**Step 3:** Run the KOB shell script as listed below and <a href="https://github.com/EtricKombat/KOBDevOps/issues">report back to us</a> if you want to post a question on the code.
 
-https://github.com/EtricKombat/KOBDevOps/issues
 
+* Use 64 bit  
 
 **Command:**
 
