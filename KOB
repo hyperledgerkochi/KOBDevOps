@@ -4,7 +4,6 @@ fun_vim_Fix()
 {
 	cd
 	echo "set nocompatible" > /root/.vimrc
-
 }
 fun_menu()
 {
@@ -196,7 +195,8 @@ fun_docker_install()
 	echo -e "\n\r**********************************";
 	rm -rf /root/.docker/
         docker login
-        if [ $proxychk -eq 1 ]
+        
+	if [[ "$proxychk" -eq 1 ]]
 	then 
 		sed -i '$ d' /root/.docker/config.json
 		echo -e ",\n "\""proxies"\"": {\n\t "\""default"\"": {\n\t\t "\""httpProxy"\"": "\""http://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""httpsProxy"\"": "\""https://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""noProxy"\"": "\""localhost,127.0.0.0/8,*.local,host.docker.internal"\"" \n\t\t}\n\t}\n}">>/root/.docker/config.json
@@ -256,7 +256,7 @@ fun_kob_build()
 {
 		echo "Setting-up KOB instance in your system?" 
                 git clone https://github.com/EtricKombat/TheOrgBook.git
-                wget https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+                wget --no-proxy https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
                 tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
                 mv s2i sti /usr/local/bin/
                 /home/KOB/TheOrgBook/docker/manage rm
@@ -278,7 +278,7 @@ fun_Dflow_build()
 		echo "Setting-up GreenLight instance in your system"
 
                 git clone https://github.com/EtricKombat/greenlight.git
-                wget https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+                wget --no-proxy https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
                 tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
                 mv s2i sti /usr/local/bin/
                 /home/KOB/greenlight/docker/manage rm
@@ -305,8 +305,7 @@ fun_Dflow_start()
 ONE=$1
 TWO=$2
 THREE=$3
-FOUR=$4
-FIVE=$5
+
 
 if [ "$ONE" = "install" ]
 then
@@ -324,7 +323,7 @@ then
 		                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
 		                mkdir -p /home/KOB
 		                cd /home/KOB
-
+				echo "Add sufficient functions to install KOB Project Development liberaries "
                         elif [ $THREE = "KOBVON" ]
                         then
                                 echo "to install just the KOBVON project for development"
@@ -351,8 +350,21 @@ then
 		                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
 		                mkdir -p /home/KOB
 		                cd /home/KOB
- 
-                        elif [ $THREE = "TOB" ]
+				echo "Add sufficient functions to install KOB Project Development liberaries "
+
+			
+			elif [ $THREE = "KOBDFlow" ]
+			then
+
+				echo "Add sufficient functions to install KOBDflow Project Development liberaries "
+			elif [ $THREE = "KOBConnect" ]
+			then
+			
+				echo "Add sufficient functions to install KOB Connect  Project Development liberaries "
+			elif [ $THREE = "KOBRegistery" ]
+			then
+				echo "Add sufficient functions to install KOB Registery Project Development liberaries "
+			elif [ $THREE = "TOB" ]
                         then
                                 echo "to install the KOB project for development"
 				fun_check_proxy
@@ -362,25 +374,20 @@ then
 		                fun_docker_install
 		                fun_npm_install
 		                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
-		                mkdir -p /home/TOB
-		                cd /home/TOB
-                                
-				case $FOUR in 
-					--namespace)
-							if [ $FIVE = "http://github/hyperledgerkochi"]
-							then
-								echo "TOB PROJECT"
-							else
-								echo "requires a namespace"	
-							fi	
-				;;
-					*)
-						echo "no match"
-	                	;; 
-				
+		                mkdir -p /home/KOB
+		                cd /home/KOB
+
+				echo "Add sufficient functions to install TOB Project Development liberaries "
+			elif [ $THREE = "TOBVON" ]
+			then
+				echo " Add sufficient functions to install TOB Project Development liberaries "
+			elif [ $THREE = "greenlight" ]
+			then
+				echo "# Add sufficient functions to install TOB Project Development liberaries "
 			else
-                                echo "INvalid Command"
-                        fi 
+                                echo "Verify your command and try again"
+                        fi
+                ;;
                 KOBVON)
                         echo "Deploy KOBVON for testing"
 			fun_check_proxy
@@ -435,7 +442,26 @@ then
                         fi
                 ;;
         esac
+
+elif [ "$ONE" = "uninstall" ]
+then
+	echo "Uninstalling KOB Project"
+elif [ "$ONE" = "list" ]
+then
+	echo "Listing down KOB projects"
+elif [ "$ONE" = "help" ]
+then
+	echo "Getting Help for KOB project"
+elif [ "$ONE" = "version" ]
+then
+	echo "Listing Versions"
+elif [ "$ONE" = "status" ]
+then
+	echo "status of the project"
 fi
+
+
+
 
 
 
