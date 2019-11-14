@@ -54,7 +54,16 @@ Run the following commands on the terminal.
         ./KOB install --dev greenlight
         
 ### Deployment commands:
+        
         ./KOB install KOB
+        ./KOB install KOBVON
+        ./KOB install KOBDflow
+        ./KOB install KOBRegistery
+        ./KOB install KOBConnect
+        ./KOB install TOB
+        ./KOB install TOBVON
+        ./KOB install greenlight
+
         
 ### Other useful commands:        
         
