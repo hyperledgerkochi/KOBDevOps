@@ -1,6 +1,26 @@
 #!/bin/bash 
 
-fun_vim_Fix()
+
+
+
+
+#    FUNCTION NAMING CONVENTION
+
+
+#	Function_PreRequisites
+#	Function_VimFix
+#	Function_CheckProxy
+#	Function_UbuntuUpgrade
+#	Function_GitInstall
+#	Function_PythonInstall
+#	Function_DockerInstall
+#	Function_NpmInstall
+#	Function_VonBuild
+#	Function_KobBuild
+#	Function_DflowBuild
+
+
+Function_VimFix()
 {
 	cd
 	echo "set nocompatible" > /root/.vimrc
@@ -23,7 +43,7 @@ fun_menu()
 	echo "************************************************************"
 
 }
-fun_ubuntu_upgrade()
+Function_UbuntuUpgrade()
 {
 	echo -e "\n\r***********************************";
 	echo "*       Updating your OS?         *";
@@ -33,7 +53,7 @@ fun_ubuntu_upgrade()
         apt-get update -y
         apt-get upgrade -y
 }	
-fun_pre_req()
+Function_PreRequisites()
 {
 	echo "************************************************************"
 	echo "*    Pre-Requesites listed below                          * "
@@ -69,7 +89,7 @@ fun_PROXY_ENV()
 	env | grep -i proxy
 }
 
-fun_check_proxy()
+Function_CheckProxy()
 {
 	read -p "Are you behind a corporate proxy?" reply
 if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
@@ -111,7 +131,7 @@ else
 fi
 
 }
-fun_git_install()
+Function_GitInstall()
 {
 	echo -e "\n\r**********************************";
 	echo "*     Installing Git?            *";
@@ -121,7 +141,7 @@ fun_git_install()
         git --version
 
 }
-fun_python_install()
+Function_PythonInstall()
 {
 	echo -e "\n\r**********************************";
 	echo "*      Installing Python?        *"
@@ -132,7 +152,7 @@ fun_python_install()
 	
 	
 }
-fun_docker_install()
+Function_DockerInstall()
 {
 	echo "*  Uninstalling Exising Docker...*";
         echo "**********************************";
@@ -160,7 +180,7 @@ fun_docker_install()
         echo -e "\n\r***********************************************************";
         echo "*    Verifying that you now have the key with the fingerprint: *";
         echo -e "*********************************************************\n\n\r";
- apt-key fingerprint 0EBFCD88
+ 	apt-key fingerprint 0EBFCD88
 
 
         echo -e "\n\n\r**********************************";
@@ -203,7 +223,7 @@ fun_docker_install()
 	fi
 
 }
-fun_npm_install()
+Function_NpmInstall()
 {
 	echo -e "\n\r***********************************";
 	echo "*    Purging NPM Components              *";
@@ -236,7 +256,7 @@ fun_npm_install()
 	npm config set strict-ssl false
 
 }
-fun_von_build()
+Function_VonBuild()
 {
 		echo "Build KOB-Von instance in your system" 
                 git clone https://github.com/hyperledgerkochi/von-network.git
@@ -244,15 +264,11 @@ fun_von_build()
                 /home/KOB/von-network/manage build
 	
 }
-fun_von_start()
+Function_VonStart()
 {
-	read -p "Do you want to start KOB VON instance in your system?" reply
-        if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
-        then
 	/home/KOB/von-network/manage start
-fi
 }	
-fun_kob_build()
+Function_KobBuild()
 {
 		echo "Setting-up KOB instance in your system?" 
                 git clone https://github.com/EtricKombat/TheOrgBook.git
@@ -265,7 +281,8 @@ fun_kob_build()
 
 
 }
-fun_kob_start()
+
+Function_KobStart()
 {
 read -p "Do you want to start KOB instance in your system?" reply
         if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
@@ -273,7 +290,7 @@ read -p "Do you want to start KOB instance in your system?" reply
 	/home/KOB/TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
 	fi
 }
-fun_Dflow_build()
+Function_DflowBuild()
 {
 		echo "Setting-up GreenLight instance in your system"
 
@@ -314,12 +331,12 @@ then
                         if [ "$THREE" = "All" ]
                         then
                                 echo "install all the dev environment to do development"
-				fun_check_proxy
-		                fun_ubuntu_upgrade
-                		fun_git_install
-		                fun_python_install
-		                fun_docker_install
-               			fun_npm_install
+				Function_CheckProxy
+		                Function_UbuntuUpgrade
+                		Function_GitInstall
+		                Function_PythonInstall
+		                Function_DockerInstall
+               			Function_NpmInstall
 		                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
 		                mkdir -p /home/KOB
 		                cd /home/KOB
@@ -327,26 +344,26 @@ then
                         elif [ $THREE = "KOBVON" ]
                         then
                                 echo "to install just the KOBVON project for development"
-				fun_check_proxy
-		                fun_ubuntu_upgrade
-		                fun_git_install
-		                fun_python_install
-		                fun_docker_install
-		                fun_npm_install
+				Function_CheckProxy
+		                Function_UbuntuUpgrade
+		                Function_GitInstall
+		                Function_PythonInstall
+		                Function_DockerInstall
+		                Function_NpmInstall
 		                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
 		                mkdir -p /home/KOB
 		                cd /home/KOB
-		                fun_von_build
+		                Function_VonBuild
 
                         elif [ $THREE = "KOB" ]
                         then
                                 echo "to install the KOB project for development"
-				fun_check_proxy
-		                fun_ubuntu_upgrade
-		                fun_git_install
-		                fun_python_install
-		                fun_docker_install
-		                fun_npm_install
+				Function_CheckProxy
+		                Function_UbuntuUpgrade
+		                Function_GitInstall
+		                Function_PythonInstall
+		                Function_DockerInstall
+		                Function_NpmInstall
 		                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
 		                mkdir -p /home/KOB
 		                cd /home/KOB
@@ -367,12 +384,12 @@ then
 			elif [ $THREE = "TOB" ]
                         then
                                 echo "to install the KOB project for development"
-				fun_check_proxy
-		                fun_ubuntu_upgrade
-		                fun_git_install
-		                fun_python_install
-		                fun_docker_install
-		                fun_npm_install
+				Function_CheckProxy
+		                Function_UbuntuUpgrade
+		                Function_GitInstall
+		                Function_PythonInstall
+		                Function_DockerInstall
+		                Function_NpmInstall
 		                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
 		                mkdir -p /home/KOB
 		                cd /home/KOB
@@ -390,54 +407,72 @@ then
                 ;;
                 KOBVON)
                         echo "Deploy KOBVON for testing"
-			fun_check_proxy
-	                fun_ubuntu_upgrade
-	                fun_git_install
-	                fun_python_install
-	                fun_docker_install
-	                fun_npm_install
+			Function_CheckProxy
+	                Function_UbuntuUpgrade
+	                Function_GitInstall
+	                Function_PythonInstall
+	                Function_DockerInstall
+	                Function_NpmInstall
 	                apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
 	                mkdir -p /home/KOB
 	                cd /home/KOB
-	                fun_von_build
-	                fun_von_start
+	                Function_VonBuild
+	                Function_VonStart
 
                 ;;
                 KOB)
                         echo "Building KOB for testing"
-                        fun_check_proxy
-                        fun_ubuntu_upgrade
-                        fun_git_install
-                        fun_python_install
-                        fun_docker_install
-                        fun_npm_install
+                        Function_CheckProxy
+                        Function_UbuntuUpgrade
+                        Function_GitInstall
+                        Function_PythonInstall
+                        Function_DockerInstall
+                        Function_NpmInstall
                         apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
                         mkdir -p /home/KOB
                         cd /home/KOB
-                     	fun_kob_build 
-                        
+                     	Function_KobBuild 
+			Function_KobStart                        
 
                 ;;
-
+		KOBDflow)
+			echo "./KOB install KOBDflow"	
+		;;
+		KOBConnect)
+			echo "./KOB install KOBConnect"	
+		;;
+		KOBRegistery)
+			echo "./KOB install KOBRegistery"	
+		;;
+		TOBVON)
+			echo "./KOB install TOBVON"	
+		;;
+		TOB)
+			echo "./KOB install TOB" 
+		;; 
+		greenlight)
+			echo "./KOB install greenlight"	
+		;;	
+		
 		*)
                         if [ -z $TWO ]
                         then
                                 echo "Install default projects i.e KOBVON, KOBDflow,KOBConnect, KOBRegistry, TheKochOrgBook"
 				
-                		fun_check_proxy
-		                fun_ubuntu_upgrade
-                		fun_git_install
-		                fun_python_install
-                		fun_docker_install
-		                fun_npm_install
+                		Function_CheckProxy
+		                Function_UbuntuUpgrade
+                		Function_GitInstall
+		                Function_PythonInstall
+                		Function_DockerInstall
+		                Function_NpmInstall
                 		apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
 		                mkdir -p /home/KOB
                 		cd /home/KOB
                 		fun_PROXY_ENV
-				fun_ubuntu_upgrade
-				fun_von_build
-                		fun_kob_build
-		                fun_Dflow_build
+				Function_UbuntuUpgrade
+				Function_VonBuild
+                		Function_KobBuild
+		                Function_DflowBuild
 
                         fi
                 ;;
@@ -461,21 +496,3 @@ then
 fi
 
 
-
-
-
-
-#	fun_pre_req
-#	fun_vim_Fix
-#	fun_check_proxy
-#	fun_ubuntu_upgrade
-#	fun_git_install
-#	fun_python_install
-#	fun_docker_install
-#	fun_npm_install
-#	apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev
-#	mkdir -p /home/KOB
-#	cd /home/KOB
-#	fun_von_build
-#	fun_kob_build
-#	fun_Dflow_build
