@@ -40,7 +40,23 @@ Run the following commands on the terminal.
  ./KOB install --dev TOB –namespace http://github/hyperledgerkochi
 ```
 
+
+
+
+### Development environement setup commands:
+
+        ./KOB install --dev KOBVON
+        ./KOB install --dev KOBDFlow
+        ./KOB install --dev KOBConnect        
+        ./KOB install --dev KOBRegistery
+        ./KOB install --dev TOB        
+        ./KOB install --dev TOBVON
+        ./KOB install --dev greenlight
         
+### Deployment commands:
+        ./KOB install KOB
+        
+### Other useful commands:        
         
         ./KOB install
         ./KOB list
@@ -49,8 +65,3 @@ Run the following commands on the terminal.
         ./KOB uninstall        
         ./KOB version
         
-
-
-
-        ./KOB install --dev KOBVON
-
