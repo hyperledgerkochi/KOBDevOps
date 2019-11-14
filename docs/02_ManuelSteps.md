@@ -284,7 +284,7 @@ Checkout the expected <a href="https://github.com/EtricKombat/KOBDevOps/wiki/Con
 
 ## Alternative Outputs/ Issues & Fix:
 *  ERROR: for tob_tob-api_1  Cannot start service tob-api: driver failed programming external connectivity on endpoint tob_tob-api_1   <a href="https://github.com/EtricKombat/KOBDevOps/issues/18">#18</a>
-
+* "http://localhost:8080/en/home" not working #854 <a href="https://github.com/bcgov/TheOrgBook/issues/854">#854</a>
 *  Bug 19 : "http://localhost:8080/en/home" not working <a href="https://github.com/EtricKombat/KOBDevOps/issues/19">#19</a>
 
 ## Expected Output:
