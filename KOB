@@ -18,7 +18,7 @@
 #	Function_VonBuild
 #	Function_KobBuild
 #	Function_DflowBuild
-
+#       Function_ProxyEnv
 
 Function_VimFix()
 {
@@ -67,7 +67,7 @@ Function_PreRequisites()
 	echo "************************************************************"
 
 }
-fun_PROXY_ENV()
+Function_ProxyEnv()
 {
  	unset http_proxy
         unset ftp_proxy
@@ -105,7 +105,7 @@ then
         read -s -p "Enter password?[your login password]        : " pword
         echo -e "\n"
 	read -p "Enter email ID?                             :" emil
-	fun_PROXY_ENV
+	Function_ProxyEnv
         for proto in http https ftp socks;
         do
                 if [ "$proto" = "https" ];
@@ -464,12 +464,12 @@ then
                 		Function_GitInstall
 		                Function_PythonInstall
                 		Function_DockerInstall
-		                Function_NpmInstall
                 		apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
 		                mkdir -p /home/KOB
                 		cd /home/KOB
-                		fun_PROXY_ENV
+                		Function_ProxyEnv
 				Function_UbuntuUpgrade
+		                Function_NpmInstall
 				Function_VonBuild
                 		Function_KobBuild
 		                Function_DflowBuild
