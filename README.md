@@ -40,3 +40,17 @@ Run the following commands on the terminal.
  ./KOB install --dev TOB –namespace http://github/hyperledgerkochi
 ```
 
+        
+        
+        ./KOB install
+        ./KOB list
+        ./KOB status        
+        ./KOB help
+        ./KOB uninstall        
+        ./KOB version
+        
+
+
+
+        ./KOB install --dev KOBVON
+
