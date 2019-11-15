@@ -19,7 +19,35 @@
 #	Function_KobBuild
 #	Function_DflowBuild
 #       Function_ProxyEnv
+#       Function_Version
 
+
+Function_Version()
+{
+	echo "*Node/NPM Version*"
+	echo "***********************"
+	node -v
+	npm -v
+
+	echo "*Docker/Docker-Compose Engine Version*"
+	echo "**************************************"
+	docker --version
+	docker-compose --version
+
+	echo "*Ubuntu Version*"
+	echo "*************"
+	lsb_release -cs
+
+	echo "*GIT Version*"
+	echo "*************"
+	git --version
+
+echo "*************"
+	echo "*Python Version*"
+	echo "*************"
+	python --version
+
+}
 Function_VimFix()
 {
 	cd
@@ -370,7 +398,7 @@ then
 				echo "Add sufficient functions to install KOB Project Development liberaries "
 
 			
-			elif [ $THREE = "KOBDFlow" ]
+			elif [ $THREE = "KOBDflow" ]
 			then
 
 				echo "Add sufficient functions to install KOBDflow Project Development liberaries "
@@ -487,10 +515,13 @@ then
 elif [ "$ONE" = "help" ]
 then
 	echo "Getting Help for KOB project"
+        vi /home/KOB/help
+#	source vi /home/KOB/help
 elif [ "$ONE" = "version" ]
 then
-	echo "Listing Versions"
-	source /home/KOB/Version.sh
+	Function_Version
+#	echo "Listing Versions"
+#	source /home/KOB/Version.sh
 elif [ "$ONE" = "status" ]
 then
 	echo "status of the project"
