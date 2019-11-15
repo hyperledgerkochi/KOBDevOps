@@ -46,7 +46,7 @@ Run the following commands on the terminal.
 ### Development environement setup commands:
 
         ./KOB install --dev KOBVON
-        ./KOB install --dev KOBDFlow
+        ./KOB install --dev KOBDflow
         ./KOB install --dev KOBConnect        
         ./KOB install --dev KOBRegistery
         ./KOB install --dev TOB        
