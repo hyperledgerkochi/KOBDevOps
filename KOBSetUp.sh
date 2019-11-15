@@ -1,4 +1,5 @@
-#!/bin/bash #
+#!/bin/bash
+#
 #   Copyright 2017 Marco Vermeulen
 #
 #   Licensed under the Apache License, Version 2.0 (the "License");
@@ -26,26 +27,26 @@ if [ -z "$KOBPROJECT_DIR" ]; then
 fi
 
 # Local variables
-kobproject_bin_folder="${KOBPROJECT_DIR}/bin"
-kobproject_src_folder="${KOBPROJECT_DIR}/src"
-kobproject_tmp_folder="${KOBPROJECT_DIR}/tmp"
-kobproject_stage_folder="${kobproject_tmp_folder}/stage"
-kobproject_zip_file="${kobproject_tmp_folder}/kobproject-${KOBPROJECT_VERSION}.zip"
-kobproject_ext_folder="${KOBPROJECT_DIR}/ext"
-kobproject_etc_folder="${KOBPROJECT_DIR}/etc"
-kobproject_var_folder="${KOBPROJECT_DIR}/var"
-kobproject_archives_folder="${KOBPROJECT_DIR}/archives"
-kobproject_candidates_folder="${KOBPROJECT_DIR}/candidates"
-kobproject_config_file="${kobproject_etc_folder}/config"
-kobproject_bash_profile="${HOME}/.bash_profile"
-kobproject_profile="${HOME}/.profile"
-kobproject_bashrc="${HOME}/.bashrc"
-kobproject_zshrc="${HOME}/.zshrc"
+kobman_bin_folder="${KOBPROJECT_DIR}/bin"
+kobman_src_folder="${KOBPROJECT_DIR}/src"
+kobman_tmp_folder="${KOBPROJECT_DIR}/tmp"
+kobman_stage_folder="${kobman_tmp_folder}/stage"
+kobman_zip_file="${kobman_tmp_folder}/kobman-${KOBPROJECT_VERSION}.zip"
+kobman_ext_folder="${KOBPROJECT_DIR}/ext"
+kobman_etc_folder="${KOBPROJECT_DIR}/etc"
+kobman_var_folder="${KOBPROJECT_DIR}/var"
+kobman_archives_folder="${KOBPROJECT_DIR}/archives"
+kobman_candidates_folder="${KOBPROJECT_DIR}/candidates"
+kobman_config_file="${kobman_etc_folder}/config"
+kobman_bash_profile="${HOME}/.bash_profile"
+kobman_profile="${HOME}/.profile"
+kobman_bashrc="${HOME}/.bashrc"
+kobman_zshrc="${HOME}/.zshrc"
 
-kobproject_init_snippet=$( cat << EOF
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+kobman_init_snippet=$( cat << EOF
+#THIS MUST BE AT THE END OF THE FILE FOR KOBPROJECT TO WORK!!!
 export KOBPROJECT_DIR="$KOBPROJECT_DIR"
-[[ -s "${KOBPROJECT_DIR}/bin/kobproject-init.sh" ]] && source "${KOBPROJECT_DIR}/bin/kobproject-init.sh"
+[[ -s "${KOBPROJECT_DIR}/bin/kobman-init.sh" ]] && source "${KOBPROJECT_DIR}/bin/kobman-init.sh"
 EOF
 )
 
@@ -70,7 +71,9 @@ esac
 
 
 
-echo " __    __                      __        __                                "  
+
+
+echo " __    __                      __        __                                "
 echo " /  |  /  |                    /  |      /  |                              "
 echo " $$ | /$$/   ______    _______ $$ |____  $$/                               "
 echo " $$ |/$$/   /      \  /       |$$      \ /  |                              "
@@ -91,17 +94,23 @@ echo "  $$$$$$/  $$/       $$$$$$$ |$$$$$$$/   $$$$$$/   $$$$$$/  $$/   $$/     
 echo "                    /  \__$$ |                                             "
 echo "                    $$    $$/                                              "
 echo "                     $$$$$$/                                               "
-     
+
+
+
+
+
+
+
 
 # Sanity checks
 
-echo "Looking for a previous installation of SDKMAN..."
+echo "Looking for a previous installation of KOBPROJECT..."
 if [ -d "$KOBPROJECT_DIR" ]; then
-	echo "SDKMAN found."
+	echo "KOBPROJECT found."
 	echo ""
 	echo "======================================================================================================"
-	echo " You already have SDKMAN installed."
-	echo " SDKMAN was found at:"
+	echo " You already have KOBPROJECT installed."
+	echo " KOBPROJECT was found at:"
 	echo ""
 	echo "    ${KOBPROJECT_DIR}"
 	echo ""
@@ -159,7 +168,7 @@ if [[ "$solaris" == true ]]; then
 		echo "======================================================================================================"
 		echo " Please install gsed on your solaris system."
 		echo ""
-		echo " SDKMAN uses gsed extensively."
+		echo " KOBPROJECT uses gsed extensively."
 		echo ""
 		echo " Restart after installing gsed."
 		echo "======================================================================================================"
@@ -182,41 +191,41 @@ else
 fi
 
 
-echo "Installing SDKMAN scripts..."
+echo "Installing KOBPROJECT scripts..."
 
 
 # Create directory structure
 
 echo "Create distribution directories..."
-mkdir -p "$kobproject_bin_folder"
-mkdir -p "$kobproject_src_folder"
-mkdir -p "$kobproject_tmp_folder"
-mkdir -p "$kobproject_stage_folder"
-mkdir -p "$kobproject_ext_folder"
-mkdir -p "$kobproject_etc_folder"
-mkdir -p "$kobproject_var_folder"
-mkdir -p "$kobproject_archives_folder"
-mkdir -p "$kobproject_candidates_folder"
+mkdir -p "$kobman_bin_folder"
+mkdir -p "$kobman_src_folder"
+mkdir -p "$kobman_tmp_folder"
+mkdir -p "$kobman_stage_folder"
+mkdir -p "$kobman_ext_folder"
+mkdir -p "$kobman_etc_folder"
+mkdir -p "$kobman_var_folder"
+mkdir -p "$kobman_archives_folder"
+mkdir -p "$kobman_candidates_folder"
 
 echo "Getting available candidates..."
 KOBPROJECT_CANDIDATES_CSV=$(curl -s "${KOBPROJECT_SERVICE}/candidates/all")
 echo "$KOBPROJECT_CANDIDATES_CSV" > "${KOBPROJECT_DIR}/var/candidates"
 
 echo "Prime the config file..."
-touch "$kobproject_config_file"
-echo "kobproject_auto_answer=false" >> "$kobproject_config_file"
-echo "kobproject_auto_selfupdate=false" >> "$kobproject_config_file"
-echo "kobproject_insecure_ssl=false" >> "$kobproject_config_file"
-echo "kobproject_curl_connect_timeout=7" >> "$kobproject_config_file"
-echo "kobproject_curl_max_time=10" >> "$kobproject_config_file"
-echo "kobproject_beta_channel=false" >> "$kobproject_config_file"
-echo "kobproject_debug_mode=false" >> "$kobproject_config_file"
-echo "kobproject_colour_enable=true" >> "$kobproject_config_file"
+touch "$kobman_config_file"
+echo "kobman_auto_answer=false" >> "$kobman_config_file"
+echo "kobman_auto_selfupdate=false" >> "$kobman_config_file"
+echo "kobman_insecure_ssl=false" >> "$kobman_config_file"
+echo "kobman_curl_connect_timeout=7" >> "$kobman_config_file"
+echo "kobman_curl_max_time=10" >> "$kobman_config_file"
+echo "kobman_beta_channel=false" >> "$kobman_config_file"
+echo "kobman_debug_mode=false" >> "$kobman_config_file"
+echo "kobman_colour_enable=true" >> "$kobman_config_file"
 
 echo "Download script archive..."
-curl --location --progress-bar "${KOBPROJECT_SERVICE}/broker/download/kobman/install/${KOBPROJECT_VERSION}/${KOBPROJECT_PLATFORM}" > "$kobproject_zip_file"
+curl --location --progress-bar "${KOBPROJECT_SERVICE}/broker/download/kobman/install/${KOBPROJECT_VERSION}/${KOBPROJECT_PLATFORM}" > "$kobman_zip_file"
 
-ARCHIVE_OK=$(unzip -qt "$kobproject_zip_file" | grep 'No errors detected in compressed data')
+ARCHIVE_OK=$(unzip -qt "$kobman_zip_file" | grep 'No errors detected in compressed data')
 if [[ -z "$ARCHIVE_OK" ]]; then
 	echo "Downloaded zip archive corrupt. Are you connected to the internet?"
 	echo ""
@@ -230,48 +239,48 @@ fi
 echo "Extract script archive..."
 if [[ "$cygwin" == 'true' ]]; then
 	echo "Cygwin detected - normalizing paths for unzip..."
-	kobproject_zip_file=$(cygpath -w "$kobproject_zip_file")
-	kobproject_stage_folder=$(cygpath -w "$kobproject_stage_folder")
+	kobman_zip_file=$(cygpath -w "$kobman_zip_file")
+	kobman_stage_folder=$(cygpath -w "$kobman_stage_folder")
 fi
-unzip -qo "$kobproject_zip_file" -d "$kobproject_stage_folder"
+unzip -qo "$kobman_zip_file" -d "$kobman_stage_folder"
 
 
 echo "Install scripts..."
-mv "${kobproject_stage_folder}/kobproject-init.sh" "$kobproject_bin_folder"
-mv "$kobproject_stage_folder"/kobproject-* "$kobproject_src_folder"
+mv "${kobman_stage_folder}/kobman-init.sh" "$kobman_bin_folder"
+mv "$kobman_stage_folder"/kobman-* "$kobman_src_folder"
 
 echo "Set version to $KOBPROJECT_VERSION ..."
 echo "$KOBPROJECT_VERSION" > "${KOBPROJECT_DIR}/var/version"
 
 
 if [[ $darwin == true ]]; then
-  touch "$kobproject_bash_profile"
+  touch "$kobman_bash_profile"
   echo "Attempt update of login bash profile on OSX..."
-  if [[ -z $(grep 'kobproject-init.sh' "$kobproject_bash_profile") ]]; then
-    echo -e "\n$kobproject_init_snippet" >> "$kobproject_bash_profile"
-    echo "Added kobman init snippet to $kobproject_bash_profile"
+  if [[ -z $(grep 'kobman-init.sh' "$kobman_bash_profile") ]]; then
+    echo -e "\n$kobman_init_snippet" >> "$kobman_bash_profile"
+    echo "Added kobman init snippet to $kobman_bash_profile"
   fi
 else
   echo "Attempt update of interactive bash profile on regular UNIX..."
-  touch "${kobproject_bashrc}"
-  if [[ -z $(grep 'kobproject-init.sh' "$kobproject_bashrc") ]]; then
-      echo -e "\n$kobproject_init_snippet" >> "$kobproject_bashrc"
-      echo "Added kobman init snippet to $kobproject_bashrc"
+  touch "${kobman_bashrc}"
+  if [[ -z $(grep 'kobman-init.sh' "$kobman_bashrc") ]]; then
+      echo -e "\n$kobman_init_snippet" >> "$kobman_bashrc"
+      echo "Added kobman init snippet to $kobman_bashrc"
   fi
 fi
 
 echo "Attempt update of zsh profile..."
-touch "$kobproject_zshrc"
-if [[ -z $(grep 'kobproject-init.sh' "$kobproject_zshrc") ]]; then
-    echo -e "\n$kobproject_init_snippet" >> "$kobproject_zshrc"
-    echo "Updated existing ${kobproject_zshrc}"
+touch "$kobman_zshrc"
+if [[ -z $(grep 'kobman-init.sh' "$kobman_zshrc") ]]; then
+    echo -e "\n$kobman_init_snippet" >> "$kobman_zshrc"
+    echo "Updated existing ${kobman_zshrc}"
 fi
 
 echo -e "\n\n\nAll done!\n\n"
 
 echo "Please open a new terminal, or run the following in the existing one:"
 echo ""
-echo "    source \"${KOBPROJECT_DIR}/bin/kobproject-init.sh\""
+echo "    source \"${KOBPROJECT_DIR}/bin/kobman-init.sh\""
 echo ""
 echo "Then issue the following command:"
 echo ""
