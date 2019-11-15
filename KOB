@@ -490,6 +490,7 @@ then
 elif [ "$ONE" = "version" ]
 then
 	echo "Listing Versions"
+	source /home/KOB/Version.sh
 elif [ "$ONE" = "status" ]
 then
 	echo "status of the project"
