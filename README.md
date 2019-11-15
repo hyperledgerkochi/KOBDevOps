@@ -56,7 +56,7 @@ Run the following commands on the terminal.
 ### Deployment commands:
         
         ./KOB install KOB
-        ./KOB install KOBVON
+        ./KOB install KOBVON        // Deploy KOBVON for testing
         ./KOB install KOBDflow
         ./KOB install KOBRegistery
         ./KOB install KOBConnect
@@ -66,11 +66,11 @@ Run the following commands on the terminal.
 
         
 ### Other useful commands:        
-        
-        ./KOB install
+  
+        ./KOB install      // install default projects i.e KOBVON,KOBConnect, KOBRegistry..etc
         ./KOB list
         ./KOB status        
-        ./KOB help
+        ./KOB help         // Opens help page
         ./KOB uninstall        
-        ./KOB version
+        ./KOB version      // list down  all the included tool version
         
