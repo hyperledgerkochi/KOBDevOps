@@ -18,35 +18,35 @@
 #Install: stable
 
 # Global variables
-KOBPROJECT_SERVICE="https://api.kobman.io/2"
+# KOBPROJECT_SERVICE="https://api.KOBDevOps.io/2"
 KOBPROJECT_VERSION="5.7.4+362"
 KOBPROJECT_PLATFORM=$(uname)
 
 if [ -z "$KOBPROJECT_DIR" ]; then
-    KOBPROJECT_DIR="$HOME/.kobman"
+    KOBPROJECT_DIR="$HOME/.KOBDevOps"
 fi
 
 # Local variables
-kobman_bin_folder="${KOBPROJECT_DIR}/bin"
-kobman_src_folder="${KOBPROJECT_DIR}/src"
-kobman_tmp_folder="${KOBPROJECT_DIR}/tmp"
-kobman_stage_folder="${kobman_tmp_folder}/stage"
-kobman_zip_file="${kobman_tmp_folder}/kobman-${KOBPROJECT_VERSION}.zip"
-kobman_ext_folder="${KOBPROJECT_DIR}/ext"
-kobman_etc_folder="${KOBPROJECT_DIR}/etc"
-kobman_var_folder="${KOBPROJECT_DIR}/var"
-kobman_archives_folder="${KOBPROJECT_DIR}/archives"
-kobman_candidates_folder="${KOBPROJECT_DIR}/candidates"
-kobman_config_file="${kobman_etc_folder}/config"
-kobman_bash_profile="${HOME}/.bash_profile"
-kobman_profile="${HOME}/.profile"
-kobman_bashrc="${HOME}/.bashrc"
-kobman_zshrc="${HOME}/.zshrc"
+kobproject_bin_folder="${KOBPROJECT_DIR}/bin"
+kobproject_src_folder="${KOBPROJECT_DIR}/src"
+kobproject_tmp_folder="${KOBPROJECT_DIR}/tmp"
+kobproject_stage_folder="${kobproject_tmp_folder}/stage"
+kobproject_zip_file="${kobproject_tmp_folder}/KOBDevOps-${KOBPROJECT_VERSION}.zip"
+kobproject_ext_folder="${KOBPROJECT_DIR}/ext"
+kobproject_etc_folder="${KOBPROJECT_DIR}/etc"
+kobproject_var_folder="${KOBPROJECT_DIR}/var"
+kobproject_archives_folder="${KOBPROJECT_DIR}/archives"
+kobproject_KOB_ENVs_folder="${KOBPROJECT_DIR}/KOB_ENVs"
+kobproject_config_file="${kobproject_etc_folder}/config"
+kobproject_bash_profile="${HOME}/.bash_profile"
+kobproject_profile="${HOME}/.profile"
+kobproject_bashrc="${HOME}/.bashrc"
+kobproject_zshrc="${HOME}/.zshrc"
 
-kobman_init_snippet=$( cat << EOF
+kobproject_init_snippet=$( cat << EOF
 #THIS MUST BE AT THE END OF THE FILE FOR KOBPROJECT TO WORK!!!
 export KOBPROJECT_DIR="$KOBPROJECT_DIR"
-[[ -s "${KOBPROJECT_DIR}/bin/kobman-init.sh" ]] && source "${KOBPROJECT_DIR}/bin/kobman-init.sh"
+[[ -s "${KOBPROJECT_DIR}/bin/KOBDevOps-init.sh" ]] && source "${KOBPROJECT_DIR}/bin/KOBDevOps-init.sh"
 EOF
 )
 
@@ -197,41 +197,41 @@ echo "Installing KOBPROJECT scripts..."
 # Create directory structure
 
 echo "Create distribution directories..."
-mkdir -p "$kobman_bin_folder"
-mkdir -p "$kobman_src_folder"
-mkdir -p "$kobman_tmp_folder"
-mkdir -p "$kobman_stage_folder"
-mkdir -p "$kobman_ext_folder"
-mkdir -p "$kobman_etc_folder"
-mkdir -p "$kobman_var_folder"
-mkdir -p "$kobman_archives_folder"
-mkdir -p "$kobman_candidates_folder"
+mkdir -p "$kobproject_bin_folder"
+mkdir -p "$kobproject_src_folder"
+mkdir -p "$kobproject_tmp_folder"
+mkdir -p "$kobproject_stage_folder"
+mkdir -p "$kobproject_ext_folder"
+mkdir -p "$kobproject_etc_folder"
+mkdir -p "$kobproject_var_folder"
+mkdir -p "$kobproject_archives_folder"
+mkdir -p "$kobproject_KOB_ENVs_folder"
 
-echo "Getting available candidates..."
-KOBPROJECT_CANDIDATES_CSV=$(curl -s "${KOBPROJECT_SERVICE}/candidates/all")
-echo "$KOBPROJECT_CANDIDATES_CSV" > "${KOBPROJECT_DIR}/var/candidates"
+echo "Getting available KOB_ENVs..."
+KOBPROJECT_CANDIDATES_CSV=$(curl -s "${KOBPROJECT_SERVICE}/KOB_ENVs/all")
+echo "$KOBPROJECT_CANDIDATES_CSV" > "${KOBPROJECT_DIR}/var/KOB_ENVs"
 
 echo "Prime the config file..."
-touch "$kobman_config_file"
-echo "kobman_auto_answer=false" >> "$kobman_config_file"
-echo "kobman_auto_selfupdate=false" >> "$kobman_config_file"
-echo "kobman_insecure_ssl=false" >> "$kobman_config_file"
-echo "kobman_curl_connect_timeout=7" >> "$kobman_config_file"
-echo "kobman_curl_max_time=10" >> "$kobman_config_file"
-echo "kobman_beta_channel=false" >> "$kobman_config_file"
-echo "kobman_debug_mode=false" >> "$kobman_config_file"
-echo "kobman_colour_enable=true" >> "$kobman_config_file"
+touch "$kobproject_config_file"
+echo "kobproject_auto_answer=false" >> "$kobproject_config_file"
+echo "kobproject_auto_selfupdate=false" >> "$kobproject_config_file"
+echo "kobproject_insecure_ssl=false" >> "$kobproject_config_file"
+echo "kobproject_curl_connect_timeout=7" >> "$kobproject_config_file"
+echo "kobproject_curl_max_time=10" >> "$kobproject_config_file"
+echo "kobproject_beta_channel=false" >> "$kobproject_config_file"
+echo "kobproject_debug_mode=false" >> "$kobproject_config_file"
+echo "kobproject_colour_enable=true" >> "$kobproject_config_file"
 
 echo "Download script archive..."
-curl --location --progress-bar "${KOBPROJECT_SERVICE}/broker/download/kobman/install/${KOBPROJECT_VERSION}/${KOBPROJECT_PLATFORM}" > "$kobman_zip_file"
+curl --location --progress-bar "${KOBPROJECT_SERVICE}/broker/download/KOBDevOps/install/${KOBPROJECT_VERSION}/${KOBPROJECT_PLATFORM}" > "$kobproject_zip_file"
 
-ARCHIVE_OK=$(unzip -qt "$kobman_zip_file" | grep 'No errors detected in compressed data')
+ARCHIVE_OK=$(unzip -qt "$kobproject_zip_file" | grep 'No errors detected in compressed data')
 if [[ -z "$ARCHIVE_OK" ]]; then
 	echo "Downloaded zip archive corrupt. Are you connected to the internet?"
 	echo ""
 	echo "If problems persist, please ask for help on our Slack:"
-	echo "* easy sign up: https://slack.kobman.io/"
-	echo "* report on channel: https://kobman.slack.com/app_redirect?channel=user-issues"
+	echo "* easy sign up: https://slack.KOBDevOps.io/"
+	echo "* report on channel: https://KOBDevOps.slack.com/app_redirect?channel=user-issues"
 	rm -rf "$KOBPROJECT_DIR"
 	exit 2
 fi
@@ -239,48 +239,48 @@ fi
 echo "Extract script archive..."
 if [[ "$cygwin" == 'true' ]]; then
 	echo "Cygwin detected - normalizing paths for unzip..."
-	kobman_zip_file=$(cygpath -w "$kobman_zip_file")
-	kobman_stage_folder=$(cygpath -w "$kobman_stage_folder")
+	kobproject_zip_file=$(cygpath -w "$kobproject_zip_file")
+	kobproject_stage_folder=$(cygpath -w "$kobproject_stage_folder")
 fi
-unzip -qo "$kobman_zip_file" -d "$kobman_stage_folder"
+unzip -qo "$kobproject_zip_file" -d "$kobproject_stage_folder"
 
 
 echo "Install scripts..."
-mv "${kobman_stage_folder}/kobman-init.sh" "$kobman_bin_folder"
-mv "$kobman_stage_folder"/kobman-* "$kobman_src_folder"
+mv "${kobproject_stage_folder}/KOBDevOps-init.sh" "$kobproject_bin_folder"
+mv "$kobproject_stage_folder"/KOBDevOps-* "$kobproject_src_folder"
 
 echo "Set version to $KOBPROJECT_VERSION ..."
 echo "$KOBPROJECT_VERSION" > "${KOBPROJECT_DIR}/var/version"
 
 
 if [[ $darwin == true ]]; then
-  touch "$kobman_bash_profile"
+  touch "$kobproject_bash_profile"
   echo "Attempt update of login bash profile on OSX..."
-  if [[ -z $(grep 'kobman-init.sh' "$kobman_bash_profile") ]]; then
-    echo -e "\n$kobman_init_snippet" >> "$kobman_bash_profile"
-    echo "Added kobman init snippet to $kobman_bash_profile"
+  if [[ -z $(grep 'KOBDevOps-init.sh' "$kobproject_bash_profile") ]]; then
+    echo -e "\n$kobproject_init_snippet" >> "$kobproject_bash_profile"
+    echo "Added KOBDevOps init snippet to $kobproject_bash_profile"
   fi
 else
   echo "Attempt update of interactive bash profile on regular UNIX..."
-  touch "${kobman_bashrc}"
-  if [[ -z $(grep 'kobman-init.sh' "$kobman_bashrc") ]]; then
-      echo -e "\n$kobman_init_snippet" >> "$kobman_bashrc"
-      echo "Added kobman init snippet to $kobman_bashrc"
+  touch "${kobproject_bashrc}"
+  if [[ -z $(grep 'KOBDevOps-init.sh' "$kobproject_bashrc") ]]; then
+      echo -e "\n$kobproject_init_snippet" >> "$kobproject_bashrc"
+      echo "Added KOBDevOps init snippet to $kobproject_bashrc"
   fi
 fi
 
 echo "Attempt update of zsh profile..."
-touch "$kobman_zshrc"
-if [[ -z $(grep 'kobman-init.sh' "$kobman_zshrc") ]]; then
-    echo -e "\n$kobman_init_snippet" >> "$kobman_zshrc"
-    echo "Updated existing ${kobman_zshrc}"
+touch "$kobproject_zshrc"
+if [[ -z $(grep 'KOBDevOps-init.sh' "$kobproject_zshrc") ]]; then
+    echo -e "\n$kobproject_init_snippet" >> "$kobproject_zshrc"
+    echo "Updated existing ${kobproject_zshrc}"
 fi
 
 echo -e "\n\n\nAll done!\n\n"
 
 echo "Please open a new terminal, or run the following in the existing one:"
 echo ""
-echo "    source \"${KOBPROJECT_DIR}/bin/kobman-init.sh\""
+echo "    source \"${KOBPROJECT_DIR}/bin/KOBDevOps-init.sh\""
 echo ""
 echo "Then issue the following command:"
 echo ""
