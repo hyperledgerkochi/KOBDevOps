@@ -22,7 +22,7 @@ This steps should perform on an 64 bit
 <table>
 <tr><th>Commands : </th></tr>
 <tr><td>apt-get update -y</td></tr>
-<tr><td>apt-get upgrade -y</td></tr>
+<tr><td>apt-get dist-upgrade -y</td></tr>
 </table>
 
 <table>
