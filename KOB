@@ -185,7 +185,7 @@ Function_DockerInstall()
 	sudo echo "*  Uninstalling Exising Docker...*";
         sudo echo "**********************************";
 
-        sudo sudo apt-get remove docker docker-engine docker-ce docker-ce-cli docker.io -y
+        sudo apt-get remove docker docker-engine docker-ce docker-ce-cli docker.io -y
 
         sudo echo -e "\n\r**********************************";
         sudo echo "*    Installing Docker...         *";
