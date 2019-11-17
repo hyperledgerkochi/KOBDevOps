@@ -20,3 +20,22 @@ sudo echo "      T:::::::::T       OO:::::::::::::OO B:::::::::::::::::B        
 sudo echo "      T:::::::::T         OO:::::::::OO   B::::::::::::::::B             V:::V              OO:::::::::OO   N::::::N        N::::::N"
 sudo echo "      TTTTTTTTTTT           OOOOOOOOO     BBBBBBBBBBBBBBBBB               VVV                 OOOOOOOOO     NNNNNNNN         NNNNNNN"
 
+
+
+Function_VonBuild()
+{
+                cd /home/TOB/
+                sudo echo "Build TOB-Von instance in your system"
+                sudo git clone https://github.com/hyperledgerkochi/von-network.git
+                sudo /home/TOB/von-network/manage rm
+                sudo /home/TOB/von-network/manage build
+
+}
+
+Function_VonStart()
+{
+        sudo /home/KOB/von-network/manage start
+}
+
+
+

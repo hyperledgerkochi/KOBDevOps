@@ -1,8 +1,7 @@
-#!/bin/bash
+#!/bin/bash 
 
 
-                                                                                                                                                                          
-                                                                                                                                                                               
+
 sudo echo "                                                                                                  lllllll   iiii                     hhhhhhh                     tttt"          
 sudo echo "                                                                                                  l:::::l  i::::i                    h:::::h                  ttt:::t "         
 sudo echo "                                                                                                  l:::::l   iiii                     h:::::h                  t:::::t          "
@@ -26,5 +25,33 @@ sudo echo " g::::::ggg:::::::g                                                  
 sudo echo "  gg:::::::::::::g                                                                                                  gg:::::::::::::g                                           "
 sudo echo "    ggg::::::ggg                                                                                                      ggg::::::ggg                                             "
 sudo echo "       gggggg                                                                                                            gggggg                                                "
+
+
+export TOB_dir=/usr/bin/env/tob
+
+
+Function_greenlight_build()
+{
+                sudo echo "Build greenlight instance in your system"
+
+                sudo git clone https://github.com/bcgov/greenlight.git
+                sudo wget --no-proxy https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+                sudo tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+                sudo mv s2i sti /usr/local/bin/
+                sudo /home/TOB/greenlight/docker/manage rm
+                sudo /home/TOB/greenlight/docker/manage build
+
+
+
+}
+
+fun_greenlight_start()
+{
+        sudo read -p "Start KOBDflow instance in your system?" reply
+        if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
+        then
+                sudo /home/TOB/greenlight/docker/manage start
+        fi
+}
 
 

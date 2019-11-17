@@ -1,14 +1,4 @@
-#!/bin/bash
-
-
-
-
-
-
-
-
-
-
+#!/bin/bash 
 
 
 
@@ -59,4 +49,10 @@ echo "                                               gggggg                     
 
 
 
+Function_KOBRegistery()
+{
+
+                sudo echo "Build KOBRegistery instance in your system"
+		sudo git clone https://github.com/hyperledgerkochi/KOBRegistry.git
+}
 

@@ -33,3 +33,11 @@ sudo echo "   CC:::::::::::::::Co:::::::::::::::o  n::::n    n::::n  n::::n    n
 sudo echo "     CCC::::::::::::C oo:::::::::::oo   n::::n    n::::n  n::::n    n::::n  ee:::::::::::::e    cc:::::::::::::::c        tt:::::::::::tt" 
 sudo echo "        CCCCCCCCCCCCC   ooooooooooo     nnnnnn    nnnnnn  nnnnnn    nnnnnn    eeeeeeeeeeeeee      cccccccccccccccc          ttttttttttt  " 
 
+
+
+Function_KOBConnect()
+{
+
+                sudo echo "Build KOBConnect instance in your system"
+		sudo git clone https://github.com/hyperledgerkochi/KOBConnect.git
+}
