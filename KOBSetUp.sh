@@ -1,74 +1,11 @@
 #!/bin/bash
 #
-#   Copyright 2017 Marco Vermeulen
-#
-#   Licensed under the Apache License, Version 2.0 (the "License");
-#   you may not use this file except in compliance with the License.
-#   You may obtain a copy of the License at
-#
-#       http://www.apache.org/licenses/LICENSE-2.0
-#
-#   Unless required by applicable law or agreed to in writing, software
-#   distributed under the License is distributed on an "AS IS" BASIS,
-#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#   See the License for the specific language governing permissions and
-#   limitations under the License.
 #
 
 #Install: stable
 
 # Global variables
 # KOBPROJECT_SERVICE="https://api.KOBDevOps.io/2"
-KOBPROJECT_VERSION="5.7.4+362"
-KOBPROJECT_PLATFORM=$(uname)
-
-if [ -z "$KOBPROJECT_DIR" ]; then
-    KOBPROJECT_DIR="$HOME/.KOBDevOps"
-fi
-
-# Local variables
-kobproject_bin_folder="${KOBPROJECT_DIR}/bin"
-kobproject_src_folder="${KOBPROJECT_DIR}/src"
-kobproject_tmp_folder="${KOBPROJECT_DIR}/tmp"
-kobproject_stage_folder="${kobproject_tmp_folder}/stage"
-kobproject_zip_file="${kobproject_tmp_folder}/KOBDevOps-${KOBPROJECT_VERSION}.zip"
-kobproject_ext_folder="${KOBPROJECT_DIR}/ext"
-kobproject_etc_folder="${KOBPROJECT_DIR}/etc"
-kobproject_var_folder="${KOBPROJECT_DIR}/var"
-kobproject_archives_folder="${KOBPROJECT_DIR}/archives"
-kobproject_KOB_ENVs_folder="${KOBPROJECT_DIR}/KOB_ENVs"
-kobproject_config_file="${kobproject_etc_folder}/config"
-kobproject_bash_profile="${HOME}/.bash_profile"
-kobproject_profile="${HOME}/.profile"
-kobproject_bashrc="${HOME}/.bashrc"
-kobproject_zshrc="${HOME}/.zshrc"
-
-kobproject_init_snippet=$( cat << EOF
-#THIS MUST BE AT THE END OF THE FILE FOR KOBPROJECT TO WORK!!!
-export KOBPROJECT_DIR="$KOBPROJECT_DIR"
-[[ -s "${KOBPROJECT_DIR}/bin/KOBDevOps-init.sh" ]] && source "${KOBPROJECT_DIR}/bin/KOBDevOps-init.sh"
-EOF
-)
-
-# OS specific support (must be 'true' or 'false').
-cygwin=false;
-darwin=false;
-solaris=false;
-freebsd=false;
-case "$(uname)" in
-    CYGWIN*)
-        cygwin=true
-        ;;
-    Darwin*)
-        darwin=true
-        ;;
-    SunOS*)
-        solaris=true
-        ;;
-    FreeBSD*)
-        freebsd=true
-esac
-
 
 
 
@@ -105,14 +42,14 @@ echo "                     $$$$$$/                                              
 # Sanity checks
 
 echo "Looking for a previous installation of KOBPROJECT..."
-if [ -d "$KOBPROJECT_DIR" ]; then
+if [ -d "$KOB_SH" ]; then
 	echo "KOBPROJECT found."
 	echo ""
 	echo "======================================================================================================"
 	echo " You already have KOBPROJECT installed."
-	echo " KOBPROJECT was found at:"
+	echo " KOB Project  was found at:"
 	echo ""
-	echo "    ${KOBPROJECT_DIR}"
+	echo "    ${KOB}"
 	echo ""
 	echo " Please consider running the following if you need to upgrade."
 	echo ""
@@ -195,32 +132,15 @@ echo "Installing KOBPROJECT scripts..."
 
 
 # Create directory structure
+echo "Install scripts..."
+sudo git clone https://github.com/EtricKombat/KOBDevOps.git
+sudo mv KOBDevOps/bin/sh KOBDevOps/bin/env /usr/bin
 
-echo "Create distribution directories..."
-mkdir -p "$kobproject_bin_folder"
-mkdir -p "$kobproject_src_folder"
-mkdir -p "$kobproject_tmp_folder"
-mkdir -p "$kobproject_stage_folder"
-mkdir -p "$kobproject_ext_folder"
-mkdir -p "$kobproject_etc_folder"
-mkdir -p "$kobproject_var_folder"
-mkdir -p "$kobproject_archives_folder"
-mkdir -p "$kobproject_KOB_ENVs_folder"
+echo " available KOB_ENVs..."
+export KOB_SH=/usr/bin/sh
+export KOB_ENV=/usr/bin/env
 
-echo "Getting available KOB_ENVs..."
-KOBPROJECT_CANDIDATES_CSV=$(curl -s "${KOBPROJECT_SERVICE}/KOB_ENVs/all")
-echo "$KOBPROJECT_CANDIDATES_CSV" > "${KOBPROJECT_DIR}/var/KOB_ENVs"
 
-echo "Prime the config file..."
-touch "$kobproject_config_file"
-echo "kobproject_auto_answer=false" >> "$kobproject_config_file"
-echo "kobproject_auto_selfupdate=false" >> "$kobproject_config_file"
-echo "kobproject_insecure_ssl=false" >> "$kobproject_config_file"
-echo "kobproject_curl_connect_timeout=7" >> "$kobproject_config_file"
-echo "kobproject_curl_max_time=10" >> "$kobproject_config_file"
-echo "kobproject_beta_channel=false" >> "$kobproject_config_file"
-echo "kobproject_debug_mode=false" >> "$kobproject_config_file"
-echo "kobproject_colour_enable=true" >> "$kobproject_config_file"
 
 echo "Download script archive..."
 curl --location --progress-bar "${KOBPROJECT_SERVICE}/broker/download/KOBDevOps/install/${KOBPROJECT_VERSION}/${KOBPROJECT_PLATFORM}" > "$kobproject_zip_file"
@@ -245,9 +165,6 @@ fi
 unzip -qo "$kobproject_zip_file" -d "$kobproject_stage_folder"
 
 
-echo "Install scripts..."
-mv "${kobproject_stage_folder}/KOBDevOps-init.sh" "$kobproject_bin_folder"
-mv "$kobproject_stage_folder"/KOBDevOps-* "$kobproject_src_folder"
 
 echo "Set version to $KOBPROJECT_VERSION ..."
 echo "$KOBPROJECT_VERSION" > "${KOBPROJECT_DIR}/var/version"
@@ -280,10 +197,7 @@ echo -e "\n\n\nAll done!\n\n"
 
 echo "Please open a new terminal, or run the following in the existing one:"
 echo ""
-echo "    source \"${KOBPROJECT_DIR}/bin/KOBDevOps-init.sh\""
 echo ""
-echo "Then issue the following command:"
-echo ""
-echo "    kob help"
+echo "    KOB help"
 echo ""
 echo "Enjoy!!!"

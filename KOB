@@ -347,9 +347,7 @@ fun_Dflow_start()
 ############################### main function #######################################
 
 cd /usr/bin
-mkdir KOB_DIR 
 
-export KOB_DIR=/usr/bin/KOB_DIR/
 
 
 
