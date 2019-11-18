@@ -130,6 +130,16 @@ sudo git clone https://github.com/EtricKombat/KOBDevOps.git
 
 echo "This is the present working directory"
 pwd
+
+
+
+sudo echo " available KOB_ENVs..."
+mkdir -p /usr/bin/envv/
+mkdir -p /usr/bin/sh/
+export KOB_SH=/usr/bin/sh
+export KOB_ENV=/usr/bin/envv
+
+
 sudo mv KOBDevOps/bin/sh/ /usr/bin/
 sudo mv KOBDevOps/bin/envv/ /usr/bin/
 sudo mv KOBDevOps/KOB /usr/bin
@@ -139,9 +149,6 @@ sudo mv KOBDevOps/KOB /usr/bin
 
 
 
-sudo echo " available KOB_ENVs..."
-export KOB_SH=/usr/bin/sh
-export KOB_ENV=/usr/bin/envv
 
 
 
