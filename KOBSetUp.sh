@@ -121,16 +121,24 @@ echo "Installing KOBPROJECT scripts..."
 
 # Create directory structure
 
-echo "Install scripts..."
-mkdir -p /usr/bin/KOB_Dir
-export KOB_Dir=/usr/bin/KOB_Dir
-cd $KOB_Dir 
+sudo echo "Install scripts..."
+sudo mkdir -p /usr/bin/KOB_Dir
+export KOB_env_Dir=/usr/bin/KOB_Dir
+cd $KOB_env_Dir
 sudo git clone https://github.com/EtricKombat/KOBDevOps.git
-cd /KOBDevOps/bin
+cd $KOB_env_Dir
+echo "The cursor is here"
+pwd
+sudo mv KOBDevOps/bin/sh/ /usr/bin/
+sudo mv KOBDevOps/bin/env/ /usr/bin/
 
-sudo mv KOBDevOps/bin/sh KOBDevOps/bin/env /usr/bin
 # sudo mv KOBDevOps/bin/env /usr/bin 
-echo " available KOB_ENVs..."
+#sudo mv bin/sh bin/env /usr/bin
+#sudo mv $KOB_Dir/KOBDevOps/KOB /usr/bin
+
+
+
+sudo echo " available KOB_ENVs..."
 export KOB_SH=/usr/bin/sh
 export KOB_ENV=/usr/bin/env
 
