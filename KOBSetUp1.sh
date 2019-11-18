@@ -134,16 +134,21 @@ pwd
 
 
 sudo echo " available KOB_ENVs..."
-mkdir -p /usr/bin/envv/
-mkdir -p /usr/bin/sh/
+sudo mkdir -p /usr/bin/envv/
+sudo mkdir -p /usr/bin/sh/
 export KOB_SH=/usr/bin/sh
 export KOB_ENV=/usr/bin/envv
 
 
-sudo mv KOBDevOps/bin/sh/ /usr/bin/
-sudo mv KOBDevOps/bin/envv/ /usr/bin/
+sudo mv KOBDevOps/bin/sh/ /usr/bin/sh/
+sudo mv KOBDevOps/bin/envv/ /usr/bin/envv/
 sudo mv KOBDevOps/KOB /usr/bin
 
+
+
+# sudo mv KOBDevOps/bin/sh/ /usr/bin/
+# sudo mv KOBDevOps/bin/envv/ /usr/bin/
+# sudo mv KOBDevOps/KOB /usr/bin
 # sudo mv KOBDevOps/bin/env /usr/bin 
 #sudo mv bin/sh bin/env /usr/bin
 
