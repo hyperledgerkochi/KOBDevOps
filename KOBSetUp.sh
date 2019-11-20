@@ -1,6 +1,4 @@
-#!/bin/bash
-
-
+#!/bin/bash 
 
 #Install: stable
 
@@ -118,6 +116,8 @@ fi
 
 echo "Installing KOBPROJECT scripts..."
 
+# Removing existing environment variables 
+sudo rm -rf /usr/bin/KOB_Dir/ /usr/bin/sh/ /usr/bin/envv/ /usr/bin/KOB
 
 # Create directory structure
 
@@ -133,20 +133,14 @@ pwd
 
 
 
-sudo echo " available KOB_ENVs..."
-mkdir -p /usr/bin/envv/
-mkdir -p /usr/bin/sh/
+
+
+sudo cp -r KOBDevOps/bin/sh/ /usr/bin
+sudo cp -r KOBDevOps/bin/envv/ /usr/bin
+sudo cp -r KOBDevOps/KOB /usr/bin
+
 export KOB_SH=/usr/bin/sh
 export KOB_ENV=/usr/bin/envv
-
-
-sudo mv KOBDevOps/bin/sh/ /usr/bin/
-sudo mv KOBDevOps/bin/envv/ /usr/bin/
-sudo mv KOBDevOps/KOB /usr/bin
-
-# sudo mv KOBDevOps/bin/env /usr/bin 
-#sudo mv bin/sh bin/env /usr/bin
-
 
 
 
