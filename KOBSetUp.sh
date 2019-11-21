@@ -137,7 +137,7 @@ pwd
 
 sudo cp -r KOBDevOps/bin/sh/ /usr/bin
 sudo cp -r KOBDevOps/bin/envv/ /usr/bin
-sudo cp -r KOBDevOps/KOB /usr/bin
+sudo cp -r KOBDevOps/src/bash/KOB /usr/bin
 
 export KOB_SH=/usr/bin/sh
 export KOB_ENV=/usr/bin/envv
