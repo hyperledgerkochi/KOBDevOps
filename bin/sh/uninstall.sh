@@ -1,5 +1,13 @@
 #!/bin/bash
 
+echo "                 _            __        _____                   "
+echo "    __  ______  (_)___  _____/ /_____ _/ / (_)___  ____ _       "
+echo "   / / / / __ \/ / __ \/ ___/ __/ __  / / / / __ \/ __  /       "
+echo "  / /_/ / / / / / / / (__  ) /_/ /_/ / / / / / / / /_/ /  _ _ _ "
+echo "  \__,_/_/ /_/_/_/ /_/____/\__/\__,_/_/_/_/_/ /_/\__, /  (_|_|_) "
+echo "                                                /____/          "
+
+
 
 
 Function_unsetProxyEnv()
@@ -27,3 +35,10 @@ Function_uninstall_basic()
         sudo apt-get remove docker docker-engine docker-ce docker-ce-cli docker.io -y
 
 }
+
+
+
+
+Function_unsetProxyEnv
+Function_unsetUbuntuProxy
+Function_uninstall_basic

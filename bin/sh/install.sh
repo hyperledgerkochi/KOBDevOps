@@ -1,5 +1,13 @@
 #!/bin/bash
 
+echo "      _            __        _____                   "
+echo "     (_)___  _____/ /_____ _/ / (_)___  ____ _       "
+echo "    / / __ \/ ___/ __/ __  / / / / __ \/ __  /       "
+echo "   / / / / (__  ) /_/ /_/ / / / / / / / /_/ /  _ _ _ "
+echo "  /_/_/ /_/____/\__/\__,_/_/_/_/_/ /_/\__, /  (_|_|_) "
+echo "                                     /____/           "
+
+
 
 Function_VimFix()
 {
@@ -220,4 +228,17 @@ Function_NpmInstall()
         npm config set strict-ssl false
 
 }
+
+Function_CheckProxy
+Function_UbuntuUpgrade
+Function_GitInstall
+Function_PythonInstall
+Function_DockerInstall
+sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
+Function_ProxyEnv
+Function_UbuntuUpgrade
+Function_NpmInstall
+#Function_VonBuild
+#Function_KobBuild
+#Function_DflowBuild
 
