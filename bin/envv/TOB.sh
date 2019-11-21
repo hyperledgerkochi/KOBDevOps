@@ -3,22 +3,13 @@
 
                                                               
                                                               
-sudo echo "TTTTTTTTTTTTTTTTTTTTTTT     OOOOOOOOO     BBBBBBBBBBBBBBBBB   "
-sudo echo "T:::::::::::::::::::::T   OO:::::::::OO   B::::::::::::::::B  "
-sudo echo "T:::::::::::::::::::::T OO:::::::::::::OO B::::::BBBBBB:::::B "
-sudo echo "T:::::TT:::::::TT:::::TO:::::::OOO:::::::OBB:::::B     B:::::B"
-sudo echo "TTTTTT  T:::::T  TTTTTTO::::::O   O::::::O  B::::B     B:::::B"
-sudo echo "        T:::::T        O:::::O     O:::::O  B::::B     B:::::B"
-sudo echo "        T:::::T        O:::::O     O:::::O  B::::BBBBBB:::::B "
-sudo echo "        T:::::T        O:::::O     O:::::O  B:::::::::::::BB  "
-sudo echo "        T:::::T        O:::::O     O:::::O  B::::BBBBBB:::::B "
-sudo echo "        T:::::T        O:::::O     O:::::O  B::::B     B:::::B"
-sudo echo "        T:::::T        O:::::O     O:::::O  B::::B     B:::::B"
-sudo echo "        T:::::T        O::::::O   O::::::O  B::::B     B:::::B"
-sudo echo "      TT:::::::TT      O:::::::OOO:::::::OBB:::::BBBBBB::::::B"
-sudo echo "      T:::::::::T       OO:::::::::::::OO B:::::::::::::::::B "
-sudo echo "      T:::::::::T         OO:::::::::OO   B::::::::::::::::B  "
-sudo echo "      TTTTTTTTTTT           OOOOOOOOO     BBBBBBBBBBBBBBBBB   "
+echo "   ________         ____             ____              __  "
+echo "  /_  __/ /_  ___  / __ \_________ _/ __ )____  ____  / /__"
+echo "   / / / __ \/ _ \/ / / / ___/ __  / __  / __ \/ __ \/ //_/"
+echo "  / / / / / /  __/ /_/ / /  / /_/ / /_/ / /_/ / /_/ / ,<   "
+echo " /_/ /_/ /_/\___/\____/_/   \__, /_____/\____/\____/_/|_|  "
+echo "                           /____/                          "
+
 
 
 

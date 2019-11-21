@@ -2,22 +2,13 @@
 
  
                                                           
-sudo echo "KKKKKKKKK    KKKKKKK     OOOOOOOOO     BBBBBBBBBBBBBBBBB      " 
-sudo echo "K:::::::K    K:::::K   OO:::::::::OO   B::::::::::::::::B     "  
-sudo echo "K:::::::K    K:::::K OO:::::::::::::OO B::::::BBBBBB:::::B    "
-sudo echo "K:::::::K   K::::::KO:::::::OOO:::::::OBB:::::B     B:::::B   "
-sudo echo "KK::::::K  K:::::KKKO::::::O   O::::::O  B::::B     B:::::B   "
-sudo echo "  K:::::K K:::::K   O:::::O     O:::::O  B::::B     B:::::B   "
-sudo echo "  K::::::K:::::K    O:::::O     O:::::O  B::::BBBBBB:::::B    "
-sudo echo "  K:::::::::::K     O:::::O     O:::::O  B:::::::::::::BB     "
-sudo echo " K:::::::::::K     O:::::O     O:::::O  B::::BBBBBB:::::B     "
-sudo echo " K::::::K:::::K    O:::::O     O:::::O  B::::B     B:::::B    "
-sudo echo " K:::::K K:::::K   O:::::O     O:::::O  B::::B     B:::::B    "
-sudo echo "KK::::::K  K:::::KKKO::::::O   O::::::O  B::::B     B:::::B   "
-sudo echo "K:::::::K   K::::::KO:::::::OOO:::::::OBB:::::BBBBBB::::::B   "
-sudo echo "K:::::::K    K:::::K OO:::::::::::::OO B:::::::::::::::::B    "
-sudo echo "K:::::::K    K:::::K   OO:::::::::OO   B::::::::::::::::B     "
-sudo echo "KKKKKKKKK    KKKKKKK     OOOOOOOOO     BBBBBBBBBBBBBBBBB      "
+echo "     __ __           __    _ ____             ____              __  "
+echo "    / //_/___  _____/ /_  (_) __ \_________ _/ __ )____  ____  / /__"
+echo "   /    / __ \/ ___/ __ \/ / / / / ___/ __  / __  / __ \/ __ \/ //_/"
+echo "  / /| / /_/ / /__/ / / / / /_/ / /  / /_/ / /_/ / /_/ / /_/ / ,<   "
+echo " /_/ |_\____/\___/_/ /_/_/\____/_/   \__, /_____/\____/\____/_/|_|  "
+echo "                                    /____/                          "
+
 
 
 
