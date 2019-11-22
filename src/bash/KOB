@@ -438,18 +438,20 @@ then
                         fi
                 ;;
                 KOBVON)
-                        sudo echo "Deploy KOBVON for testing"
-			Function_CheckProxy
-	                Function_UbuntuUpgrade
-	                Function_GitInstall
-	                Function_PythonInstall
-	                Function_DockerInstall
-	                Function_NpmInstall
-	                sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
-	                sudo mkdir -p /home/KOB
-	                sudo cd /home/KOB
-	                Function_VonBuild
-	                Function_VonStart
+	               		source /usr/bin/sh/install.sh
+                                Function_CheckProxy
+                                Function_UbuntuUpgrade
+                                Function_GitInstall
+                                Function_PythonInstall
+                                Function_DockerInstall
+                                sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
+#                               cd $KOB_env_Dir
+                                Function_ProxyEnv
+                                Function_UbuntuUpgrade
+                                Function_NpmInstall
+                                source /usr/bin/envv/KOBVON.sh
+                                Function_VonBuild
+				Function_VonStart
 
                 ;;
                 KOB)
