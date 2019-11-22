@@ -119,7 +119,7 @@ Function_ProxyEnv()
 
 Function_CheckProxy()
 {
-	read -p "Are you behind a corporate proxy?" reply
+	sudo read -p "Are you behind a corporate proxy?" reply
 if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
 
 then
@@ -144,9 +144,9 @@ then
                 fi
 
         done | sudo tee -a /etc/apt/apt.conf > /dev/null
-        sudo mkdir -p /etc/systemd/system/docker.sersudo vice.d/
- touch /etc/systemd/system/docker.sersudo vice.d/https-proxy.conf
-        sudo echo -e "[Sersudo vice]\nEnsudo vironment="HTTPS_PROXY=http://${uname}:${pword}@${prox}:${port}"">>/etc/systemd/system/docker.sersudo vice.d/https-proxy.conf
+        sudo mkdir -p /etc/systemd/system/docker.service.d/
+ 	sudo touch /etc/systemd/system/docker.service.d/https-proxy.conf
+        sudo echo -e "[Service]\nEnvironment="HTTPS_PROXY=http://${uname}:${pword}@${prox}:${port}"">>/etc/systemd/system/docker.service.d/https-proxy.conf
 
         sudo echo "**********************"
         sudo git config --global user.name "${uname}"
@@ -313,7 +313,7 @@ Function_KobBuild()
 
 Function_KobStart()
 {
-sudo read -p "Do you want to start KOB instance in your system?" reply
+	sudo read -p "Do you want to start KOB instance in your system?" reply
         if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
         then
 	sudo /home/KOB/TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
@@ -492,20 +492,20 @@ then
                                 sudo echo "Install default projects i.e KOBVON, KOBDflow,KOBConnect, KOBRegistry, TheKochOrgBook"
 				
 				source /usr/bin/sh/install.sh
-				Function_CheckProxy 
-				Function_UbuntuUpgrade 
-				Function_GitInstall
-		                Function_PythonInstall
-                		Function_DockerInstall
-                		sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
-		                sudo mkdir -p /home/KOB
-                		sudo cd /home/KOB
-                		Function_ProxyEnv
-				Function_UbuntuUpgrade
-		                Function_NpmInstall
-				Function_VonBuild
-                		Function_KobBuild
-		                Function_DflowBuild
+#				Function_CheckProxy 
+#				Function_UbuntuUpgrade 
+#				Function_GitInstall
+#		                Function_PythonInstall
+#                		Function_DockerInstall
+#                		sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
+#		                sudo mkdir -p /home/KOB
+#                		sudo cd /home/KOB
+#                		Function_ProxyEnv
+#				Function_UbuntuUpgrade
+#		                Function_NpmInstall
+#				Function_VonBuild
+#                		Function_KobBuild
+#		                Function_DflowBuild
 
                         fi
                 ;;
