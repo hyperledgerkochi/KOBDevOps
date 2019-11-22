@@ -14,7 +14,7 @@ echo "                                   /____/                     /____/   "
 Function_KOBRegistery()
 {
 
-                sudo echo "Build KOBRegistery instance in your system"
+		cd $KOB_env_Dir
 		sudo git clone https://github.com/hyperledgerkochi/KOBRegistry.git
 }
 

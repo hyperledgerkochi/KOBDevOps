@@ -229,16 +229,4 @@ Function_NpmInstall()
 
 }
 
-Function_CheckProxy
-Function_UbuntuUpgrade
-Function_GitInstall
-Function_PythonInstall
-Function_DockerInstall
-sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
-Function_ProxyEnv
-Function_UbuntuUpgrade
-Function_NpmInstall
-#Function_VonBuild
-#Function_KobBuild
-#Function_DflowBuild
 

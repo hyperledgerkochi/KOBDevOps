@@ -3,7 +3,6 @@
 
 
 
-
 #    FUNCTION NAMING CONVENTION
 
 
@@ -119,7 +118,7 @@ Function_ProxyEnv()
 
 Function_CheckProxy()
 {
-	read -p "Are you behind a corporate proxy?" reply
+	sudo read -p "Are you behind a corporate proxy?" reply
 if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
 
 then
@@ -144,9 +143,9 @@ then
                 fi
 
         done | sudo tee -a /etc/apt/apt.conf > /dev/null
-        sudo mkdir -p /etc/systemd/system/docker.sersudo vice.d/
- touch /etc/systemd/system/docker.sersudo vice.d/https-proxy.conf
-        sudo echo -e "[Sersudo vice]\nEnsudo vironment="HTTPS_PROXY=http://${uname}:${pword}@${prox}:${port}"">>/etc/systemd/system/docker.sersudo vice.d/https-proxy.conf
+        sudo mkdir -p /etc/systemd/system/docker.service.d/
+ 	sudo touch /etc/systemd/system/docker.service.d/https-proxy.conf
+        sudo echo -e "[Service]\nEnvironment="HTTPS_PROXY=http://${uname}:${pword}@${prox}:${port}"">>/etc/systemd/system/docker.service.d/https-proxy.conf
 
         sudo echo "**********************"
         sudo git config --global user.name "${uname}"
@@ -246,7 +245,7 @@ Function_DockerInstall()
         
 	if [[ "$proxychk" -eq 1 ]]
 	then 
-		sed -i '$ d' /root/.docker/config.json
+		sudo sed -i '$ d' /root/.docker/config.json
 		sudo echo -e ",\n "\""proxies"\"": {\n\t "\""default"\"": {\n\t\t "\""httpProxy"\"": "\""http://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""httpsProxy"\"": "\""https://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""noProxy"\"": "\""localhost,127.0.0.0/8,*.local,host.docker.internal"\"" \n\t\t}\n\t}\n}">>/root/.docker/config.json
 	fi
 
@@ -313,7 +312,7 @@ Function_KobBuild()
 
 Function_KobStart()
 {
-sudo read -p "Do you want to start KOB instance in your system?" reply
+	sudo read -p "Do you want to start KOB instance in your system?" reply
         if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
         then
 	sudo /home/KOB/TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
@@ -491,20 +490,32 @@ then
                         then
                                 sudo echo "Install default projects i.e KOBVON, KOBDflow,KOBConnect, KOBRegistry, TheKochOrgBook"
 				
-                		Function_CheckProxy
-		                Function_UbuntuUpgrade
-                		Function_GitInstall
+				source /usr/bin/sh/install.sh
+				Function_CheckProxy 
+				Function_UbuntuUpgrade 
+				Function_GitInstall
 		                Function_PythonInstall
                 		Function_DockerInstall
                 		sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
-		                sudo mkdir -p /home/KOB
-                		sudo cd /home/KOB
-                		Function_ProxyEnv
+                		cd $KOB_env_Dir
+				Function_ProxyEnv
 				Function_UbuntuUpgrade
 		                Function_NpmInstall
+			
+				source /usr/bin/envv/KOBVON.sh
 				Function_VonBuild
-                		Function_KobBuild
-		                Function_DflowBuild
+
+				source /usr/bin/envv/KOB.sh
+				Function_KobBuild
+
+				source /usr/bin/envv/KOBDflow.sh
+				Function_DflowBuild
+
+				source /usr/bin/envv/KOBRegistery.sh
+				Function_KOBRegistery
+
+				source /usr/bin/envv/KOBConnect.sh
+				Function_KOBConnect
 
                         fi
                 ;;
@@ -512,23 +523,19 @@ then
 
 elif [ "$ONE" = "uninstall" ]
 then
-	sudo echo "Uninstalling KOB Project"
+	source /usr/bin/sh/uninstall.sh
 elif [ "$ONE" = "list" ]
 then
-	sudo echo "Listing down KOB projects"
+	source /usr/bin/sh/list.sh
 elif [ "$ONE" = "help" ]
 then
-	sudo echo "Getting Help for KOB project"
-        sudo vi /home/KOB/help
-#	source sudo vi /home/KOB/help
+	source /usr/bin/sh/help
 elif [ "$ONE" = "version" ]
 then
-	Function_Version
-#	sudo echo "Listing Versions"
-#	source /home/KOB/Version.sh
+	source /usr/bin/sh/version.sh
 elif [ "$ONE" = "status" ]
 then
-	sudo echo "status of the project"
+	source /usr/bin/sh/status.sh
 fi
 
 

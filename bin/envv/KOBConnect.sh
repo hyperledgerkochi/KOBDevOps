@@ -11,6 +11,6 @@ echo " /_/ |_\____/_____/      \____/\____/_/ /_/_/ /_/\___/\___/\__/  "
 Function_KOBConnect()
 {
 
-                sudo echo "Build KOBConnect instance in your system"
+		cd $KOB_env_Dir
 		sudo git clone https://github.com/hyperledgerkochi/KOBConnect.git
 }
