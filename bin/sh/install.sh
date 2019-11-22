@@ -71,20 +71,21 @@ then
         do
                 if [ "$proto" = "https" ];
                 then
-                  printf 'Acquire::%s::proxy "http://%s:%s@%s:%u/";\n' "$proto" "$uname" "$pword" "$prox" "$port"
+                  sudo printf 'Acquire::%s::proxy "http://%s:%s@%s:%u/";\n' "$proto" "$uname" "$pword" "$prox" "$port"
                 else
-                        printf 'Acquire::%s::proxy "%s://%s:%s@%s:%u/";\n' "$proto" "$proto" "$uname" "$pword" "$prox" "$port"
+                        sudo printf 'Acquire::%s::proxy "%s://%s:%s@%s:%u/";\n' "$proto" "$proto" "$uname" "$pword" "$prox" "$port"
                 fi
 
         done | sudo tee -a /etc/apt/apt.conf > /dev/null
-        sudo mkdir -p /etc/systemd/system/docker.sersudo vice.d/
+        sudo mkdir -p /etc/systemd/system/docker.service.d/
  	sudo touch /etc/systemd/system/docker.service.d/https-proxy.conf
-        sudo echo -e "[Service]\nEnvironment="HTTPS_PROXY=http://${uname}:${pword}@${prox}:${port}"">>/etc/systemd/system/docker.service.d/https-proxy.conf
+        sudo chmod 777 /etc/systemd/system/docker.service.d/https-proxy.conf
+	sudo echo -e "[Service]\nEnvironment="HTTPS_PROXY=http://${uname}:${pword}@${prox}:${port}"">>/etc/systemd/system/docker.service.d/https-proxy.conf
 
         sudo echo "**********************"
         sudo git config --global user.name "${uname}"
         sudo git config --global user.email "${emil}"
-        apt install ca-certificates -y
+        sudo apt install ca-certificates -y
         sudo git config --global http.sslVerify false
         sudo git config --global http.proxy http://${uname}:${pword}@${prox}:${port}
 else
@@ -188,7 +189,7 @@ Function_DockerInstall()
 
         if [[ "$proxychk" -eq 1 ]]
         then
-                sed -i '$ d' /root/.docker/config.json
+                sudo sed -i '$ d' /root/.docker/config.json
                 sudo echo -e ",\n "\""proxies"\"": {\n\t "\""default"\"": {\n\t\t "\""httpProxy"\"": "\""http://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""httpsProxy"\"": "\""https://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""noProxy"\"": "\""localhost,127.0.0.0/8,*.local,host.docker.internal"\"" \n\t\t}\n\t}\n}">>/root/.docker/config.json
         fi
 
