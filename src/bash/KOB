@@ -246,7 +246,7 @@ Function_DockerInstall()
         
 	if [[ "$proxychk" -eq 1 ]]
 	then 
-		sed -i '$ d' /root/.docker/config.json
+		sudo sed -i '$ d' /root/.docker/config.json
 		sudo echo -e ",\n "\""proxies"\"": {\n\t "\""default"\"": {\n\t\t "\""httpProxy"\"": "\""http://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""httpsProxy"\"": "\""https://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""noProxy"\"": "\""localhost,127.0.0.0/8,*.local,host.docker.internal"\"" \n\t\t}\n\t}\n}">>/root/.docker/config.json
 	fi
 
@@ -492,20 +492,22 @@ then
                                 sudo echo "Install default projects i.e KOBVON, KOBDflow,KOBConnect, KOBRegistry, TheKochOrgBook"
 				
 				source /usr/bin/sh/install.sh
-#				Function_CheckProxy 
-#				Function_UbuntuUpgrade 
-#				Function_GitInstall
-#		                Function_PythonInstall
-#                		Function_DockerInstall
-#                		sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
-#		                sudo mkdir -p /home/KOB
-#                		sudo cd /home/KOB
-#                		Function_ProxyEnv
-#				Function_UbuntuUpgrade
-#		                Function_NpmInstall
-#				Function_VonBuild
-#                		Function_KobBuild
-#		                Function_DflowBuild
+				Function_CheckProxy 
+				Function_UbuntuUpgrade 
+				Function_GitInstall
+		                Function_PythonInstall
+                		Function_DockerInstall
+                		sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
+#	                	cd $KOB_env_Dir        	
+				Function_ProxyEnv
+				Function_UbuntuUpgrade
+		                Function_NpmInstall
+				source /usr/bin/envv/KOBVON.sh
+				Function_VonBuild
+	                	source /usr/bin/envv/KOB.sh
+				Function_KobBuild
+				source /usr/bin/envv/KOBDflow.sh
+		                Function_DflowBuild
 
                         fi
                 ;;

@@ -5,31 +5,12 @@
 # Global variables
 # KOBPROJECT_SERVICE="https://api.KOBDevOps.io/2"
 
-
-
-
-echo " __    __                      __        __                                "
-echo " /  |  /  |                    /  |      /  |                              "
-echo " $$ | /$$/   ______    _______ $$ |____  $$/                               "
-echo " $$ |/$$/   /      \  /       |$$      \ /  |                              "
-echo " $$  $$<   /$$$$$$  |/$$$$$$$/ $$$$$$$  |$$ |                              "
-echo " $$$$$  \  $$ |  $$ |$$ |      $$ |  $$ |$$ |                              "
-echo " $$ |$$  \ $$ \__$$ |$$ \_____ $$ |  $$ |$$ |                              "
-echo " $$ | $$  |$$    $$/ $$       |$$ |  $$ |$$ |                              "
-echo " $$/   $$/  $$$$$$/   $$$$$$$/ $$/   $$/ $$/                               "
-echo "   ______                      _______                       __            "
-echo "  /      \                    /       \                     /  |           "
-echo " /$$$$$$  |  ______   ______  $$$$$$$  |  ______    ______  $$ |   __      "
-echo " $$ |  $$ | /      \ /      \ $$ |__$$ | /      \  /      \ $$ |  /  |     "
-echo " $$ |  $$ |/$$$$$$  /$$$$$$  |$$    $$< /$$$$$$  |/$$$$$$  |$$ |_/$$/      "
-echo " $$ |  $$ |$$ |  $$/$$ |  $$ |$$$$$$$  |$$ |  $$ |$$ |  $$ |$$   $$<       "
-echo " $$ \__$$ |$$ |     $$ \__$$ |$$ |__$$ |$$ \__$$ |$$ \__$$ |$$$$$$  \      "
-echo " $$    $$/ $$ |     $$    $$ |$$    $$/ $$    $$/ $$    $$/ $$ | $$  |     "
-echo "  $$$$$$/  $$/       $$$$$$$ |$$$$$$$/   $$$$$$/   $$$$$$/  $$/   $$/      "
-echo "                    /  \__$$ |                                             "
-echo "                    $$    $$/                                              "
-echo "                     $$$$$$/                                               "
-
+echo "     __ ______  ____       _____      __           " 
+echo "    / //_/ __ \/ __ )     / ___/___  / /___  ______ "  
+echo "   / ,< / / / / __  |_____\__ \/ _ \/ __/ / / / __ \ " 
+echo "  / /| / /_/ / /_/ /_____/__/ /  __/ /_/ /_/ / /_/ / " 
+echo " /_/ |_\____/_____/     /____/\___/\__/\__,_/  ___/  " 
+echo "                                           /_/       " 
 
 
 
@@ -40,7 +21,7 @@ echo "                     $$$$$$/                                              
 # Sanity checks
 
 echo "Looking for a previous installation of KOBPROJECT..."
-if [ -d "$KOB_SH" ]; then
+if [ -d "$KOB_env_Dir" ]; then
 	echo "KOBPROJECT found."
 	echo ""
 	echo "======================================================================================================"
@@ -127,6 +108,11 @@ export KOB_env_Dir=/usr/bin/KOB_Dir
 echo "change to KOB_env_Dir"
 cd $KOB_env_Dir
 sudo git clone https://github.com/EtricKombat/KOBDevOps.git
+
+sudo mkdir -p /usr/bin/TOB_Dir
+export TOB_env_Dir=/usr/bin/TOB_Dir
+
+
 
 echo "This is the present working directory"
 pwd
