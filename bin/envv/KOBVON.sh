@@ -22,6 +22,6 @@ Function_VonBuild()
 
 Function_VonStart()
 {
-        sudo /home/KOB/von-network/manage start
+        sudo von-network/manage start
 }
 
