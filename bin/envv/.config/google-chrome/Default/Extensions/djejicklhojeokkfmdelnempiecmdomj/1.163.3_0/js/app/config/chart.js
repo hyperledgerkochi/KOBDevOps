@@ -1,0 +1,98 @@
+chartConfig = config = {
+    activeLinkPointColor: '#e05966',
+    // allowSmallAutoResize: false, - use injected config
+    // activeLinkPointColor: '#e05966', - use injected config
+    allowTextOverflow: true,
+    autoSaveDelayMultiUser: 10,
+    autoSaveDelaySingleUser: 2000,
+    awsRegionDefault: 10,
+    // When you have to update this list, remember also to upgrade AWS Java SDK in chart-web.
+    awsRegions: [
+        ['ap-northeast-1', true],
+        ['ap-northeast-2', true],
+        ['ap-south-1', false],
+        ['ap-southeast-1', true],
+        ['ap-southeast-2', true],
+        ['ca-central-1', false],
+        ['eu-central-1', true],
+        ['eu-west-1', true],
+        ['eu-west-2', false],
+        ['sa-east-1', true],
+        ['us-east-1', true],
+        ['us-east-2', false],
+        ['us-gov-west-1', true],
+        ['us-west-1', true],
+        ['us-west-2', true]
+    ],
+    basicPlugins: {'/js/plugins/v2/mindmap.js': true},
+    bleedHintColor: '#fb1d00',
+    blockTypeIndent: function(type, fontSize) {
+        if (type == 'p') {
+            return 0;
+        }
+        return fontSize * (type == 'ol' ? 3 : 2);
+    },
+    defaultColumnSpacing: 72 / 4,
+    defaultDPI: 160,
+    defaultGrid: 20,
+    defaultHAlign: 'center',
+    defaultImageClass: 'UserImage2Block',
+    defaultImageFillPos: 'fill',
+    defaultPanelFill: null,
+    defaultTextClass: 'DefaultTextBlockNew',
+    defaultUnit: 'px',
+    defaultVAlign: 'middle',
+    defaultZoom: 75,
+    editorSpaceChecksDialogSelector: true,
+    editorWantsTabs: true, // false, // I changed this to fix the tab and indent errors on chart
+    handleColor: '#009de0',
+    handleColorSecondary: '#91bcec',
+    handleLineWidth: 1,
+    hasFacingPages: false,
+    help: '/help/c/',
+    hintBothLineColor: '#00cc00',
+    hintEdgeLineColor: '#f78d1e',
+    hintLineColor: '#0099ff',
+    hintLineWidth: 1,
+    hintPanelLineColor: '#aaaaaa',
+    imageUploadTimeout: 20000,
+    indentBullet: function(type, indentLeft) {
+        if (type == 'ul') {
+            return indentLeft / 2;
+        }
+        return 0;
+    },
+    lineSpacingFactor: 1,
+    markupDefaults: {},
+    outlineColor: '#009de0',
+    outlineSize: 3,
+    overlayOffset: 0,
+    padSelection: true,
+    pagesHaveIndependentViewports: true,
+    pageSizesAllowed: ['Letter', 'Legal', 'Executive', 'A3', 'A4', 'A5', 'Tabloid', 'Folio', 'Statement'],
+    pageSpacing: 60,
+    pageUnitsAllowed: ['in', 'cm', 'pt', 'px'],
+    placeholderImageUrl: 'https://d2slcw3kip6qmk.cloudfront.net/app/webroot/img/img_placeholder.png',
+    pluginGroups: ['Standard', 'Software', 'Business', 'Networking', 'Visual Content', 'Other'],
+    renderBackgroundItems: true,
+    renderMetricsHintsForKeyboardInput: false,
+    renderSelectedLineOutlineWidth: 1.5,
+    renderSelectionOutlineColor: '#009de099',
+    renderSelectionOutlineWidth: 2.5,
+    resizeHandleSize: 9,
+    rotateHandleColor: '#000',
+    rotateHandleSize: 6,
+    rotateHandleStemColor: '#999',
+    rotateInCorner: true,
+    searchShouldChangePage: true,
+    searchShouldShowMaster: true,
+    serverDisableTimeout: 30,
+    serverDisableTimeoutFocused: 600,
+    showAlignmentHints: true,
+    supportUrl: 'http://support.lucidchart.com',
+    tempHintLineColor: '#ff3333',
+    useChildrenCategories: true,
+    viewportTitle: false,
+    zOrderOverrideAbove: ['state', 'frame'],
+    zOrderOverrideBelow: ['background'],
+};

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<application-state>
+  <context id="">
+    <application id="gnome-control-center.desktop" open-window-count="0" score="15" last-seen="1573976553"/>
+    <application id="gnome-calculator_gnome-calculator.desktop" open-window-count="0" score="1" last-seen="1573975044"/>
+    <application id="update-manager.desktop" open-window-count="0" score="2" last-seen="1574496109"/>
+    <application id="onboard-settings.desktop" open-window-count="0" score="156" last-seen="1574505113"/>
+    <application id="google-chrome.desktop" open-window-count="1" score="199" last-seen="1574508486"/>
+    <application id="org.gnome.gedit.desktop" open-window-count="1" score="127" last-seen="1574508808"/>
+    <application id="org.gnome.Terminal.desktop" open-window-count="2" score="862" last-seen="1574508804"/>
+    <application id="org.gnome.Software.desktop" open-window-count="0" score="2" last-seen="1573974920"/>
+  </context>
+</application-state>

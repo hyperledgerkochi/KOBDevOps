@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html ng-csp>
+
+    <head>
+        <title>
+            Lucidchart - Diagramming Done Right
+        </title>
+        <link rel="stylesheet" href="/css/apps/chart/chrome/style.css"/>
+        <style>
+            body {padding:0;margin:0;}
+            webview {
+                position:absolute;
+                left:0;
+                right:0;
+                top:40px;
+                bottom:0;
+            }
+            .controls {
+                position:absolute;
+                left:8px;
+                top:0;
+                right:0;
+                height:40px;
+            }
+
+            .controls button {
+                display:block;
+                width:30px;
+                height:30px;
+                padding:0;
+                margin:4px;
+                float:left;
+                border:1px solid #aaa;
+                background-position:1px,2px;
+            }
+
+            .controls button.back {
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAN9JREFUSEu91T0KwkAYhOEonsDGwsLCk9hYCRYeRhALwTOIeNr4jrj6IWN+JJ8DD+gku8tKzFZ1XT+UlO9Ds2UGW2aw5S/ICCt3TWzZF5lij5u7LrbsimgXa1y0iLj7xJZdkBkOZYHC3Su2bELG2OC1i8iNEVt+Q+Y4lkkdN05s+YloF1tcNVkTN15sGZEFTmWiNm4OsaWQCXZo3UXk5hJfVtUS5zK4Dzef+PJfCwnJ/+kikvswRCT/8Y5I7h82IvmvoIjkvlQjkn9MRCT34ItI/lHehS0zvD88Ey8Op67uDvAy/Q83jAsAAAAASUVORK5CYII=);
+            }
+
+            .controls button.forward {
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAAM9JREFUSEu91bEKwjAUBdAq/QIXBweHfomLk+DgxwjFQfAbRPzaeC+m8oYbSbTvBc6Qm+aFlLTpUkoupvbp20FPMvQgQ0LbwUKN/UKGhPaEM6zUeCsZUl6I7rCHv3YnQ8qLWCOs1bM1ZEhmAYu7O8BSzflGhpQLl1xgo+aVyJBM0ZIHHKFqdzKkXKzGFbaqhiVDMoVqcHcn6FUtkiHlAq1uMMh6KiQzuYX7QiGvzv0whBxv9w825Bfk/lMNuSZCLr6Yq3xuMvQgwzlM7d1P3QuyajL9oaCDLAAAAABJRU5ErkJggg==);
+            }
+
+            .controls button.refresh {
+                background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAadEVYdFNvZnR3YXJlAFBhaW50Lk5FVCB2My41LjEwMPRyoQAAATRJREFUSEu9lrFuwjAURRmRGJnoB/AhneELurIxInXoVIk/6MbXpu9EtnPzYjsBDE86kmWf69ekTsKq67q3kJ18BcOgXB/Gp3Eyfo2/AGPmWMPJ1pJGW+NoXI3bDDi4ZLRuc432xtnIbVqDDFmqn6s1Qvw2/CZLGWVLjbj03JX8GAeDP2ITYMwca95PlBpxn738Zeyi52EtOD7XkzwJcHL8P54N1tEpgRP8CckRmWOqErekeCWKZCYkR2SeCZUOca2Gy0xIngR4AFXax7USzs+SXAnxtKu0iWstGAZvbHT3rbuHYfDgYVDIGJdcVqWHjzfghkzMX0brIj77wPq3w3XkiEy1fAUdR54EqFYvVfbY1hpRLT4T7NFXrRGF+OyHr6+5RlSLT/miRrHa/jh5NdnJ9nSrf4pZVpyk2klIAAAAAElFTkSuQmCC);
+            }
+
+            .fill {
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+            }
+
+        </style>
+
+        <script src="/js/chromechart/adaptor.js"></script>
+        <script src="/js/chromechart/config.js"></script>
+        <script src="/js/chromechart/browser-loader.js"></script>
+    </head>
+
+    <body style="background-color:white">
+        <div class="controls">
+            <button class="back"></button>
+            <button class="forward"></button>
+            <button class="refresh"></button>
+        </div>
+        <div id="status" class="center" style="padding-top: 8px"></div>
+        <div id="needInternet" class="fill" style="background-color:#f3f3f3; display:none">
+            <div class="jumbotron">
+                <p>
+                    Your first connection to Lucidchart requires an Internet connection.
+                </p>
+                <p>
+                    Please ensure you are connected to the Internet and click the button  below.
+                </p>
+                <button id="tryAgain" class="button" style="width:6em"></button>
+            </div>
+        </div>
+    </body>
+
+</html>

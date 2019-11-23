@@ -1,0 +1,25 @@
+{
+   "background": {
+      "scripts": [ "v1/sc_ext_background_v1.js", "v2/sc_ext_background.js" ]
+   },
+   "content_scripts": [ {
+      "js": [ "v1/sc_ext_content_v1.js", "v2/sc_ext_content.js" ],
+      "matches": [ "https://*.facebook.com/*", "https://*.messenger.com/*" ]
+   } ],
+   "description": "Share your screen in video calls on Facebook, Messenger and Workplace",
+   "externally_connectable": {
+      "matches": [ "https://*.facebook.com/*", "https://*.messenger.com/*" ]
+   },
+   "icons": {
+      "128": "icon144.png",
+      "16": "icon29.png",
+      "48": "icon50.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAg6cEfVQHrne+BpNxFj5SftIN4SVIGEHnNZBR0m6xS0Akmgn5pEepirZeCMsFYG5OT0/fQDYyHBXaB2a7Bt0l3uxGMLkteczELf//NaITHL+bD2mn2t/Mug37aSxMaP4TqHzHCpf4VK6zv6OTicQ4okvkmLjrs70IDhI9Bx8d/n+ZEM0YszOP9rnAmQ85TTDCLU0KYjFyrNQwxiTtprOrlZkjdzox5FnEetFa2kaAZLQVRU3CcpZGCfDSJ1hT2a7yFnVoGkG+9kQ48ZrADQaBt6UhHudCP1dZQYG9Cc1oMJJkkCCN6VPC75UrLVp67JlWzqlrvlwf90ppYRkfZU9S4QIDAQAB",
+   "manifest_version": 2,
+   "minimum_chrome_version": "34",
+   "name": "Facebook Screen Sharing",
+   "permissions": [ "desktopCapture", "notifications", "https://*.facebook.com/", "https://*.messenger.com/" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.10.4"
+}

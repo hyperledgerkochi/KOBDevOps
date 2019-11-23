@@ -1,0 +1,7 @@
+2019/11/23-15:50:29.292 2ef3 Reusing MANIFEST leveldb/MANIFEST-000001
+2019/11/23-15:50:29.326 2ef3 Recovering log #9
+2019/11/23-15:50:29.387 2ef3 (ignoring error) leveldb/000009.log: dropping 3946 bytes; Corruption: missing start of fragmented record(2)
+2019/11/23-15:50:29.412 2ef3 Reusing old log leveldb/000009.log 
+2019/11/23-15:50:38.887 2ef5 Level-0 table #13: started
+2019/11/23-15:50:38.900 2ef5 Level-0 table #13: 15017 bytes OK
+2019/11/23-15:50:38.907 2ef5 Delete type=0 #9

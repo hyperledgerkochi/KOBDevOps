@@ -1,0 +1,19 @@
+[Data Source]
+DisplayName=ericjoy1991@gmail.com
+Enabled=true
+Parent=80cf3499ed61be2b7e9da6c603188121ca532fbb
+
+[Mail Transport]
+BackendName=smtp
+
+[Authentication]
+Host=smtp.gmail.com
+Method=XOAUTH2
+Port=465
+ProxyUid=system-proxy
+RememberPassword=true
+User=ericjoy1991@gmail.com
+CredentialName=
+
+[Security]
+Method=ssl-on-alternate-port

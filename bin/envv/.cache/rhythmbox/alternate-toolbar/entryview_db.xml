@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='us-ascii'?>
+<root>
+  <pages>
+    <page name="RBLibrarySource">'Track','Title','Genre','Artist','Album','Composer','Year','Time','Quality','Play Count','BPM','Comment','Location','Rating','Last Played','Date Added'</page>
+    <RBLibrarySource column="Track" width="45" />
+    <RBLibrarySource column="Title" width="125" />
+    <RBLibrarySource column="Genre" width="135" />
+    <RBLibrarySource column="Artist" width="134" />
+    <RBLibrarySource column="Album" width="141" />
+    <RBLibrarySource column="Composer" width="0" />
+    <RBLibrarySource column="Year" width="0" />
+    <RBLibrarySource column="Time" width="71" />
+    <RBLibrarySource column="Quality" width="0" />
+    <RBLibrarySource column="PlayCount" width="0" />
+    <RBLibrarySource column="BPM" width="0" />
+    <RBLibrarySource column="Comment" width="0" />
+    <RBLibrarySource column="Location" width="0" />
+    <RBLibrarySource column="Rating" width="0" />
+    <RBLibrarySource column="LastPlayed" width="0" />
+    <RBLibrarySource column="DateAdded" width="0" />
+  </pages>
+  <database>1</database>
+</root>

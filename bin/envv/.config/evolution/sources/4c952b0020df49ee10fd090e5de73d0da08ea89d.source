@@ -1,0 +1,28 @@
+[Data Source]
+DisplayName=ericjoy1991@gmail.com
+Enabled=true
+Parent=80cf3499ed61be2b7e9da6c603188121ca532fbb
+
+[Mail Composition]
+Bcc=
+Cc=
+DraftsFolder=folder://local/Drafts
+ReplyStyle=default
+SignImip=true
+TemplatesFolder=
+StartBottom=inconsistent
+TopSignature=inconsistent
+
+[Mail Identity]
+Address=ericjoy1991@gmail.com
+Aliases=
+Name=
+Organization=
+ReplyTo=
+SignatureUid=none
+
+[Mail Submission]
+SentFolder=folder://local/Sent
+TransportUid=01e3874954dfd2a7ae1fc75a918f08671620bc2d
+RepliesToOriginFolder=false
+UseSentFolder=true

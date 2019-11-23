@@ -1,0 +1,44 @@
+[Data Source]
+DisplayName=Holidays in India
+Enabled=true
+Parent=80cf3499ed61be2b7e9da6c603188121ca532fbb
+
+[WebDAV Backend]
+AvoidIfmatch=false
+CalendarAutoSchedule=false
+DisplayName=
+EmailAddress=
+ResourcePath=/caldav/v2/cln2sqbechkm2rh3d1nmoqb4c5sk0pridtqn0bjm5phm2r35dpi62shectnmuprcckn66rrd%40virtual/events/
+ResourceQuery=
+SslTrust=
+
+[Authentication]
+Host=apidata.googleusercontent.com
+Method=OAuth2
+Port=443
+ProxyUid=system-proxy
+RememberPassword=true
+User=ericjoy1991@gmail.com
+CredentialName=
+
+[Security]
+Method=tls
+
+[Calendar]
+BackendName=caldav
+Color=#42d692
+Selected=true
+
+[Resource]
+Identity=events::https://apidata.googleusercontent.com/caldav/v2/cln2sqbechkm2rh3d1nmoqb4c5sk0pridtqn0bjm5phm2r35dpi62shectnmuprcckn66rrd%40virtual/events/
+
+[Alarms]
+IncludeMe=true
+LastNotified=2019-10-26T11:07:26.537635Z
+
+[Offline]
+StaySynchronized=true
+
+[Refresh]
+Enabled=true
+IntervalMinutes=30

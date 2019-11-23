@@ -1,0 +1,25 @@
+[Data Source]
+DisplayName=Eric's list
+Enabled=true
+Parent=80cf3499ed61be2b7e9da6c603188121ca532fbb
+
+[Task List]
+BackendName=gtasks
+Color=#becedd
+Selected=true
+
+[Resource]
+Identity=gtasks::MTIxODU5NTQ5MDY5NDE3Njc4MTc6MDow
+
+[Authentication]
+Host=www.google.com
+Method=OAuth2
+Port=0
+ProxyUid=system-proxy
+RememberPassword=true
+User=ericjoy1991@gmail.com
+CredentialName=
+
+[Alarms]
+IncludeMe=false
+LastNotified=

@@ -1,0 +1,23 @@
+{
+   "app": {
+      "background": {
+         "scripts": [ "/js/chromechart/adaptor.js", "/js/chromechart/config.js", "/js/chromechart/background-loader.js" ]
+      }
+   },
+   "default_locale": "en",
+   "description": "__MSG_appDesc__",
+   "icons": {
+      "128": "icon_128.png",
+      "16": "icon_16.png"
+   },
+   "key": "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCVx/w7vqvZORZnLEeifkmDA5Dw5oMMIvB4o4w83l16C8QZFy7iadIGvJPyR/A2rJko57raxlSV4hc1bO5pb9y1THCUmrM65d00UO/PDdoEDy8cXg8aVFkQpex7dWHjS3yHWWIW6Au6vvhiTEaWEeG0Fj4i2W0mEG4RBVrDQMvZTwIDAQAB",
+   "manifest_version": 2,
+   "minimum_chrome_version": "28",
+   "name": "__MSG_appName__",
+   "offline_enabled": true,
+   "permissions": [ "clipboardRead", "clipboardWrite", "storage", {
+      "fileSystem": [ "write" ]
+   }, "unlimitedStorage", "http://*/*", "https://*/*", "webview" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.163.3"
+}
