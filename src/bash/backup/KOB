@@ -3,6 +3,7 @@
 
 
 
+
 #    FUNCTION NAMING CONVENTION
 
 
@@ -361,7 +362,7 @@ then
                --dev)
                         if [ "$THREE" = "All" ]
                         then
-                                sudo echo "install all the dev ensudo vironment to do development"
+				source /usr/bin/sh/install.sh
 				Function_CheckProxy
 		                Function_UbuntuUpgrade
                 		Function_GitInstall
@@ -369,12 +370,21 @@ then
 		                Function_DockerInstall
                			Function_NpmInstall
 		                sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
-		                sudo mkdir -p /home/KOB
-		                sudo cd /home/KOB
-				sudo echo "Add sufficient functions to install KOB Project Development liberaries "
+                                cd $KOB_env_Dir
+                                source /usr/bin/envv/KOB.sh
+                                Function_KobBuild
+				source /usr/bin/envv/KOBVON.sh
+                                Function_VonBuild
+                                source /usr/bin/envv/KOBDflow.sh
+                                Function_DflowBuild
+                                source /usr/bin/envv/KOBConnect.sh
+                                Function_KOBConnect
+                                source /usr/bin/envv/KOBRegistery.sh
+                                Function_KOBRegistery
                         elif [ $THREE = "KOBVON" ]
                         then
                                 sudo echo "to install just the KOBVON project for development"
+				source /usr/bin/sh/install.sh
 				Function_CheckProxy
 		                Function_UbuntuUpgrade
 		                Function_GitInstall
@@ -382,13 +392,14 @@ then
 		                Function_DockerInstall
 		                Function_NpmInstall
 		                sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
-		                sudo mkdir -p /home/KOB
-		                sudo cd /home/KOB
-		                Function_VonBuild
+                                cd $KOB_env_Dir
+                                source /usr/bin/envv/KOBVON.sh
+                                Function_VonBuild
 
                         elif [ $THREE = "KOB" ]
                         then
                                 sudo echo "to install the KOB project for development"
+				source /usr/bin/sh/install.sh
 				Function_CheckProxy
 		                Function_UbuntuUpgrade
 		                Function_GitInstall
@@ -396,25 +407,39 @@ then
 		                Function_DockerInstall
 		                Function_NpmInstall
 		                sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
-		                sudo mkdir -p /home/KOB
-		                sudo cd /home/KOB
-				sudo echo "Add sufficient functions to install KOB Project Development liberaries "
-
+                                cd $KOB_env_Dir
+                                source /usr/bin/envv/KOB.sh
+                                Function_KobBuild
 			
 			elif [ $THREE = "KOBDflow" ]
 			then
-
-				sudo echo "Add sufficient functions to install KOBDflow Project Development liberaries "
+				source /usr/bin/sh/install.sh
+                                Function_CheckProxy
+		                Function_UbuntuUpgrade
+		                Function_GitInstall
+		                Function_PythonInstall
+		                Function_DockerInstall
+		                Function_NpmInstall
+		                sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
+                                cd $KOB_env_Dir
+                                source /usr/bin/envv/KOBDflow.sh
+                                Function_DflowBuild
+				
 			elif [ $THREE = "KOBConnect" ]
 			then
-			
-				sudo echo "Add sufficient functions to install KOB Connect  Project Development liberaries "
+				source /usr/bin/sh/install.sh
+                                cd $KOB_env_Dir
+                                source /usr/bin/envv/KOBConnect.sh
+                                Function_KOBConnect
 			elif [ $THREE = "KOBRegistery" ]
 			then
-				sudo echo "Add sufficient functions to install KOB Registery Project Development liberaries "
+				source /usr/bin/sh/install.sh
+                                cd $KOB_env_Dir
+                                source /usr/bin/envv/KOBRegistery.sh
+                                Function_KOBRegistery
 			elif [ $THREE = "TOB" ]
                         then
-                                sudo echo "to install the KOB project for development"
+				source /usr/bin/sh/install.sh
 				Function_CheckProxy
 		                Function_UbuntuUpgrade
 		                Function_GitInstall
@@ -422,52 +447,85 @@ then
 		                Function_DockerInstall
 		                Function_NpmInstall
 		                sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
-		                sudo mkdir -p /home/KOB
-		                sudo cd /home/KOB
-
-				sudo echo "Add sufficient functions to install TOB Project Development liberaries "
+                                cd $KOB_env_Dir
+                                source /usr/bin/envv/TOB.sh
+                                Function_TOBBuild
 			elif [ $THREE = "TOBVON" ]
 			then
-				sudo echo " Add sufficient functions to install TOB Project Development liberaries "
+				source /usr/bin/sh/install.sh
+                                Function_CheckProxy
+		                Function_UbuntuUpgrade
+		                Function_GitInstall
+		                Function_PythonInstall
+		                Function_DockerInstall
+		                Function_NpmInstall
+		                sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
+                          	cd $KOB_env_Dir
+                                Function_VONBuild
 			elif [ $THREE = "greenlight" ]
 			then
-				sudo echo "# Add sufficient functions to install TOB Project Development liberaries "
+			
+				source /usr/bin/sh/install.sh
+                                Function_CheckProxy
+		                Function_UbuntuUpgrade
+		                Function_GitInstall
+		                Function_PythonInstall
+		                Function_DockerInstall
+		                Function_NpmInstall
+		                sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
+                          	cd $KOB_env_Dir
+                                source /usr/bin/envv/TOB.sh
+                                Function_greenlight_build
 			else
                                 sudo echo "Verify your command and try again"
                         fi
                 ;;
                 KOBVON)
-                        sudo echo "Deploy KOBVON for testing"
-			Function_CheckProxy
-	                Function_UbuntuUpgrade
-	                Function_GitInstall
-	                Function_PythonInstall
-	                Function_DockerInstall
-	                Function_NpmInstall
-	                sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
-	                sudo mkdir -p /home/KOB
-	                sudo cd /home/KOB
-	                Function_VonBuild
-	                Function_VonStart
+	               		source /usr/bin/sh/install.sh
+                                Function_CheckProxy
+                                Function_UbuntuUpgrade
+                                Function_GitInstall
+                                Function_PythonInstall
+                                Function_DockerInstall
+                                sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
+                                cd $KOB_env_Dir
+                                Function_ProxyEnv
+                                Function_UbuntuUpgrade
+                                Function_NpmInstall
+                                source /usr/bin/envv/KOBVON.sh
+                                Function_VonBuild
+				Function_VonStart
 
                 ;;
                 KOB)
                         sudo echo "Building KOB for testing"
-                        Function_CheckProxy
+               
+	          	source /usr/bin/sh/install.sh
+		        Function_CheckProxy
                         Function_UbuntuUpgrade
                         Function_GitInstall
                         Function_PythonInstall
                         Function_DockerInstall
                         Function_NpmInstall
                         sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
-                        sudo mkdir -p /home/KOB
-                        sudo cd /home/KOB
-                     	Function_KobBuild 
+                        cd $KOB_env_Dir
+			Function_KobBuild 
 			Function_KobStart                        
 
                 ;;
 		KOBDflow)
-			sudo echo "./KOB install KOBDflow"	
+			source /usr/bin/sh/install.sh
+                        Function_CheckProxy
+		        Function_UbuntuUpgrade
+		        Function_GitInstall
+		        Function_PythonInstall
+		        Function_DockerInstall
+		        Function_NpmInstall
+		        sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
+                        cd $KOB_env_Dir
+                        source /usr/bin/envv/KOBDflow.sh
+                        Function_DflowBuild
+	   		fun_Dflow_start	
 		;;
 		KOBConnect)
 			sudo echo "./KOB install KOBConnect"	
@@ -476,8 +534,8 @@ then
 			sudo echo "./KOB install KOBRegistery"	
 		;;
 		TOBVON)
-			sudo echo "./KOB install TOBVON"	
-		;;
+			sudo echo "./KOB install TOBVON"
+		;; 
 		TOB)
 			sudo echo "./KOB install TOB" 
 		;; 
@@ -497,25 +555,16 @@ then
 		                Function_PythonInstall
                 		Function_DockerInstall
                 		sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
-                		cd $KOB_env_Dir
+#	                	cd $KOB_env_Dir        	
 				Function_ProxyEnv
 				Function_UbuntuUpgrade
 		                Function_NpmInstall
-			
 				source /usr/bin/envv/KOBVON.sh
 				Function_VonBuild
-
-				source /usr/bin/envv/KOB.sh
+	                	source /usr/bin/envv/KOB.sh
 				Function_KobBuild
-
 				source /usr/bin/envv/KOBDflow.sh
-				Function_DflowBuild
-
-				source /usr/bin/envv/KOBRegistery.sh
-				Function_KOBRegistery
-
-				source /usr/bin/envv/KOBConnect.sh
-				Function_KOBConnect
+		                Function_DflowBuild
 
                         fi
                 ;;
