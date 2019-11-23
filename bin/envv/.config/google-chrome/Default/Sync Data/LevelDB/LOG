@@ -1,6 +1,0 @@
-2019/11/23-16:09:13.977 6860 Reusing MANIFEST /home/blockchain/.config/google-chrome/Default/Sync Data/LevelDB/MANIFEST-000001
-2019/11/23-16:09:13.977 6860 Recovering log #7
-2019/11/23-16:09:13.978 6860 Reusing old log /home/blockchain/.config/google-chrome/Default/Sync Data/LevelDB/000007.log 
-2019/11/23-16:48:41.932 38b7 Level-0 table #11: started
-2019/11/23-16:48:41.980 38b7 Level-0 table #11: 140563 bytes OK
-2019/11/23-16:48:41.992 38b7 Delete type=0 #7
