@@ -29,7 +29,7 @@ echo "                               /____/           "
                 sudo mv s2i sti /usr/local/bin/
                 sudo TheOrgBook/docker/manage rm
                 sudo TheOrgBook/docker/manage build
-                sudo sed -i -e 's/- 3000/- 3100/g' /home/KOB/TheOrgBook/docker/docker-compose.yml
+                sudo sed -i -e 's/- 3000/- 3100/g' TheOrgBook/docker/docker-compose.yml
 
 
 }
