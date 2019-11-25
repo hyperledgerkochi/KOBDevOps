@@ -23,3 +23,10 @@ echo "                               /____/           "
 		cd $KOB_env_Dir
 		sudo git clone https://github.com/hyperledgerkochi/KOBConnect.git
 }
+
+fun_uninstall_KOBConnect()
+{
+
+	cd $KOB_env_Dir
+	sudo rm -rf KOBConnect/
+}

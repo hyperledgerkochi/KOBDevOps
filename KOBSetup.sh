@@ -100,6 +100,11 @@ echo "Uninstalling KOBPROJECT scripts..."
 # Removing existing environment variables 
 sudo rm -rf /usr/bin/KOB_Dir/ /usr/bin/TOB_Dir/ /usr/bin/sh/ /usr/bin/envv/ /usr/bin/KOB
 
+cd /usr/bin
+sudo chmod -R a+x .
+sudo chmod -R a+r .
+sudo chmod -R o-w .
+
 # Create directory structure
 
 sudo echo "Installing KOBPROJECT scripts..."

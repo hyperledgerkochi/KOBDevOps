@@ -38,6 +38,14 @@ echo " /____/\__/\__,_/_/   \__/_/_/ /_/\__, /  (_|_|_) "
 echo "                                 /____/           "
 
 
+	cd $KOB_env_Dir
         sudo von-network/manage start
 }
 
+fun_uninstall_KOBVON()
+{
+	cd $KOB_env_Dir
+        sudo von-network/manage start
+	sudo von-network/manage rm
+	sudo rm -rf von-network/
+}

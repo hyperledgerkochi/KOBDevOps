@@ -25,3 +25,9 @@ echo "                               /____/           "
 		sudo git clone https://github.com/hyperledgerkochi/KOBRegistry.git
 }
 
+fun_uninstall_KOBRegistery()
+{
+	cd $KOB_env_Dir
+	sudo rm -rf KOBRegistry/
+
+}

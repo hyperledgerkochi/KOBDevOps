@@ -30,8 +30,6 @@ echo "                               /____/           "
                 sudo greenlight/docker/manage rm
                 sudo greenlight/docker/manage build
 
-
-
 }
 
 fun_Dflow_start()
@@ -52,4 +50,10 @@ echo "                                 /____/           "
         fi
 }
 
+fun_uninstall_KOBDflow()
+{
+	cd $KOB_env_Dir
+	sudo greenlight/docker/manage rm	
+	sudo rm -rf greenlight/ /usr/local/bin/s2i /usr/local/bin/sti source-to-image-v1.1.14-874754de-linux-amd64.tar.gz 
 
+}

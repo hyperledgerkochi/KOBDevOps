@@ -24,12 +24,11 @@ echo " /_____/\__,_/_/_/\__,_/_/_/ /_/\__, /  (_|_|_) "
 echo "                               /____/           "
 
 
-
-                cd /home/TOB/
+		cd $TOB_env_Dir
                 sudo echo "Build TOB-Von instance in your system"
                 sudo git clone https://github.com/hyperledgerkochi/von-network.git
-                sudo /home/TOB/von-network/manage rm
-                sudo /home/TOB/von-network/manage build
+                sudo von-network/manage rm
+                sudo von-network/manage build
 
 }
 
@@ -44,8 +43,14 @@ echo " /____/\__/\__,_/_/   \__/_/_/ /_/\__, /  (_|_|_) "
 echo "                                 /____/           "
 
 
-        sudo /home/KOB/von-network/manage start
+	cd $TOB_env_Dir
+        sudo von-network/manage start
 }
 
 
+fun_uninstall_TOBVON()
+{
 
+	cd $TOB_env_Dir
+	sudo rm -rf von-network/	
+}

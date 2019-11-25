@@ -45,6 +45,7 @@ echo " /____/\__/\__,_/_/   \__/_/_/ /_/\__, /  (_|_|_) "
 echo "                                 /____/           "
 ~                                                                                         
 ~    
+	cd $KOB_env_Dir
 	sudo read -p "Do you want to start KOB instance in your system?" reply
         if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
         then
@@ -52,3 +53,11 @@ echo "                                 /____/           "
         fi
 }
 
+fun_uninstall_KOB
+{
+	
+	cd $KOB_env_Dir
+	sudo TheOrgBook/docker/manage rm
+        sudo rm -rf TheOrgBook/ /usr/local/bin/sti /usr/local/bin/s2i source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+
+}
