@@ -43,8 +43,7 @@ echo "   \__ \/ __/ __  / ___/ __/ / __ \/ __  /       "
 echo "  ___/ / /_/ /_/ / /  / /_/ / / / / /_/ /  _ _ _"
 echo " /____/\__/\__,_/_/   \__/_/_/ /_/\__, /  (_|_|_) "
 echo "                                 /____/           "
-~                                                                                         
-~    
+	
 	cd $KOB_env_Dir
 	sudo read -p "Do you want to start KOB instance in your system?" reply
         if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
