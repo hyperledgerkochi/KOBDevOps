@@ -492,34 +492,35 @@ then
                                 Function_ProxyEnv
                                 Function_UbuntuUpgrade
                                 Function_NpmInstall
+                        	cd $KOB_env_Dir
                                 source /usr/bin/envv/KOBVON.sh
                                 Function_VonBuild
 				Function_VonStart
 
                 ;;
                 KOB)
-	          	source /usr/bin/sh/install.sh
-		        Function_CheckProxy
-                        Function_UbuntuUpgrade
-                        Function_GitInstall
-                        Function_PythonInstall
-                        Function_DockerInstall
-                        Function_NpmInstall
-                        sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
+#	          	source /usr/bin/sh/install.sh
+#		        Function_CheckProxy
+#                        Function_UbuntuUpgrade
+#                        Function_GitInstall
+#                        Function_PythonInstall
+#                        Function_DockerInstall
+#                        Function_NpmInstall
+#                        sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
                         cd $KOB_env_Dir
 			Function_KobBuild 
 			Function_KobStart                        
 
                 ;;
 		KOBDflow)
-			source /usr/bin/sh/install.sh
-                        Function_CheckProxy
-		        Function_UbuntuUpgrade
-		        Function_GitInstall
-		        Function_PythonInstall
-		        Function_DockerInstall
-		        Function_NpmInstall
-		        sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
+#			source /usr/bin/sh/install.sh
+#                        Function_CheckProxy
+#		        Function_UbuntuUpgrade
+#		        Function_GitInstall
+#		        Function_PythonInstall
+#		        Function_DockerInstall
+#		        Function_NpmInstall
+#		        sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
                         cd $KOB_env_Dir
                         source /usr/bin/envv/KOBDflow.sh
                         Function_DflowBuild
