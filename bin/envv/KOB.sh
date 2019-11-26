@@ -45,13 +45,7 @@ echo " /____/\__/\__,_/_/   \__/_/_/ /_/\__, /  (_|_|_) "
 echo "                                 /____/           "
 	
 	cd $KOB_env_Dir
-	echo "KOB_env_Dir = $KOB_env_Dir" 
-	
-	read -p "Do you want to start KOB instance in your system?" reply
-        if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
-        then
         sudo TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
-        fi
 }
 
 fun_uninstall_KOB()
