@@ -53,7 +53,7 @@ echo "                                 /____/           "
         fi
 }
 
-fun_uninstall_KOB
+fun_uninstall_KOB()
 {
 	
 	cd $KOB_env_Dir

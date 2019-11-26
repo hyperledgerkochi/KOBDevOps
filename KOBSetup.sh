@@ -100,10 +100,6 @@ echo "Uninstalling KOBPROJECT scripts..."
 # Removing existing environment variables 
 sudo rm -rf /usr/bin/KOB_Dir/ /usr/bin/TOB_Dir/ /usr/bin/sh/ /usr/bin/envv/ /usr/bin/KOB
 
-cd /usr/bin
-sudo chmod -R a+x .
-sudo chmod -R a+r .
-sudo chmod -R o-w .
 
 # Create directory structure
 
@@ -116,6 +112,7 @@ sudo mkdir -p /usr/bin/TOB_Dir
 export TOB_env_Dir=/usr/bin/TOB_Dir
 
 
+ 
 echo "change to KOB_env_Dir"
 cd $KOB_env_Dir
 sudo git clone https://github.com/EtricKombat/KOBDevOps.git
@@ -134,6 +131,13 @@ export KOB_SH=/usr/bin/sh
 export KOB_ENV=/usr/bin/envv
 
 
+sudo echo " Giving sufficient permissions " 
+cd /usr/bin
+sudo chmod -R a+x .
+sudo chmod -R a+r .
+sudo chmod -R o-w .
+sudo chmod -R 777 /usr/bin/envv/
+sudo chmod -R 777 /usr/bin/sh/
 
 echo -e "\n\n\nAll done!\n\n"
 
