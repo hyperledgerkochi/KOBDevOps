@@ -22,326 +22,326 @@
 #       Function_Version
 
 
-Function_Version()
-{
-	sudo echo "*Node/NPM Version*"
-	sudo echo "***********************"
-	sudo node -v
-	sudo npm -v
-
-	sudo echo "*Docker/Docker-Compose Engine Version*"
-	sudo echo "**************************************"
-	sudo docker --version
-	sudo docker-compose --version
-
-	sudo echo "*Ubuntu Version*"
-	sudo echo "*************"
-	lsb_release -cs
-
-	sudo echo "*GIT Version*"
-	sudo echo "*************"
-	sudo git --version
-
-sudo echo "*************"
-	sudo echo "*Python Version*"
-	sudo echo "*************"
-	python --version
-
-}
-Function_VimFix()
-{
-	sudo cd
-	sudo echo "set nocompatible" > /root/.vimrc
-}
-fun_menu()
-{
-	sudo echo "************************************************************"
-	sudo echo "*The installation that can be performed by you:            *"
-	sudo echo "*         Requires (yes/no) input                          *"
-	sudo echo "*1)Ubuntu Update & Upgrade                                 *"
-	sudo echo "*2)Git                                                     *"
-	sudo echo "*3)Python                                                  *"
-	sudo echo "*4)Docker                                                  *"
-	sudo echo "*5)Docker Compose                                          *"
-	sudo echo "*6)VON Network Build                                       *"
-	sudo echo "*7)TOB Build                                               *"
-	sudo echo "*8)green light Build                                       *"
-	sudo echo "*9)Von Network Start-up                                    *"
-	sudo echo "*                                                          *"
-	sudo echo "************************************************************"
-
-}
-Function_UbuntuUpgrade()
-{
-	sudo echo -e "\n\r***********************************";
-	sudo echo "*       Updating your OS?         *";
-	sudo echo "***********************************";
-
-        sudo echo "Updating system......";
-        sudo apt-get update -y
-        sudo apt-get upgrade -y
-}	
-Function_PreRequisites()
-{
-	sudo echo "************************************************************"
-	sudo echo "*    Pre-Requesites listed below                          * "
-	sudo echo "************************************************************"
-	sudo echo "*                                                          *"
-	sudo echo "*- you are using Ubuntu Bionic 18.04 (LTS)                 *"
-	sudo echo "*  To install Docker Engine - Community                    *"
-	sudo echo "*- Login as root user                                      *"
-	sudo echo "*- Mininum 4GB RAM is required to set this env up          *"
-	sudo echo "*- No special character in password                        *"
-	sudo echo "************************************************************"
-
-}
-Function_ProxyEnv()
-{
- 	unset http_proxy
-        unset ftp_proxy
-        unset https_proxy
-        unset socks_proxy
-        unset SOCKS_PROXY
-        unset FTP_PROXY
-        unset HTTPS_PROXY
-        unset HTTP_PROXY
-	export HTTPS_PROXY=http://${uname}:${pword}@${prox}:${port}/
-        export HTTP_PROXY=http://${uname}:${pword}@${prox}:${port}/
-        export FTP_PROXY=ftp://${uname}:${pword}@${prox}:${port}/
-        export SOCKS_PROXY=socks://${uname}:${pword}@${prox}:${port}/
-
-        export http_proxy=http://${uname}:${pword}@${prox}:${port}/
-        export https_proxy=http://${uname}:${pword}@${prox}:${port}/
-        export ftp_proxy=ftp://${uname}:${pword}@${prox}:${port}/
-        export socks_proxy=socks://${uname}:${pword}@${prox}:${port}/
-	env | grep -i proxy
-}
-
-Function_CheckProxy()
-{
-	sudo read -p "Are you behind a corporate proxy?" reply
-if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
-
-then
-       	proxychk=1 
-	sudo dpkg --configure -a
-	sudo read -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
-        sudo echo -e "\n"
-	sudo read -p "Enter the port?[eg :8080,443..etc]          :" port
-        sudo echo -e "\n"
-	sudo read -p "Enter AD ID? [eg :ai318974]                 :" uname
-        sudo read -s -p "Enter password?[your login password]        : " pword
-        sudo echo -e "\n"
-	sudo read -p "Enter email ID?                             :" emil
-	Function_ProxyEnv
-        for proto in http https ftp socks;
-        do
-                if [ "$proto" = "https" ];
-                then
-                  printf 'Acquire::%s::proxy "http://%s:%s@%s:%u/";\n' "$proto" "$uname" "$pword" "$prox" "$port"
-                else
-                        printf 'Acquire::%s::proxy "%s://%s:%s@%s:%u/";\n' "$proto" "$proto" "$uname" "$pword" "$prox" "$port"
-                fi
-
-        done | sudo tee -a /etc/apt/apt.conf > /dev/null
-        sudo mkdir -p /etc/systemd/system/docker.service.d/
- 	sudo touch /etc/systemd/system/docker.service.d/https-proxy.conf
-        sudo echo -e "[Service]\nEnvironment="HTTPS_PROXY=http://${uname}:${pword}@${prox}:${port}"">>/etc/systemd/system/docker.service.d/https-proxy.conf
-
-        sudo echo "**********************"
-        sudo git config --global user.name "${uname}"
-        sudo git config --global user.email "${emil}"
-        apt install ca-certificates -y
-        sudo git config --global http.sslVerify false
-        sudo git config --global http.proxy http://${uname}:${pword}@${prox}:${port}
-else
-        sudo echo "skipping the proxy settings"
-fi
-
-}
-Function_GitInstall()
-{
-	sudo echo -e "\n\r**********************************";
-	sudo echo "*     Installing Git?            *";
-	sudo echo "**********************************";
-
-        sudo apt install git -y
-        sudo git --version
-
-}
-Function_PythonInstall()
-{
-	sudo echo -e "\n\r**********************************";
-	sudo echo "*      Installing Python?        *"
-	sudo echo "**********************************"
-        sudo apt install software-properties-common -y
-        sudo apt install Python3.7 -y
-	sudo apt install python-pip -y
-	
-	
-}
-Function_DockerInstall()
-{
-	sudo echo "*  Uninstalling Exising Docker...*";
-        sudo echo "**********************************";
-
-        sudo apt-get remove docker docker-engine docker-ce docker-ce-cli docker.io -y
-
-        sudo echo -e "\n\r**********************************";
-        sudo echo "*    Installing Docker...         *";
-        sudo echo -e "**********************************\n\n\r";
-        sudo apt-get update -y
-        sudo apt install docker.io -y
-        sudo echo -e "\n\r************************************************************************";
-        sudo echo "*    Installing packages to allow apt to use a repository over HTTPS...   *";
-        sudo echo -e "*************************************************************************\n\n\r";
-
-
-
-        sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
-
-        sudo echo -e "\n\r******************************";
-        sudo echo "*    Add Dockers official GPG key... *";
-        sudo echo -e "*********************************\n\n\r";
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
-        sudo echo -e "\n\r***********************************************************";
-        sudo echo "*    Verifying that you now have the key with the fingerprint: *";
-        sudo echo -e "*********************************************************\n\n\r";
- 	sudo apt-key fingerprint 0EBFCD88
-
-
-        sudo echo -e "\n\n\r**********************************";
-        sudo echo "*     setting up the stable repository...  *";
-        sudo echo "**********************************";
-        lsb_release -cs
-        sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable"
-
-        sudo echo -e "\n\r**********************************";
-        sudo echo "*    Installing Docker Engine...*";
-        sudo echo "**********************************";
-        sudo apt-get update -y
-        sudo apt-get install docker-ce docker-ce-cli containerd.io -y
-        sudo docker run hello-world
-
-
-	sudo echo -e "\n\r***********************************";
-	sudo echo "*    Installing Docker Compose?   *";
-	sudo echo "***********************************";
-        sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-
-        sudo chmod +x /usr/local/bin/docker-compose
-        sudo echo -e "\n\r**********************************";
-        sudo echo "*     Docker & Docker compose Version     *";
-        sudo echo "**********************************";
-        sudo systemctl start docker
-        sudo systemctl enable docker
-	sudo docker --version
-        sudo docker-compose --version
-        sudo echo -e "\n\r**********************************";
-        sudo echo -e "\n\r*    Docker Login                *"
-	sudo echo -e "\n\r**********************************";
-	sudo rm -rf /root/.docker/
-        sudo docker login
-        
-	if [[ "$proxychk" -eq 1 ]]
-	then 
-		sudo sed -i '$ d' /root/.docker/config.json
-		sudo echo -e ",\n "\""proxies"\"": {\n\t "\""default"\"": {\n\t\t "\""httpProxy"\"": "\""http://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""httpsProxy"\"": "\""https://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""noProxy"\"": "\""localhost,127.0.0.0/8,*.local,host.docker.internal"\"" \n\t\t}\n\t}\n}">>/root/.docker/config.json
-	fi
-
-}
-Function_NpmInstall()
-{
-	sudo echo -e "\n\r***********************************";
-	sudo echo "*    Purging NPM Components              *";
-	sudo echo -e "\n\r***********************************";
-	npm config rm proxy
-	npm config rm proxy --global
-
-	npm config rm https-proxy
-	npm config rm https-proxy --global
-
-	npm config rm registry
-	npm cache clean
-
-	sudo sudo apt-get remove nodejs nodejs-dev node-gyp libssl1.0-dev npm
-	sudo echo "Ignore!! these errors"
-
-	sudo echo -e "\n\r***********************************";
-	sudo echo "*    Installing NPM Components              *";
-	sudo echo -e "\n\r***********************************";
-
-	sudo sudo apt-get install nodejs nodejs-dev node-gyp libssl1.0-dev npm -y
-
-	npm config set https-proxy http://${uname}:${pword}@${prox}:${port}--global
-	npm config set https-proxy http://${uname}:${pword}@${prox}:${port}
-
-	npm config set proxy http://${uname}:${pword}@${prox}:${port}--global
-	npm config set proxy http://${uname}:${pword}@${prox}:${port}
-
-	npm config set registry http://registry.npmjs.org
-	npm config set strict-ssl false
-
-}
-Function_VonBuild()
-{
-		cd /home/KOB/	
-		sudo echo "Build KOB-Von instance in your system" 
-                sudo git clone https://github.com/hyperledgerkochi/von-network.git
-                sudo /home/KOB/von-network/manage rm
-                sudo /home/KOB/von-network/manage build
-	
-}
-Function_VonStart()
-{
-	sudo /home/KOB/von-network/manage start
-}	
-Function_KobBuild()
-{
-		sudo echo "Setting-up KOB instance in your system?" 
-                sudo git clone https://github.com/EtricKombat/TheOrgBook.git
-                sudo wget --no-proxy https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
-                sudo tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
-                sudo mv s2i sti /usr/local/bin/
-                sudo /home/KOB/TheOrgBook/docker/manage rm
-		sudo /home/KOB/TheOrgBook/docker/manage build
-		sudo sed -i -e 's/- 3000/- 3100/g' /home/KOB/TheOrgBook/docker/docker-compose.yml
-
-
-}
-
-Function_KobStart()
-{
-	sudo read -p "Do you want to start KOB instance in your system?" reply
-        if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
-        then
-	sudo /home/KOB/TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
-	fi
-}
-Function_DflowBuild()
-{
-		sudo echo "Setting-up GreenLight instance in your system"
-
-                sudo git clone https://github.com/EtricKombat/greenlight.git
-                sudo wget --no-proxy https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
-                sudo tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
-                sudo mv s2i sti /usr/local/bin/
-                sudo /home/KOB/greenlight/docker/manage rm
-	        sudo /home/KOB/greenlight/docker/manage build
-
-
-		
-}
-
-fun_Dflow_start()
-{
-	sudo read -p "Do you want to setup GreenLight instance in your system?" reply
-        if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
-        then
-		sudo /home/KOB/greenlight/docker/manage start 
-	fi
-}
+#Function_Version()
+#{
+#	sudo echo "*Node/NPM Version*"
+#	sudo echo "***********************"
+#	sudo node -v
+#	sudo npm -v
+#
+#	sudo echo "*Docker/Docker-Compose Engine Version*"
+#	sudo echo "**************************************"
+#	sudo docker --version
+#	sudo docker-compose --version
+#
+#	sudo echo "*Ubuntu Version*"
+#	sudo echo "*************"
+#	lsb_release -cs
+#
+#	sudo echo "*GIT Version*"
+#	sudo echo "*************"
+#	sudo git --version
+#
+#sudo echo "*************"
+#	sudo echo "*Python Version*"
+#	sudo echo "*************"
+#	python --version
+#
+#}
+#Function_VimFix()
+#{
+#	sudo cd
+#	sudo echo "set nocompatible" > /root/.vimrc
+#}
+#fun_menu()
+#{
+#	sudo echo "************************************************************"
+#	sudo echo "*The installation that can be performed by you:            *"
+#	sudo echo "*         Requires (yes/no) input                          *"
+#	sudo echo "*1)Ubuntu Update & Upgrade                                 *"
+#	sudo echo "*2)Git                                                     *"
+#	sudo echo "*3)Python                                                  *"
+#	sudo echo "*4)Docker                                                  *"
+#	sudo echo "*5)Docker Compose                                          *"
+#	sudo echo "*6)VON Network Build                                       *"
+#	sudo echo "*7)TOB Build                                               *"
+#	sudo echo "*8)green light Build                                       *"
+#	sudo echo "*9)Von Network Start-up                                    *"
+#	sudo echo "*                                                          *"
+#	sudo echo "************************************************************"
+#
+#}
+#Function_UbuntuUpgrade()
+#{
+#	sudo echo -e "\n\r***********************************";
+#	sudo echo "*       Updating your OS?         *";
+#	sudo echo "***********************************";
+#
+#        sudo echo "Updating system......";
+#        sudo apt-get update -y
+#        sudo apt-get upgrade -y
+#}	
+#Function_PreRequisites()
+#{
+#	sudo echo "************************************************************"
+#	sudo echo "*    Pre-Requesites listed below                          * "
+#	sudo echo "************************************************************"
+#	sudo echo "*                                                          *"
+#	sudo echo "*- you are using Ubuntu Bionic 18.04 (LTS)                 *"
+#	sudo echo "*  To install Docker Engine - Community                    *"
+#	sudo echo "*- Login as root user                                      *"
+#	sudo echo "*- Mininum 4GB RAM is required to set this env up          *"
+#	sudo echo "*- No special character in password                        *"
+#	sudo echo "************************************************************"
+#
+#}
+#Function_ProxyEnv()
+#{
+# 	unset http_proxy
+#        unset ftp_proxy
+#        unset https_proxy
+#        unset socks_proxy
+#        unset SOCKS_PROXY
+#        unset FTP_PROXY
+#        unset HTTPS_PROXY
+#        unset HTTP_PROXY
+#	export HTTPS_PROXY=http://${uname}:${pword}@${prox}:${port}/
+#        export HTTP_PROXY=http://${uname}:${pword}@${prox}:${port}/
+#        export FTP_PROXY=ftp://${uname}:${pword}@${prox}:${port}/
+#        export SOCKS_PROXY=socks://${uname}:${pword}@${prox}:${port}/
+#
+#        export http_proxy=http://${uname}:${pword}@${prox}:${port}/
+#        export https_proxy=http://${uname}:${pword}@${prox}:${port}/
+#        export ftp_proxy=ftp://${uname}:${pword}@${prox}:${port}/
+#        export socks_proxy=socks://${uname}:${pword}@${prox}:${port}/
+#	env | grep -i proxy
+#}
+#
+#Function_CheckProxy()
+#{
+#	sudo read -p "Are you behind a corporate proxy?" reply
+#if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
+#
+#then
+#       	proxychk=1 
+#	sudo dpkg --configure -a
+#	sudo read -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
+#        sudo echo -e "\n"
+#	sudo read -p "Enter the port?[eg :8080,443..etc]          :" port
+#        sudo echo -e "\n"
+#	sudo read -p "Enter AD ID? [eg :ai318974]                 :" uname
+#        sudo read -s -p "Enter password?[your login password]        : " pword
+#        sudo echo -e "\n"
+#	sudo read -p "Enter email ID?                             :" emil
+#	Function_ProxyEnv
+#        for proto in http https ftp socks;
+#        do
+#                if [ "$proto" = "https" ];
+#                then
+#                  printf 'Acquire::%s::proxy "http://%s:%s@%s:%u/";\n' "$proto" "$uname" "$pword" "$prox" "$port"
+#                else
+#                        printf 'Acquire::%s::proxy "%s://%s:%s@%s:%u/";\n' "$proto" "$proto" "$uname" "$pword" "$prox" "$port"
+#                fi
+#
+#        done | sudo tee -a /etc/apt/apt.conf > /dev/null
+#        sudo mkdir -p /etc/systemd/system/docker.service.d/
+# 	sudo touch /etc/systemd/system/docker.service.d/https-proxy.conf
+#        sudo echo -e "[Service]\nEnvironment="HTTPS_PROXY=http://${uname}:${pword}@${prox}:${port}"">>/etc/systemd/system/docker.service.d/https-proxy.conf
+#
+#        sudo echo "**********************"
+#        sudo git config --global user.name "${uname}"
+#        sudo git config --global user.email "${emil}"
+#        apt install ca-certificates -y
+#        sudo git config --global http.sslVerify false
+#        sudo git config --global http.proxy http://${uname}:${pword}@${prox}:${port}
+#else
+#        sudo echo "skipping the proxy settings"
+#fi
+#
+#}
+#Function_GitInstall()
+#{
+#	sudo echo -e "\n\r**********************************";
+#	sudo echo "*     Installing Git?            *";
+#	sudo echo "**********************************";
+#
+#        sudo apt install git -y
+#        sudo git --version
+#
+#}
+#Function_PythonInstall()
+#{
+#	sudo echo -e "\n\r**********************************";
+#	sudo echo "*      Installing Python?        *"
+#	sudo echo "**********************************"
+#        sudo apt install software-properties-common -y
+#        sudo apt install Python3.7 -y
+#	sudo apt install python-pip -y
+#	
+#	
+#}
+#Function_DockerInstall()
+#{
+#	sudo echo "*  Uninstalling Exising Docker...*";
+#        sudo echo "**********************************";
+#
+#        sudo apt-get remove docker docker-engine docker-ce docker-ce-cli docker.io -y
+#
+#        sudo echo -e "\n\r**********************************";
+#        sudo echo "*    Installing Docker...         *";
+#        sudo echo -e "**********************************\n\n\r";
+#        sudo apt-get update -y
+#        sudo apt install docker.io -y
+#        sudo echo -e "\n\r************************************************************************";
+#        sudo echo "*    Installing packages to allow apt to use a repository over HTTPS...   *";
+#        sudo echo -e "*************************************************************************\n\n\r";
+#
+#
+#
+#        sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+#
+#        sudo echo -e "\n\r******************************";
+#        sudo echo "*    Add Dockers official GPG key... *";
+#        sudo echo -e "*********************************\n\n\r";
+#        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+#
+#        sudo echo -e "\n\r***********************************************************";
+#        sudo echo "*    Verifying that you now have the key with the fingerprint: *";
+#        sudo echo -e "*********************************************************\n\n\r";
+# 	sudo apt-key fingerprint 0EBFCD88
+#
+#
+#        sudo echo -e "\n\n\r**********************************";
+#        sudo echo "*     setting up the stable repository...  *";
+#        sudo echo "**********************************";
+#        lsb_release -cs
+#        sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable"
+#
+#        sudo echo -e "\n\r**********************************";
+#        sudo echo "*    Installing Docker Engine...*";
+#        sudo echo "**********************************";
+#        sudo apt-get update -y
+#        sudo apt-get install docker-ce docker-ce-cli containerd.io -y
+#        sudo docker run hello-world
+#
+#
+#	sudo echo -e "\n\r***********************************";
+#	sudo echo "*    Installing Docker Compose?   *";
+#	sudo echo "***********************************";
+#        sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+#
+#        sudo chmod +x /usr/local/bin/docker-compose
+#        sudo echo -e "\n\r**********************************";
+#        sudo echo "*     Docker & Docker compose Version     *";
+#        sudo echo "**********************************";
+#        sudo systemctl start docker
+#        sudo systemctl enable docker
+#	sudo docker --version
+#        sudo docker-compose --version
+#        sudo echo -e "\n\r**********************************";
+#        sudo echo -e "\n\r*    Docker Login                *"
+#	sudo echo -e "\n\r**********************************";
+#	sudo rm -rf /root/.docker/
+#        sudo docker login
+#        
+#	if [[ "$proxychk" -eq 1 ]]
+#	then 
+#		sudo sed -i '$ d' /root/.docker/config.json
+#		sudo echo -e ",\n "\""proxies"\"": {\n\t "\""default"\"": {\n\t\t "\""httpProxy"\"": "\""http://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""httpsProxy"\"": "\""https://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""noProxy"\"": "\""localhost,127.0.0.0/8,*.local,host.docker.internal"\"" \n\t\t}\n\t}\n}">>/root/.docker/config.json
+#	fi
+#
+#}
+#Function_NpmInstall()
+#{
+#	sudo echo -e "\n\r***********************************";
+#	sudo echo "*    Purging NPM Components              *";
+#	sudo echo -e "\n\r***********************************";
+#	npm config rm proxy
+#	npm config rm proxy --global
+#
+#	npm config rm https-proxy
+#	npm config rm https-proxy --global
+#
+#	npm config rm registry
+#	npm cache clean
+#
+#	sudo sudo apt-get remove nodejs nodejs-dev node-gyp libssl1.0-dev npm
+#	sudo echo "Ignore!! these errors"
+#
+#	sudo echo -e "\n\r***********************************";
+#	sudo echo "*    Installing NPM Components              *";
+#	sudo echo -e "\n\r***********************************";
+#
+#	sudo sudo apt-get install nodejs nodejs-dev node-gyp libssl1.0-dev npm -y
+#
+#	npm config set https-proxy http://${uname}:${pword}@${prox}:${port}--global
+#	npm config set https-proxy http://${uname}:${pword}@${prox}:${port}
+#
+#	npm config set proxy http://${uname}:${pword}@${prox}:${port}--global
+#	npm config set proxy http://${uname}:${pword}@${prox}:${port}
+#
+#	npm config set registry http://registry.npmjs.org
+#	npm config set strict-ssl false
+#
+#}
+#Function_VonBuild()
+#{
+#		cd /home/KOB/	
+#		sudo echo "Build KOB-Von instance in your system" 
+#                sudo git clone https://github.com/hyperledgerkochi/von-network.git
+#                sudo /home/KOB/von-network/manage rm
+#                sudo /home/KOB/von-network/manage build
+#	
+#}
+#Function_VonStart()
+#{
+#	sudo /home/KOB/von-network/manage start
+#}	
+#Function_KobBuild()
+#{
+#		sudo echo "Setting-up KOB instance in your system?" 
+#                sudo git clone https://github.com/EtricKombat/TheOrgBook.git
+#                sudo wget --no-proxy https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+#                sudo tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+#                sudo mv s2i sti /usr/local/bin/
+#                sudo /home/KOB/TheOrgBook/docker/manage rm
+#		sudo /home/KOB/TheOrgBook/docker/manage build
+#		sudo sed -i -e 's/- 3000/- 3100/g' /home/KOB/TheOrgBook/docker/docker-compose.yml
+#
+#
+#}
+#
+#Function_KobStart()
+#{
+#	sudo read -p "Do you want to start KOB instance in your system?" reply
+#        if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
+#        then
+#	sudo /home/KOB/TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000
+#	fi
+#}
+#Function_DflowBuild()
+#{
+#		sudo echo "Setting-up GreenLight instance in your system"
+#
+#                sudo git clone https://github.com/EtricKombat/greenlight.git
+#                sudo wget --no-proxy https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+#                sudo tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz
+#                sudo mv s2i sti /usr/local/bin/
+#                sudo /home/KOB/greenlight/docker/manage rm
+#	        sudo /home/KOB/greenlight/docker/manage build
+#
+#
+#		
+#}
+#
+#fun_Dflow_start()
+#{
+#	sudo read -p "Do you want to setup GreenLight instance in your system?" reply
+#        if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ];
+#        then
+#		sudo /home/KOB/greenlight/docker/manage start 
+#	fi
+#}
 
 
 ############################### main function #######################################
