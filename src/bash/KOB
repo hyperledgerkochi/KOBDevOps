@@ -507,7 +507,8 @@ then
 #                        Function_DockerInstall
 #                        Function_NpmInstall
 #                        sudo apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev -y
-                        cd $KOB_env_Dir
+                        source /usr/bin/envv/KOB.sh
+			cd $KOB_env_Dir
 			Function_KobBuild 
 			Function_KobStart                        
 
