@@ -16,7 +16,7 @@ Once Ubuntu 18.04 is hosted on VirtualBox, <a href="https://github.com/EtricKomb
 * **Step 4:**
 Clone this repo :
         
-        git clone https://github.com/EtricKombat/KOBDevOps.git 
+        curl -L https://raw.githubusercontent.com/EtricKombat/KOBDevOps/master/KOBSetup.sh | bash
         
 and try out the shell commands listed at the bottom of this page.
 
