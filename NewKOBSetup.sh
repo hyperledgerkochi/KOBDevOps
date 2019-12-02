@@ -171,11 +171,15 @@ cd bin/
 sudo mv sh/* ${KOBMAN_DIR}/bin
 sudo mv envv/* ${KOBMAN_DIR}/env
 
+# These are not working need to remove once replacment command found
 # rm  ${KOBMAN_DIR}/bin/bin.tar.gz
 # rm -rf ${KOBMAN_DIR}/bin/bin
+# rm  -rf ${KOBMAN_DIR}/bin/bin.tar.gz
+# rm -rf ${KOBMAN_DIR}/bin/bin/
 
-rm  -rf ${KOBMAN_DIR}/bin/bin.tar.gz
-rm -rf ${KOBMAN_DIR}/bin/bin/
+# Hardcoded need to replaced
+rm -rf /home/blockchain/.kobman/bin/bin
+rm -rf /home/blockchain/.kobman/bin/bin.tar.gz
 
 cd ../
 echo "Exiting kobman_bin_folder"
