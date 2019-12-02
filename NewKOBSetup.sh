@@ -12,9 +12,9 @@ fi
 
 # Local variables
 
-mkdir -p ${KOBDEVOPS_DIR}/bin
-mkdir -p ${KOBDEVOPS_DIR}/src
-mkdir -p ${KOBDEVOPS_DIR}/env
+sudo mkdir -p ${KOBDEVOPS_DIR}/bin
+sudo mkdir -p ${KOBDEVOPS_DIR}/src
+sudo mkdir -p ${KOBDEVOPS_DIR}/env
 
 kobdevops_bin_folder="${KOBDEVOPS_DIR}/bin"
 kobdevops_src_folder="${KOBDEVOPS_DIR}/src"
