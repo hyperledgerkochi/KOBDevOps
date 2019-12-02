@@ -7,7 +7,7 @@ mkdir -p $HOME/.kobdevops
 
 
 if [ -z "$KOBDEVOPS_DIR" ]; then
-    KOBDEVOPS_DIR="$HOME/.kobdevops"
+    export KOBDEVOPS_DIR="$HOME/.kobdevops"
 fi
 
 # Local variables
