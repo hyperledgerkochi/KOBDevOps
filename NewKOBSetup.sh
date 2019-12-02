@@ -5,34 +5,56 @@
 #Install: stable
 
 # Global variables
-KOBDEVOPS_VERSION="0.01"
-KOBDEVOPS_PLATFORM=$(uname)
-#mkdir -p $HOME/.kobdevops
+KOBMAN_VERSION="0.01"
+KOBMAN_PLATFORM=$(uname)
+#mkdir -p $HOME/.kobman
 
 
-if [ -z "$KOBDEVOPS_DIR" ]; then
-    export KOBDEVOPS_DIR="$HOME/.kobdevops"
+
+# Sanity checks
+
+echo "Looking for a previous installation of KOBMAN..."
+if [ -d "$KOBMAN_DIR" ]; then
+	echo "KOBMAN found."
+	echo ""
+	echo "======================================================================================================"
+	echo " You already have KOBMAN installed."
+	echo " KOBMAN was found at:"
+	echo ""
+	echo "    ${KOBMAN_DIR}"
+	echo ""
+	echo " Please consider running the following if you need to upgrade."
+	echo ""
+	echo "    $ kob selfupdate force"
+	echo ""
+	echo "======================================================================================================"
+	echo ""
+	exit 0
+fi
+
+if [ -z "$KOBMAN_DIR" ]; then
+    export KOBMAN_DIR="$HOME/.kobman"
 fi
 
 # Local variables
 
-sudo mkdir -p ${KOBDEVOPS_DIR}/bin
-sudo mkdir -p ${KOBDEVOPS_DIR}/src
-sudo mkdir -p ${KOBDEVOPS_DIR}/env
+sudo mkdir -p ${KOBMAN_DIR}/bin
+sudo mkdir -p ${KOBMAN_DIR}/src
+sudo mkdir -p ${KOBMAN_DIR}/env
 
-kobdevops_bin_folder="${KOBDEVOPS_DIR}/bin"
-kobdevops_src_folder="${KOBDEVOPS_DIR}/src"
-kobdevops_env_folder="${KOBDEVOPS_DIR}/env"
+ kobman_bin_folder="${KOBMAN_DIR}/bin"
+ kobman_src_folder="${KOBMAN_DIR}/src"
+ kobman_env_folder="${KOBMAN_DIR}/env"
 
-kobdevops_bash_profile="${HOME}/.bash_profile"
-kobdevops_profile="${HOME}/.profile"
-kobdevops_bashrc="${HOME}/.bashrc"
-kobdevops_zshrc="${HOME}/.zshrc"
+kobman_bash_profile="${HOME}/.bash_profile"
+kobman_profile="${HOME}/.profile"
+kobman_bashrc="${HOME}/.bashrc"
+kobman_zshrc="${HOME}/.zshrc"
 
-kobdevops_init_snippet=$( cat << EOF
-#THIS MUST BE AT THE END OF THE FILE FOR KOBDEVOPS TO WORK!!!
-export KOBDEVOPS_DIR="$KOBDEVOPS_DIR"
-[[ -s "${KOBDEVOPS_DIR}/bin/kobdevops-init.sh" ]] && source "${KOBDEVOPS_DIR}/bin/kobdevops-init.sh"
+kobman_init_snippet=$( cat << EOF
+#THIS MUST BE AT THE END OF THE FILE FOR KOBMAN TO WORK!!!
+export KOBMAN_DIR="$KOBMAN_DIR"
+[[ -s "${KOBMAN_DIR}/bin/kobman-init.sh" ]] && source "${KOBMAN_DIR}/bin/kobman-init.sh"
 EOF
 )
 
@@ -62,26 +84,6 @@ echo "  / /| / /_/ / /_/ /_____/__/ /  __/ /_/ /_/ / /_/ / "
 echo " /_/ |_\____/_____/     /____/\___/\__/\__,_/  ___/  "
 echo "                                           /_/       "
 
-# Sanity checks
-
-echo "Looking for a previous installation of KOBDEVOPS..."
-if [ -d "$KOBDEVOPS_DIR" ]; then
-	echo "KOBDEVOPS found."
-	echo ""
-	echo "======================================================================================================"
-	echo " You already have KOBDEVOPS installed."
-	echo " KOBDEVOPS was found at:"
-	echo ""
-	echo "    ${KOBDEVOPS_DIR}"
-	echo ""
-	echo " Please consider running the following if you need to upgrade."
-	echo ""
-	echo "    $ kob selfupdate force"
-	echo ""
-	echo "======================================================================================================"
-	echo ""
-	exit 0
-fi
 
 echo "Looking for unzip..."
 if [ -z $(which unzip) ]; then
@@ -128,7 +130,7 @@ if [[ "$solaris" == true ]]; then
 		echo "======================================================================================================"
 		echo " Please install gsed on your solaris system."
 		echo ""
-		echo " KOBDEVOPS uses gsed extensively."
+		echo " KOBMAN uses gsed extensively."
 		echo ""
 		echo " Restart after installing gsed."
 		echo "======================================================================================================"
@@ -151,57 +153,61 @@ else
 fi
 
 
-echo "Installing KOBDEVOPS scripts..."
+echo "Installing KOBMAN scripts..."
 
 
 # Create directory structure
 
 echo "Create distribution directories..."
-mkdir -p "$kobdevops_bin_folder"
-mkdir -p "$kobdevops_src_folder"
-mkdir -p "$kobdevops_env_folder"
+mkdir -p "$kobman_bin_folder"
+mkdir -p "$kobman_src_folder"
+mkdir -p "$kobman_env_folder"
 
-
+cd kobman_bin_folder
+wget -L https://raw.githubusercontent.com/EtricKombat/KOBDevOps/master/bin.tar.gz
+sudo tar xvfz bin.tar.gz bin/
+mv bin/ ${KOBMAN_DIR}/bin
+cd ../
 
 
 echo "Extract script archive..."
 if [[ "$cygwin" == 'true' ]]; then
 	echo "Cygwin detected - normalizing paths for unzip..."
-	kobdevops_zip_file=$(cygpath -w "$kobdevops_zip_file")
-	kobdevops_stage_folder=$(cygpath -w "$kobdevops_stage_folder")
+	kobman_zip_file=$(cygpath -w "$kobman_zip_file")
+	kobman_stage_folder=$(cygpath -w "$kobman_stage_folder")
 fi
-unzip -qo "$kobdevops_zip_file" -d "$kobdevops_stage_folder"
+unzip -qo "$kobman_zip_file" -d "$kobman_stage_folder"
 
 
 
 if [[ $darwin == true ]]; then
-  touch "$kobdevops_bash_profile"
+  touch "$kobman_bash_profile"
   echo "Attempt update of login bash profile on OSX..."
-  if [[ -z $(grep 'kobdevops-init.sh' "$kobdevops_bash_profile") ]]; then
-    echo -e "\n$kobdevops_init_snippet" >> "$kobdevops_bash_profile"
-    echo "Added kobdevops init snippet to $kobdevops_bash_profile"
+  if [[ -z $(grep 'kobman-init.sh' "$kobman_bash_profile") ]]; then
+    echo -e "\n$kobman_init_snippet" >> "$kobman_bash_profile"
+    echo "Added kobman init snippet to $kobman_bash_profile"
   fi
 else
   echo "Attempt update of interactive bash profile on regular UNIX..."
-  touch "${kobdevops_bashrc}"
-  if [[ -z $(grep 'kobdevops-init.sh' "$kobdevops_bashrc") ]]; then
-      echo -e "\n$kobdevops_init_snippet" >> "$kobdevops_bashrc"
-      echo "Added kobdevops init snippet to $kobdevops_bashrc"
+  touch "${kobman_bashrc}"
+  if [[ -z $(grep 'kobman-init.sh' "$kobman_bashrc") ]]; then
+      echo -e "\n$kobman_init_snippet" >> "$kobman_bashrc"
+      echo "Added kobman init snippet to $kobman_bashrc"
   fi
 fi
 
 echo "Attempt update of zsh profile..."
-touch "$kobdevops_zshrc"
-if [[ -z $(grep 'kobdevops-init.sh' "$kobdevops_zshrc") ]]; then
-    echo -e "\n$kobdevops_init_snippet" >> "$kobdevops_zshrc"
-    echo "Updated existing ${kobdevops_zshrc}"
+touch "$kobman_zshrc"
+if [[ -z $(grep 'kobman-init.sh' "$kobman_zshrc") ]]; then
+    echo -e "\n$kobman_init_snippet" >> "$kobman_zshrc"
+    echo "Updated existing ${kobman_zshrc}"
 fi
 
 echo -e "\n\n\nAll done!\n\n"
 
 echo "Please open a new terminal, or run the following in the existing one:"
 echo ""
-echo "    source \"${KOBDEVOPS_DIR}/bin/kobdevops-init.sh\""
+echo "    source \"${KOBMAN_DIR}/bin/kobman-init.sh\""
 echo ""
 echo "Then issue the following command:"
 echo ""
