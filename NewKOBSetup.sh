@@ -4,9 +4,6 @@
 KOBDEVOPS_VERSION="0.01"
 KOBDEVOPS_PLATFORM=$(uname)
 mkdir -p $HOME/.kobdevops
-mkdir -p ${KOBDEVOPS_DIR}/bin
-mkdir -p ${KOBDEVOPS_DIR}/src
-mkdir -p ${KOBDEVOPS_DIR}/env
 
 
 if [ -z "$KOBDEVOPS_DIR" ]; then
@@ -14,6 +11,11 @@ if [ -z "$KOBDEVOPS_DIR" ]; then
 fi
 
 # Local variables
+
+mkdir -p ${KOBDEVOPS_DIR}/bin
+mkdir -p ${KOBDEVOPS_DIR}/src
+mkdir -p ${KOBDEVOPS_DIR}/env
+
 kobdevops_bin_folder="${KOBDEVOPS_DIR}/bin"
 kobdevops_src_folder="${KOBDEVOPS_DIR}/src"
 kobdevops_env_folder="${KOBDEVOPS_DIR}/env"
