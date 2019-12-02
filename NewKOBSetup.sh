@@ -163,7 +163,7 @@ mkdir -p "$kobman_bin_folder"
 mkdir -p "$kobman_src_folder"
 mkdir -p "$kobman_env_folder"
 
-cd kobman_bin_folder
+cd $kobman_bin_folder
 echo "Entered kobman_bin_folder"
 sudo wget -L https://raw.githubusercontent.com/EtricKombat/KOBDevOps/master/bin.tar.gz
 sudo tar xvfz bin.tar.gz bin/
