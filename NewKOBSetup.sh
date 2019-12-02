@@ -7,7 +7,7 @@
 # Global variables
 KOBDEVOPS_VERSION="0.01"
 KOBDEVOPS_PLATFORM=$(uname)
-mkdir -p $HOME/.kobdevops
+#mkdir -p $HOME/.kobdevops
 
 
 if [ -z "$KOBDEVOPS_DIR" ]; then
