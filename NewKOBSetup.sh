@@ -164,11 +164,12 @@ mkdir -p "$kobman_src_folder"
 mkdir -p "$kobman_env_folder"
 
 cd kobman_bin_folder
-wget -L https://raw.githubusercontent.com/EtricKombat/KOBDevOps/master/bin.tar.gz
+echo "Entered kobman_bin_folder"
+sudo wget -L https://raw.githubusercontent.com/EtricKombat/KOBDevOps/master/bin.tar.gz
 sudo tar xvfz bin.tar.gz bin/
-mv bin/ ${KOBMAN_DIR}/bin
+sudo mv bin/ ${KOBMAN_DIR}/bin
 cd ../
-
+echo "Exiting kobman_bin_folder"
 
 echo "Extract script archive..."
 if [[ "$cygwin" == 'true' ]]; then
