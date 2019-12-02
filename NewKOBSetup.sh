@@ -167,7 +167,8 @@ cd $kobman_bin_folder
 echo "Entered kobman_bin_folder"
 sudo wget -L https://raw.githubusercontent.com/EtricKombat/KOBDevOps/master/bin.tar.gz
 sudo tar xvfz bin.tar.gz bin/
-sudo mv bin/ ${KOBMAN_DIR}/bin
+sudo mv bin/envv/ bin/sh/ ${KOBMAN_DIR}/bin
+sudo rm bin.tar.gz
 cd ../
 echo "Exiting kobman_bin_folder"
 
