@@ -170,6 +170,7 @@ sudo tar xvfz bin.tar.gz bin/
 cd bin/
 sudo mv envv/ sh/ ${KOBMAN_DIR}/bin
 sudo rm bin.tar.gz
+sudo rm -rf bin/
 cd ../
 echo "Exiting kobman_bin_folder"
 
