@@ -166,8 +166,9 @@ mkdir -p "$kobman_env_folder"
 cd $kobman_src_folder
 echo "Entered kobman_bin_folder"
 sudo wget -L https://raw.githubusercontent.com/EtricKombat/KOBDevOps/master/main.tar.gz
-sudo tar xvfz main.tar.gz main/ 
 
+sudo tar xvfz main.tar.gz main/
+sudo mv main/ ${KOBMAN_DIR}/src/
 # These are not working need to remove once replacment command found
 # rm  ${KOBMAN_DIR}/bin/bin.tar.gz
 # rm -rf ${KOBMAN_DIR}/bin/bin
