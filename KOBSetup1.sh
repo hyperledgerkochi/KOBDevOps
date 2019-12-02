@@ -163,10 +163,10 @@ mkdir -p "$kobman_bin_folder"
 mkdir -p "$kobman_src_folder"
 mkdir -p "$kobman_env_folder"
 
-cd $kobman_bin_folder
+cd $kobman_src_folder
 echo "Entered kobman_bin_folder"
 sudo wget -L https://raw.githubusercontent.com/EtricKombat/KOBDevOps/master/main.tar.gz
-sudo tar xvfz main.tar.gz ${KOBMAN_DIR}/src 
+sudo tar xvfz main.tar.gz main/ 
 
 # These are not working need to remove once replacment command found
 # rm  ${KOBMAN_DIR}/bin/bin.tar.gz
@@ -175,9 +175,8 @@ sudo tar xvfz main.tar.gz ${KOBMAN_DIR}/src
 # rm -rf ${KOBMAN_DIR}/bin/bin/
 
 # Hardcoded need to replaced
-rm -rf /home/blockchain/.kobman/bin/bin
-rm -rf /home/blockchain/.kobman/bin/bin.tar.gz
 
+rm -rf /home/blockchain/.kobman/src/main.tar.gz
 cd ../
 echo "Exiting kobman_bin_folder"
 
