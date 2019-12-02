@@ -181,7 +181,7 @@ sudo mv main/ ${KOBMAN_DIR}/src/
 
 sudo rm -rf /home/blockchain/.kobman/src/main.tar.gz
 cd ../
-echo "Exiting kobman_env_folder"
+echo "Exiting kobman_bin_folder"
 
 echo "Extract script archive..."
 if [[ "$cygwin" == 'true' ]]; then
