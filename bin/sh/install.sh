@@ -58,14 +58,14 @@ Function_CheckProxy()
 then
         proxychk=1
         sudo dpkg --configure -a
-        read -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
+        read -s -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
         sudo echo -e "\n"
-        read -p "Enter the port?[eg :8080,443..etc]          :" port
+        read -s -p "Enter the port?[eg :8080,443..etc]          :" port
         sudo echo -e "\n"
-        read -p "Enter AD ID? [eg :ai318974]                 :" uname
+        read -s -p "Enter AD ID? [eg :ai318974]                 :" uname
         read -s -p "Enter password?[your login password]        : " pword
         sudo echo -e "\n"
-        read -p "Enter email ID?                             :" emil
+        read -s -p "Enter email ID?                             :" emil
         Function_ProxyEnv
         for proto in http https ftp socks;
         do

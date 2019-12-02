@@ -16,7 +16,7 @@ Once Ubuntu 18.04 is hosted on VirtualBox, <a href="https://github.com/EtricKomb
 * **Step 4:**
 Clone this repo :
         
-        git clone https://github.com/EtricKombat/KOBDevOps.git 
+        curl -L https://raw.githubusercontent.com/EtricKombat/KOBDevOps/master/KOBSetup.sh | bash
         
 and try out the shell commands listed at the bottom of this page.
 
@@ -45,32 +45,32 @@ Run the following commands on the terminal.
 
 ### Development environement setup commands:
 
-        ./KOB install --dev KOBVON
-        ./KOB install --dev KOBDflow
-        ./KOB install --dev KOBConnect        
-        ./KOB install --dev KOBRegistery
-        ./KOB install --dev TOB        
-        ./KOB install --dev TOBVON
-        ./KOB install --dev greenlight
+        KOB install --dev KOBVON
+        KOB install --dev KOBDflow
+        KOB install --dev KOBConnect        
+        KOB install --dev KOBRegistery
+        KOB install --dev TOB        
+        KOB install --dev TOBVON
+        KOB install --dev greenlight
         
 ### Deployment commands:
         
-        ./KOB install KOB
-        ./KOB install KOBVON        // Deploy KOBVON for testing
-        ./KOB install KOBDflow
-        ./KOB install KOBRegistery
-        ./KOB install KOBConnect
-        ./KOB install TOB
-        ./KOB install TOBVON
-        ./KOB install greenlight
+        KOB install KOB
+        KOB install KOBVON        // Deploy KOBVON for testing
+        KOB install KOBDflow
+        KOB install KOBRegistery
+        KOB install KOBConnect
+        KOB install TOB
+        KOB install TOBVON
+        KOB install greenlight
 
         
 ### Other useful commands:        
   
-        ./KOB install      // install default projects i.e KOBVON,KOBConnect, KOBRegistry..etc
-        ./KOB list
-        ./KOB status        
-        ./KOB help         // Opens help page
-        ./KOB uninstall        
-        ./KOB version      // list down  all the included tool version
+        KOB install      // install default projects i.e KOBVON,KOBConnect, KOBRegistry..etc
+        KOB list
+        KOB status        
+        KOB help         // Opens help page
+        KOB uninstall        
+        KOB version      // list down  all the included tool version
         

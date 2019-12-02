@@ -95,29 +95,31 @@ else
 fi
 
 
-echo "Installing KOBPROJECT scripts..."
+echo "Uninstalling KOBPROJECT scripts..."
 
 # Removing existing environment variables 
-sudo rm -rf /usr/bin/KOB_Dir/ /usr/bin/sh/ /usr/bin/envv/ /usr/bin/KOB
+sudo rm -rf /usr/bin/KOB_Dir/ /usr/bin/TOB_Dir/ /usr/bin/sh/ /usr/bin/envv/ /usr/bin/KOB
+
 
 # Create directory structure
 
+sudo echo "Installing KOBPROJECT scripts..."
 sudo echo "Creating KOB_Dir & exporting KOB_env_Dir"
 sudo mkdir -p /usr/bin/KOB_Dir
 export KOB_env_Dir=/usr/bin/KOB_Dir
-echo "change to KOB_env_Dir"
-cd $KOB_env_Dir
-sudo git clone https://github.com/EtricKombat/KOBDevOps.git
-
+sudo echo "Creating TOB_Dir & exporting TOB_env_Dir"
 sudo mkdir -p /usr/bin/TOB_Dir
 export TOB_env_Dir=/usr/bin/TOB_Dir
 
 
+ 
+echo "change to KOB_env_Dir"
+cd $KOB_env_Dir
+sudo git clone https://github.com/EtricKombat/KOBDevOps.git
 
-echo "This is the present working directory"
+
+echo "This is the present working directory now..."
 pwd
-
-
 
 
 
@@ -129,13 +131,13 @@ export KOB_SH=/usr/bin/sh
 export KOB_ENV=/usr/bin/envv
 
 
-
-
-
-
-
-
-
+sudo echo " Giving sufficient permissions " 
+cd /usr/bin
+sudo chmod -R a+x .
+sudo chmod -R a+r .
+sudo chmod -R o-w .
+sudo chmod -R 777 /usr/bin/envv/
+sudo chmod -R 777 /usr/bin/sh/
 
 echo -e "\n\n\nAll done!\n\n"
 
