@@ -42,9 +42,9 @@ sudo mkdir -p ${KOBMAN_DIR}/bin
 sudo mkdir -p ${KOBMAN_DIR}/src
 sudo mkdir -p ${KOBMAN_DIR}/env
 
- kobman_bin_folder="${KOBMAN_DIR}/bin"
- kobman_src_folder="${KOBMAN_DIR}/src"
- kobman_env_folder="${KOBMAN_DIR}/env"
+kobman_bin_folder="${KOBMAN_DIR}/bin"
+kobman_src_folder="${KOBMAN_DIR}/src"
+kobman_env_folder="${KOBMAN_DIR}/env"
 
 kobman_bash_profile="${HOME}/.bash_profile"
 kobman_profile="${HOME}/.profile"
@@ -167,7 +167,8 @@ cd $kobman_bin_folder
 echo "Entered kobman_bin_folder"
 sudo wget -L https://raw.githubusercontent.com/EtricKombat/KOBDevOps/master/bin.tar.gz
 sudo tar xvfz bin.tar.gz bin/
-sudo mv bin/envv/ bin/sh/ ${KOBMAN_DIR}/bin
+cd bin/
+sudo mv envv/ sh/ ${KOBMAN_DIR}/bin
 sudo rm bin.tar.gz
 cd ../
 echo "Exiting kobman_bin_folder"
