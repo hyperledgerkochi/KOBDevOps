@@ -1,51 +1,29 @@
-
-# https://asciinema.org/a/mnPb27iuQTEjMjuLn9c3iUDmi
+#!/bin/bash
 
 
 #Install: stable
 
 # Global variables
-KOBMAN_VERSION="0.01"
+# KOBMAN_SERVICE="https://api.kobman.io/2"
+KOBMAN_VERSION="5.7.4+362"
 KOBMAN_PLATFORM=$(uname)
-#mkdir -p $HOME/.kobman
-
-
-
-# Sanity checks
-
-echo "Looking for a previous installation of KOBMAN..."
-if [ -d "$KOBMAN_DIR" ]; then
-	echo "KOBMAN found."
-	echo ""
-	echo "======================================================================================================"
-	echo " You already have KOBMAN installed."
-	echo " KOBMAN was found at:"
-	echo ""
-	echo "    ${KOBMAN_DIR}"
-	echo ""
-	echo " Please consider running the following if you need to upgrade."
-	echo ""
-	echo "    $ kob selfupdate force"
-	echo ""
-	echo "======================================================================================================"
-	echo ""
-	exit 0
-fi
 
 if [ -z "$KOBMAN_DIR" ]; then
-    export KOBMAN_DIR="$HOME/.kobman"
+    KOBMAN_DIR="$HOME/.kobman"
 fi
 
 # Local variables
-
-sudo mkdir -p ${KOBMAN_DIR}/bin
-sudo mkdir -p ${KOBMAN_DIR}/src
-sudo mkdir -p ${KOBMAN_DIR}/env
-
 kobman_bin_folder="${KOBMAN_DIR}/bin"
 kobman_src_folder="${KOBMAN_DIR}/src"
-kobman_env_folder="${KOBMAN_DIR}/env"
-
+kobman_tmp_folder="${KOBMAN_DIR}/tmp"
+kobman_stage_folder="${kobman_tmp_folder}/stage"
+kobman_zip_file="${kobman_tmp_folder}/kobman-${KOBMAN_VERSION}.zip"
+kobman_ext_folder="${KOBMAN_DIR}/ext"
+kobman_etc_folder="${KOBMAN_DIR}/etc"
+kobman_var_folder="${KOBMAN_DIR}/var"
+kobman_archives_folder="${KOBMAN_DIR}/archives"
+kobman_candidates_folder="${KOBMAN_DIR}/candidates"
+kobman_config_file="${kobman_etc_folder}/config"
 kobman_bash_profile="${HOME}/.bash_profile"
 kobman_profile="${HOME}/.profile"
 kobman_bashrc="${HOME}/.bashrc"
@@ -77,13 +55,45 @@ case "$(uname)" in
         freebsd=true
 esac
 
+
+echo " "
+echo " "
+echo " "
+echo " "
+echo " "
+echo " "
+echo " "
+echo " "
+echo " "
+echo " "
 echo "     __ ______  ____       _____      __           "
 echo "    / //_/ __ \/ __ )     / ___/___  / /___  ______ "
 echo "   / ,< / / / / __  |_____\__ \/ _ \/ __/ / / / __ \ "
 echo "  / /| / /_/ / /_/ /_____/__/ /  __/ /_/ /_/ / /_/ / "
 echo " /_/ |_\____/_____/     /____/\___/\__/\__,_/  ___/  "
 echo "                                           /_/       "
+echo " Installing KOB Directory structure..."
 
+# Sanity checks
+
+echo "Looking for a previous installation of KOBMAN..."
+if [ -d "$KOBMAN_DIR" ]; then
+	echo "KOBMAN found."
+	echo ""
+	echo "======================================================================================================"
+	echo " You already have KOBMAN installed."
+	echo " KOBMAN was found at:"
+	echo ""
+	echo "    ${KOBMAN_DIR}"
+	echo ""
+	echo " Please consider running the following if you need to upgrade."
+	echo ""
+	echo "    $ kob selfupdate force"
+	echo ""
+	echo "======================================================================================================"
+	echo ""
+	exit 0
+fi
 
 echo "Looking for unzip..."
 if [ -z $(which unzip) ]; then
@@ -161,28 +171,38 @@ echo "Installing KOBMAN scripts..."
 echo "Create distribution directories..."
 mkdir -p "$kobman_bin_folder"
 mkdir -p "$kobman_src_folder"
-mkdir -p "$kobman_env_folder"
+mkdir -p "$kobman_tmp_folder"
+mkdir -p "$kobman_stage_folder"
+mkdir -p "$kobman_ext_folder"
+mkdir -p "$kobman_etc_folder"
+mkdir -p "$kobman_var_folder"
+mkdir -p "$kobman_archives_folder"
 
-cd $kobman_bin_folder
-echo "Entered kobman_bin_folder"
-sudo wget -L https://raw.githubusercontent.com/EtricKombat/KOBDevOps/master/bin.tar.gz
-sudo tar xvfz bin.tar.gz bin/
-cd bin/
-sudo mv sh/* ${KOBMAN_DIR}/bin
-sudo mv envv/* ${KOBMAN_DIR}/env
 
-# These are not working need to remove once replacment command found
-# rm  ${KOBMAN_DIR}/bin/bin.tar.gz
-# rm -rf ${KOBMAN_DIR}/bin/bin
-# rm  -rf ${KOBMAN_DIR}/bin/bin.tar.gz
-# rm -rf ${KOBMAN_DIR}/bin/bin/
+echo "Prime the config file..."
+touch "$kobman_config_file"
+echo "kobman_auto_answer=false" >> "$kobman_config_file"
+echo "kobman_auto_selfupdate=false" >> "$kobman_config_file"
+echo "kobman_insecure_ssl=false" >> "$kobman_config_file"
+echo "kobman_curl_connect_timeout=7" >> "$kobman_config_file"
+echo "kobman_curl_max_time=10" >> "$kobman_config_file"
+echo "kobman_beta_channel=false" >> "$kobman_config_file"
+echo "kobman_debug_mode=false" >> "$kobman_config_file"
+echo "kobman_colour_enable=true" >> "$kobman_config_file"
 
-# Hardcoded need to replaced
-sudo rm -rf /home/blockchain/.kobman/bin/bin
-sudo rm -rf /home/blockchain/.kobman/bin/bin.tar.gz
+echo "Download script archive..."
+curl --location --progress-bar "${KOBMAN_SERVICE}/broker/download/kobman/install/${KOBMAN_VERSION}/${KOBMAN_PLATFORM}" > "$kobman_zip_file"
 
-cd ../
-echo "Exiting kobman_bin_folder"
+ARCHIVE_OK=$(unzip -qt "$kobman_zip_file" | grep 'No errors detected in compressed data')
+if [[ -z "$ARCHIVE_OK" ]]; then
+	echo "Downloaded zip archive corrupt. Are you connected to the internet?"
+	echo ""
+	echo "If problems persist, please ask for help on our Slack:"
+	echo "* easy sign up: https://slack.kobman.io/"
+	echo "* report on channel: https://kobman.slack.com/app_redirect?channel=user-issues"
+	rm -rf "$KOBMAN_DIR"
+	exit 2
+fi
 
 echo "Extract script archive..."
 if [[ "$cygwin" == 'true' ]]; then
@@ -192,6 +212,13 @@ if [[ "$cygwin" == 'true' ]]; then
 fi
 unzip -qo "$kobman_zip_file" -d "$kobman_stage_folder"
 
+
+echo "Install scripts..."
+mv "${kobman_stage_folder}/kobman-init.sh" "$kobman_bin_folder"
+mv "$kobman_stage_folder"/kobman-* "$kobman_src_folder"
+
+echo "Set version to $KOBMAN_VERSION ..."
+echo "$KOBMAN_VERSION" > "${KOBMAN_DIR}/var/version"
 
 
 if [[ $darwin == true ]]; then
