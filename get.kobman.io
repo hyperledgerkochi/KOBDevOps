@@ -6,7 +6,7 @@
 # Global variables
 KOBMAN_VERSION="5.7.4+362"
 KOBMAN_PLATFORM=$(uname)
-KOBMAN_SERVICE="https://raw.githubusercontent.com/"
+KOBMAN_SERVICE="https://raw.githubusercontent.com"
 KOBMAN_NAMESPACE="EtricKombat"
 
 
