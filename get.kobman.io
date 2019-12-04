@@ -1,27 +1,15 @@
 
 #!/bin/bash
-#
-#   Copyright 2017 Marco Vermeulen
-#
-#   Licensed under the Apache License, Version 2.0 (the "License");
-#   you may not use this file except in compliance with the License.
-#   You may obtain a copy of the License at
-#
-#       http://www.apache.org/licenses/LICENSE-2.0
-#
-#   Unless required by applicable law or agreed to in writing, software
-#   distributed under the License is distributed on an "AS IS" BASIS,
-#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-#   See the License for the specific language governing permissions and
-#   limitations under the License.
-#
 
 #Install: stable
 
 # Global variables
-KOBMAN_SERVICE="https://api.kobman.io/2"
 KOBMAN_VERSION="5.7.4+362"
 KOBMAN_PLATFORM=$(uname)
+KOBMAN_SERVICE="https://raw.githubusercontent.com/"
+KOBMAN_NAMESPACE="EtricKombat"
+
+
 
 if [ -z "$KOBMAN_DIR" ]; then
     KOBMAN_DIR="$HOME/.kobman"
@@ -70,50 +58,12 @@ case "$(uname)" in
         freebsd=true
 esac
 
-
-echo ''
-echo '                                -+syyyyyyys:'
-echo '                            `/yho:`       -yd.'
-echo '                         `/yh/`             +m.'
-echo '                       .oho.                 hy                          .`'
-echo '                     .sh/`                   :N`                `-/o`  `+dyyo:.'
-echo '                   .yh:`                     `M-          `-/osysoym  :hs` `-+sys:      hhyssssssssy+'
-echo '                 .sh:`                       `N:          ms/-``  yy.yh-      -hy.    `.N-````````+N.'
-echo '               `od/`                         `N-       -/oM-      ddd+`     `sd:     hNNm        -N:'
-echo '              :do`                           .M.       dMMM-     `ms.      /d+`     `NMMs       `do'
-echo '            .yy-                             :N`    ```mMMM.      -      -hy.       /MMM:       yh'
-echo '          `+d+`           `:/oo/`       `-/osyh/ossssssdNMM`           .sh:         yMMN`      /m.'
-echo '         -dh-           :ymNMMMMy  `-/shmNm-`:N/-.``   `.sN            /N-         `NMMy      .m/'
-echo '       `oNs`          -hysosmMMMMydmNmds+-.:ohm           :             sd`        :MMM/      yy'
-echo '      .hN+           /d:    -MMMmhs/-.`   .MMMh   .ss+-                 `yy`       sMMN`     :N.'
-echo '     :mN/           `N/     `o/-`         :MMMo   +MMMN-         .`      `ds       mMMh      do'
-echo '    /NN/            `N+....--:/+oooosooo+:sMMM:   hMMMM:        `my       .m+     -MMM+     :N.'
-echo '   /NMo              -+ooooo+/:-....`...:+hNMN.  `NMMMd`        .MM/       -m:    oMMN.     hs'
-echo '  -NMd`                                    :mm   -MMMm- .s/     -MMm.       /m-   mMMd     -N.'
-echo ' `mMM/                                      .-   /MMh. -dMo     -MMMy        od. .MMMs..---yh'
-echo ' +MMM.                                           sNo`.sNMM+     :MMMM/        sh`+MMMNmNm+++-'
-echo ' mMMM-                                           /--ohmMMM+     :MMMMm.       `hyymmmdddo'
-echo ' MMMMh.                  ````                  `-+yy/`yMMM/     :MMMMMy       -sm:.``..-:-.`'
-echo ' dMMMMmo-.``````..-:/osyhddddho.           `+shdh+.   hMMM:     :MmMMMM/   ./yy/` `:sys+/+sh/'
-echo ' .dMMMMMMmdddddmmNMMMNNNNNMMMMMs           sNdo-      dMMM-  `-/yd/MMMMm-:sy+.   :hs-      /N`'
-echo '  `/ymNNNNNNNmmdys+/::----/dMMm:          +m-         mMMM+ohmo/.` sMMMMdo-    .om:       `sh'
-echo '     `.-----+/.`       `.-+hh/`         `od.          NMMNmds/     `mmy:`     +mMy      `:yy.'
-echo '           /moyso+//+ossso:.           .yy`          `dy+:`         ..       :MMMN+---/oys:'
-echo '         /+m:  `.-:::-`               /d+                                    +MMMMMMMNh:`'
-echo '        +MN/                        -yh.                                     `+hddhy+.'
-echo '       /MM+                       .sh:'
-echo '      :NMo                      -sh/'
-echo '     -NMs                    `/yy:'
-echo '    .NMy                  `:sh+.'
-echo '   `mMm`               ./yds-'
-echo '  `dMMMmyo:-.````.-:oymNy:`'
-echo '  +NMMMMMMMMMMMMMMMMms:`'
-echo '    -+shmNMMMNmdy+:`'
-echo ''
-echo ''
-echo '                                                                 Now attempting installation...'
-echo ''
-echo ''
+echo "     __ ______  ____       _____      __           "
+echo "    / //_/ __ \/ __ )     / ___/___  / /___  ______ "
+echo "   / ,< / / / / __  |_____\__ \/ _ \/ __/ / / / __ \ "
+echo "  / /| / /_/ / /_/ /_____/__/ /  __/ /_/ /_/ / /_/ / "
+echo " /_/ |_\____/_____/     /____/\___/\__/\__,_/  ___/  "
+echo "                                           /_/       "
 
 # Sanity checks
 
@@ -236,15 +186,16 @@ echo "kobman_debug_mode=false" >> "$kobman_config_file"
 echo "kobman_colour_enable=true" >> "$kobman_config_file"
 
 echo "Download script archive..."
-curl --location --progress-bar "${KOBMAN_SERVICE}/broker/download/kobman/install/${KOBMAN_VERSION}/${KOBMAN_PLATFORM}" > "$kobman_zip_file"
+
+curl --location --progress-bar "${KOBMAN_SERVICE}/${KOBMAN_NAMESPACE}/KOBDevOps/master/kobman_zip_file.zip" > "$kobman_zip_file"
 
 ARCHIVE_OK=$(unzip -qt "$kobman_zip_file" | grep 'No errors detected in compressed data')
 if [[ -z "$ARCHIVE_OK" ]]; then
 	echo "Downloaded zip archive corrupt. Are you connected to the internet?"
 	echo ""
-	echo "If problems persist, please ask for help on our Slack:"
-	echo "* easy sign up: https://slack.kobman.io/"
-	echo "* report on channel: https://kobman.slack.com/app_redirect?channel=user-issues"
+	echo "If problems persist, please ask for help on our Github:"
+	echo "* easy sign up: https://github.com/"
+	echo "https://github.com/EtricKombat/KOBDevOps/issues"
 	rm -rf "$KOBMAN_DIR"
 	exit 2
 fi
