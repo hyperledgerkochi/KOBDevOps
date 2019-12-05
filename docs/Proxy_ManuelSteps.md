@@ -1,14 +1,33 @@
 ## Proxy Steps
-* You should follow these steps if you are facing issue while proceeding with the <a href="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/02_ManuelSteps.md">manuel steps</a> .
-* minimum of 4GB RAM require for Virtual Machine
+* You should follow these steps if you are facing issue while proceeding with the <a href="https://github.com/EtricKombat/KOBDevOps/blob
 
 
 
 
-
-### QuickStart Guide:
+### Numbering Order
 * Use 64 bit <a href="https://ubuntu.com/download/desktop/thank-you?version=18.04.3&architecture=amd64">Ubuntu 18.04 ISO</a> Distribution 
 * Use <a href="https://download.virtualbox.org/virtualbox/6.0.14/VirtualBox-6.0.14-133895-Win.exe">VirtualBox </a> as Hypervisor
+
+
+<table>
+<tr><th>No: </th><th>Commands</th></tr>
+<tr><td>1.1</td><td></td></tr>
+</table>
+
+
+<table>
+<tr><th>No:1</th><th>If behind proxy server- add below listed proxy config to /etc/apt/apt.conf </th></tr>
+<tr><td>1.0</td><td>Acquire::http::proxy "http://username:password@domain.name.com:port/";</td></tr>
+<tr><td>1.1</td><td>Acquire::ftp::proxy "ftp://username:password@domain.name.com:port/";</td></tr>
+<tr><td>1.2</td><td>Acquire::https::proxy "https://username:password@domain.name.com:port/";</td></tr>
+<tr><td>1.3</td><td>Acquire::socks::proxy "socks://username:password@domain.name.com:port/";</td></tr>
+<tr><td>1.4</td><th>Exporting Proxy Env variable</th></tr>
+<tr><td>1.5</td><td>export http_proxy=http://username:password@domain.name.com:port/</td></tr>
+<tr><td>1.6</td><td>export https_proxy=http://username:password@domain.name.com:port/</td></tr>
+<tr><td>1.7</td><td>export ftp_proxy=ftp://username:password@domain.name.com:port/</td></tr>
+<tr><td>1.8</td><td>export socks_proxy=socks://username:password@domain.name.com:port/</td></tr>
+</table>
+
 
 
 
