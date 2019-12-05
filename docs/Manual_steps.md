@@ -69,75 +69,25 @@ This steps should perform on an 64 bit machine.
 <tr><td>7.6</td><td>/home/KOB/von-network/manage build</td></tr>
 <tr><td>7.7</td><td>/home/KOB/von-network/manage start</td></tr>
 <tr><th>8.0:</th><th>TheOrgBook installation - Commands</th></tr>
-<tr><td>8.</td><td>apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev npm</td></tr>
-<tr><td>8.</td><td>mkdir -p /home/KOB</td></tr>
-<tr><td>8.</td><td>cd /home/KOB</td></tr>
-<tr><td>8.</td><td>git clone https://github.com/hyperledgerkochi/TheOrgBook.git</td></tr>
-<tr><td>8.</td><td>wget https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz</td></tr>
-<tr><td>tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz</td></tr>
-<tr><td>mv s2i sti /usr/local/bin/</td></tr>
-<tr><td>/home/KOB/TheOrgBook/docker/manage rm </td></tr>
-<tr><td>/home/KOB/TheOrgBook/docker/manage build</td></tr>
-<tr><td>/home/KOB/TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000</td></tr>
+<tr><td>8.1</td><td>apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev npm</td></tr>
+<tr><td>8.2</td><td>mkdir -p /home/KOB</td></tr>
+<tr><td>8.3</td><td>cd /home/KOB</td></tr>
+<tr><td>8.4</td><td>git clone https://github.com/hyperledgerkochi/TheOrgBook.git</td></tr>
+<tr><td>8.5</td><td>wget https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz</td></tr>
+<tr><td>8.6</td><td>tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz</td></tr>
+<tr><td>8.7</td><td>mv s2i sti /usr/local/bin/</td></tr>
+<tr><td>8.8</td><td>/home/KOB/TheOrgBook/docker/manage rm </td></tr>
+<tr><td>8.9</td><td>/home/KOB/TheOrgBook/docker/manage build</td></tr>
+<tr><td>8.10</td><td>/home/KOB/TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000</td></tr>
+<tr><th>9.0:</th><th>greenlight installation - Commands</th></tr>
+<tr><td>9.1</td><td>apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev npm</td></tr>
+<tr><td>9.2</td><td>mkdir -p /home/KOB</td></tr>
+<tr><td>9.3</td><td>cd /home/KOB</td></tr>
+<tr><td>9.4</td><td>git clone https://github.com/hyperledgerkochi/greenlight.git	</td></tr>
+<tr><td>9.5</td><td>wget https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz</td></tr>
+<tr><td>9.6</td><td>tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz</td></tr>
+<tr><td>9.7</td><td>mv s2i sti /usr/local/bin/</td></tr>
+<tr><td>9.8</td><td>/home/KOB/greenlight/docker/manage rm </td></tr>
+<tr><td>9.9</td><td>/home/KOB/greenlight/docker/manage build </td></tr>
+<tr><td>9.10</td><td>/home/KOB/greenlight/docker/manage start</td></tr>
 </table>
-
-
-</table>
-
-
-
-
-## Expected Output:
-Checkout the expected <a href="https://github.com/EtricKombat/KOBDevOps/wiki/Contact-us-------Contribute-with-us-!">OutPut</a>  
-
-
-## Alternative Outputs/ Issues & Fix:
-*  ERROR: for tob_tob-api_1  Cannot start service tob-api: driver failed programming external connectivity on endpoint tob_tob-api_1   <a href="https://github.com/EtricKombat/KOBDevOps/issues/18">#18</a>
-* "http://localhost:8080/en/home" not working #854 <a href="https://github.com/bcgov/TheOrgBook/issues/854">#854</a>
-*  Bug 19 : "http://localhost:8080/en/home" not working <a href="https://github.com/EtricKombat/KOBDevOps/issues/19">#19</a>
-
-## Expected Output:
-
-Check (in VirtualMachine) the listed url : http://localhost:8080/en/home
-
-Snapshot of expected output:
-Snap1
-![](https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/TheOrgBook1.JPG)
-Snap2
-![](https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/TheOrgBook2.JPG)
-
----
-
-
-# 09-D-Flow
-
-
-<table>
-<tr><th>D-Flow -Build </th><th>D-Flow -Build playback</th><th>D-Flow -start playback</th></tr>
-<tr><td><a href="https://www.youtube.com/watch?v=gSQXq2_j-mw"><img src="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/VON1.gif" width="150"/></a>
-</td><td><a href="https://asciinema.org/a/GKTiz7phrerDYcyYUkO26XZhw"><img src="https://asciinema.org/a/GKTiz7phrerDYcyYUkO26XZhw.png" width="50"/></a></td><td><a href="https://asciinema.org/a/aaDjPHA92O5wJlSTPTOd6Xao2"><img src="https://asciinema.org/a/aaDjPHA92O5wJlSTPTOd6Xao2.png" width="150"/></a></td></tr>
-</table>
-please click on the picture for playback
-
-
-
-<table>
-<tr><th>Green Light Build - Commands : </th></tr>
-<tr><td>apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev npm</td></tr>
-<tr><td>mkdir -p /home/KOB</td></tr>
-<tr><td>cd /home/KOB</td></tr>
-<tr><td>git clone https://github.com/hyperledgerkochi/greenlight.git	</td></tr>
-<tr><td>wget https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz</td></tr>
-<tr><td>tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz</td></tr>
-<tr><td>mv s2i sti /usr/local/bin/</td></tr>
-<tr><td>/home/KOB/greenlight/docker/manage rm </td></tr>
-<tr><td>/home/KOB/greenlight/docker/manage build </td></tr>
-<tr><td>/home/KOB/greenlight/docker/manage start</td></tr>
-</table>
-
-
----
-
-
-
-
