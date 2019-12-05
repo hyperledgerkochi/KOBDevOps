@@ -61,57 +61,27 @@ This steps should perform on an 64 bit machine.
 <tr><td>6.9</td><td>npm config set registry http://registry.npmjs.org</td></tr>
 <tr><td>6.10</td><td>npm config set strict-ssl false</td></tr>
 <tr><th>7.0:</th><th>VON Network installation - Commands</th></tr>
-<tr><td>7.</td><td>apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev</td></tr>
-<tr><td>7.</td><td>mkdir -p /home/KOB</td></tr>
-<tr><td>7.</td><td>cd /home/KOB</td></tr>
-<tr><td>git clone https://github.com/hyperledgerkochi/von-network.git</td></tr>
-<tr><td>/home/KOB/von-network/manage rm</td></tr>
-<tr><td>/home/KOB/von-network/manage build</td></tr>
-<tr><td>/home/KOB/von-network/manage start</td></tr>
-
-</table>
-
-</table>
-
-
-
-## Expected Output:
-
-Check (in VirtualMachine) the listed url : http://localhost:9000
-
-Snapshot of expected output:
-
-![](https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/output.JPG)
-
-
-
-## Expected Output:
-Checkout the expected <a href="https://github.com/EtricKombat/KOBDevOps/wiki/Contact-us-------Contribute-with-us-!">OutPut</a>  
-
-
-## Alternative Outputs/ Issues & Fix:
-*  fatal: unable to access 'https://github.com/bcgov/von-network.git/': Problem with the SSL CA cert  <a href="https://github.com/EtricKombat/KOBDevOps/issues/11">#11</a>
----
-# 08- KOB (KochiOrgBook)
-<table>
-<tr><th>KOB - Build </th><th>KOB - Build playback</th><th>KOB - Startplayback</th></tr>
-<tr><td><a href="https://www.youtube.com/watch?v=R5TB-goL3_o&t=51s"><img src="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/KOB-Logo-Dark.jpg.jpeg" width="150"/></a>
-</td><td><a href="https://asciinema.org/a/TSpJSfz0azV8vvrR4eN2B7e13"><img src="https://asciinema.org/a/TSpJSfz0azV8vvrR4eN2B7e13.png" width="150"/></a></td><td><a href="https://asciinema.org/a/3oVI9VxseRXHCHLkEx8BR7Edx"><img src="https://asciinema.org/a/3oVI9VxseRXHCHLkEx8BR7Edx.png" width="50"/></a></td></tr>
-</table>
-
-
-<table>
-<tr><th>KOB Build - Commands : VON network should be up and running for KOB to work (ref : 07_VON_network steps) </th></tr>
-<tr><td>apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev npm</td></tr>
-<tr><td>mkdir -p /home/KOB</td></tr>
-<tr><td>cd /home/KOB</td></tr>
-<tr><td>git clone https://github.com/hyperledgerkochi/TheOrgBook.git</td></tr>
-<tr><td>wget https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz</td></tr>
+<tr><td>7.1</td><td>apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev</td></tr>
+<tr><td>7.2</td><td>mkdir -p /home/KOB</td></tr>
+<tr><td>7.3</td><td>cd /home/KOB</td></tr>
+<tr><td>7.4</td><td>git clone https://github.com/hyperledgerkochi/von-network.git</td></tr>
+<tr><td>7.5</td><td>/home/KOB/von-network/manage rm</td></tr>
+<tr><td>7.6</td><td>/home/KOB/von-network/manage build</td></tr>
+<tr><td>7.7</td><td>/home/KOB/von-network/manage start</td></tr>
+<tr><th>8.0:</th><th>TheOrgBook installation - Commands</th></tr>
+<tr><td>8.</td><td>apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev npm</td></tr>
+<tr><td>8.</td><td>mkdir -p /home/KOB</td></tr>
+<tr><td>8.</td><td>cd /home/KOB</td></tr>
+<tr><td>8.</td><td>git clone https://github.com/hyperledgerkochi/TheOrgBook.git</td></tr>
+<tr><td>8.</td><td>wget https://github.com/openshift/source-to-image/releases/download/v1.1.14/source-to-image-v1.1.14-874754de-linux-amd64.tar.gz</td></tr>
 <tr><td>tar -xvzf source-to-image-v1.1.14-874754de-linux-amd64.tar.gz</td></tr>
 <tr><td>mv s2i sti /usr/local/bin/</td></tr>
 <tr><td>/home/KOB/TheOrgBook/docker/manage rm </td></tr>
 <tr><td>/home/KOB/TheOrgBook/docker/manage build</td></tr>
 <tr><td>/home/KOB/TheOrgBook/docker/manage start seed=the_org_book_0000000000000000000</td></tr>
+</table>
+
+
 </table>
 
 
