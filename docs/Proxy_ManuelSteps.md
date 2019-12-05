@@ -1,5 +1,5 @@
 ## Proxy Steps
-* You should follow these steps if you are facing issue while proceeding with the <a href="https://github.com/EtricKombat/KOBDevOps/blob
+* You should follow these steps if you are facing issue while proceeding with the <a href="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/02_ManuelSteps.md">manuel steps</a>
 
 <table>
 <tr><th>No: </th><th>Commands</th></tr>
