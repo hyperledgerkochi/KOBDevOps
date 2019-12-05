@@ -5,17 +5,9 @@
 
 ### QuickStart Guide:
 * Use 64 bit <a href="https://ubuntu.com/download/desktop/thank-you?version=18.04.3&architecture=amd64">Ubuntu 18.04 ISO</a> Distribution 
-* Use <a href="https://download.virtualbox.org/virtualbox/6.0.14/VirtualBox-6.0.14-133895-Win.exe">VirtualBox </a> as Hypervisor
+* Use <a href="https://download.virtualbox.org/virtualbox/6.0.14/VirtualBox-6.0.14-133895-Win.exe">VirtualBox </a> as Hypervisor .
 
-
-
-# 01-Ubuntu 18.04LTS -Update,Upgrade: 
-<table>
-<tr><th>Ubuntu 18.04 installation - youtube</th><th>KOB Ubuntu Commands</th></tr>
-<tr><td><a href="https://www.youtube.com/watch?v=QbmRXJJKsvs&t=5s"><img src="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/Ubuntu_16.04_LTS_Starting.gif" width="150"/></a></td><td><a href="https://asciinema.org/a/A9CkbTz68Z178cElkWsUc3b45"><img src="https://asciinema.org/a/A9CkbTz68Z178cElkWsUc3b45.png" width="150"/></a></td></tr>
-</table>
-This steps should perform on an 64 bit 
-<a href="https://ubuntu.com/download/desktop/thank-you?version=18.04.3&architecture=amd64">Ubuntu 18.04 </a> Distribution (preferably use <a href="https://download.virtualbox.org/virtualbox/6.0.14/VirtualBox-6.0.14-133895-Win.exe">VirtualBox </a> as Hypervisor ) .
+This steps should perform on an 64 bit machine.
 
 
 
@@ -33,190 +25,52 @@ This steps should perform on an 64 bit
  <tr><td>2.5</td><td>git config --global http.sslVerify false</td></tr>
  <tr><td>2.6</td><td>apt install ca-certificates</td></tr>
  <tr><td>2.7</td><td>git config --system http.sslcainfo /bin/curl-ca-bundle.crt</td></tr>
-</table>
-
----
-
-# 02-Git Setting up 
-<table>
-<tr><th>Git installation - youtube</th><th>KOB Git Commands</th></tr>
-<tr><td><a href="https://www.youtube.com/watch?v=ZMgLZUYd8Cw"><img src="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/git.gif" width="150"/></a></td><td><a href="https://asciinema.org/a/c7kyhrbH0UTdLp5kIQt4019F7"><img src="https://asciinema.org/a/c7kyhrbH0UTdLp5kIQt4019F7.png" width="150"/></a></td></tr>
-</table>
-
-Once your Ubuntu system is upto date with updates and upgrades , you can install git and configure it.
-
-<table>
- <tr><th>Commands : </th></tr>
- <tr><td>apt install git -y</td></tr>
- <tr><td>git --version</td></tr>
- <tr><td>git config --global user.name "username"</td></tr>
- <tr><td>git config --global user.email "email"</td></tr>\
- <tr><td>git config --global http.sslVerify false</td></tr>
- <tr><td>apt install ca-certificates</td></tr>
- <tr><td>git config --system http.sslcainfo /bin/curl-ca-bundle.crt</td></tr>
-</table>
-<table>
- <tr><th>If behind proxy server- run the below listed config commands </th></tr>
- <tr><td>git config --global http.proxy http://username:password@domain.name.com:port</td></tr>
- <tr><td>git config --global https.proxy http://username:password@domain.name.com:port</td></tr>
-  </table>
-
-
-
-## Expected Output:
-Checkout the expected <a href="https://github.com/EtricKombat/KOBDevOps/wiki/Contact-us-------Contribute-with-us-!">OutPut</a>  
-
-
-## Alternative Outputs/ Issues & Fix:
-* git : Depends : liberror-perl but it is not installable :  <a href="https://github.com/EtricKombat/KOBDevOps/issues/5">#5</a>
-
-
----
-
-# 03-Python Installation
-
-<table>
-<tr><th>Python installation - youtube</th><th>KOB Python Commands</th></tr>
-<tr><td><a href="https://www.youtube.com/watch?v=uqiAvlL_7qY"><img src="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/Python2.gif" width="150"/></a></td><td><a href="https://asciinema.org/a/eEJPf7HvAuqUA2pDGYLSwOcVh"><img src="https://asciinema.org/a/eEJPf7HvAuqUA2pDGYLSwOcVh.png" width="150"/></a></td></tr>
-</table>
-
-<table>
- <tr><th>Commands : </th></tr>
- <tr><td>apt install software-properties-common -y</td></tr>
- <tr><td>sudo -E add-apt-repository ppa:ubuntu-toolchain-r/ppa</td></tr>
-<tr><td>apt install Python3.7 -y</td></tr>
- </table>
-
----
-
-
-
-# 04-Docker Setting up
-<table>
-<tr><th>Docker Installation - Youtube </th><th>KOB Docker Commands</th></tr>
-<tr><td><a href="https://www.youtube.com/watch?v=W7BvS942UZA&t=1s"><img src="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/docker.gif" width="150"/></a>
-</td><td><a href="https://asciinema.org/a/dETEoH3PlVprCMKbOECJ5WTmS"><img src="https://asciinema.org/a/dETEoH3PlVprCMKbOECJ5WTmS.png" width="150"/></a></td></tr>
-</table>
-
-
-<table>
- <tr><th>Docker - Commands : </th></tr>
- <tr><td>sudo apt-get remove docker docker-engine docker-ce docker-ce-cli docker.io</td></tr>
- <tr><td>apt-get update -y</td></tr>
- <tr><td>apt install docker.io</td></tr>
- <tr><td>apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y</td></tr>
- <tr><td>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</td></tr>
- <tr><td>apt-key fingerprint 0EBFCD88</td></tr>
- <tr><td>lsb_release -cs</td></tr>
- <tr><td>add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable"</td<</tr>
- <tr><td>apt-get update -y</td></tr>
-<tr><td>apt-get install docker-ce docker-ce-cli containerd.io -y</td></tr>
-<tr><td>docker run hello-world</td></tr>
-</table>
-
-# 05- Docker-Compose Setup
-<table>
-<tr><th>Docker Compose Installation - Youtube </th><th>KOB Docker Compose Commands</th></tr>
-<tr><td><a href="https://www.youtube.com/watch?v=Fc66mzA0DMs"><img src="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/dc.png" width="150"/></a>
-</td><td><a href="https://asciinema.org/a/CaMiEB4oF5jKTklsV0Jy5dSIp"><img src="https://asciinema.org/a/CaMiEB4oF5jKTklsV0Jy5dSIp.png" width="150"/></a></td></tr>
-</table>
-
-<table>
-<tr><th>Docker Compose - Commands : </th></tr>
-<tr><td>curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose</td></tr>
-<tr><td>chmod +x /usr/local/bin/docker-compose</td></tr>
-<tr><td>docker --version</td></tr>
-<tr><td>docker-compose --version</td></tr>
-<tr><td>systemctl start docker</td></tr>
-<tr><td>systemctl enable docker</td></tr>
-<tr><td>docker login</td></tr>
-</table>
-
-<table>
-<tr><th>Docker behind proxy </th></tr>
-<tr><td>mkdir -p /etc/systemd/system/docker.service.d/</td></tr>
-<tr><td>touch /etc/systemd/system/docker.service.d/https-proxy.conf</td></tr>
-<tr><td>echo -e "[Service]\nEnvironment="HTTPS_PROXY=http://username:password@domain.name.com:port"">>/etc/systemd/system/docker.service.d/https-proxy.conf </td></tr>
-<tr><td>rm -rf /root/.docker/config.json</td></tr>
-<tr><td>docker login</td></tr>
-<tr><td>sed -i '$ d' /root/.docker/config.json</td></tr>
-<tr><td>echo -e ",\n "\""proxies"\"": {\n\t "\""default"\"": {\n\t\t "\""httpProxy"\"": "\""http://username:password@domain.name.com:port"\"",\n\t\t "\""httpsProxy"\"": "\""https://username:password@domain.name.com:port"\"",\n\t\t "\""noProxy"\"": "\""localhost,127.0.0.0/8,*.local,host.docker.internal"\"" \n\t\t}\n\t}\n}">>/root/.docker/config.json
-</td></tr>
-</table>
-
-
-
-## Expected Output:
-Checkout the expected <a href="https://github.com/EtricKombat/KOBDevOps/wiki/Contact-us-------Contribute-with-us-!">OutPut</a>  
-
-
-## Alternative Outputs/ Issues & Fix:
-*  curl: (35) OpenSSL SSL_connect: SSL_ERROR_SYSCALL in connection to download.docker.com:443 gpg: no valid OpenPGP data found  <a href="https://github.com/EtricKombat/KOBDevOps/issues/4">#4</a>
-*  Could not handshake: The TLS connection was non-properly terminated  <a href="https://github.com/EtricKombat/KOBDevOps/issues/6">#6</a>
-*  docker: Error response from daemon: Get https:/registry-1.docker.io/v2/ <a href="https://github.com/EtricKombat/KOBDevOps/issues/7">#7</a>
-*  WARNING: Error loading config file: /root/.docker/config.json: unexpected EOF<a href="https://github.com/EtricKombat/KOBDevOps/issues/8">#8</a>
-*  No matching distribution found for pyyaml~=5.1.1 (from -r server/requirements.txt (line 1))<a href="https://github.com/EtricKombat/KOBDevOps/issues/9">#9</a>
-
-
-
-
-
----
-
-
-# 06-NPM Installation: 
-<table>
-<tr><th> NPM Installation - Youtube</th><th>NPM Installation playback</th></tr>
-<tr><td><a href="https://www.youtube.com/watch?v=K6QiSKy2zoM&t=468s"><img src="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/NPM.jpeg" width="150"/></a>
-</td><td><a href="https://asciinema.org/a/LVgJzmQeVe0meZ3ah0qmICzwO"><img src="https://asciinema.org/a/LVgJzmQeVe0meZ3ah0qmICzwO.png" width="150"/></a></td></tr>
-</table>
-
-<table>
-<tr><th>NPM - Commands : </th></tr>
-<tr><td>npm config rm proxy</td></tr>
-<tr><td>npm config rm proxy --global</td></tr>
-<tr><td>npm config rm https-proxy</td></tr>
-<tr><td>npm config rm https-proxy --global</td></tr>
-<tr><td>npm config rm registry</td></tr>
-<tr><td>npm cache clean</td></tr>
-<tr><td>sudo apt-get remove nodejs nodejs-dev node-gyp libssl1.0-dev npm</td></tr>
-<tr><td>sudo apt-get install nodejs nodejs-dev node-gyp libssl1.0-dev npm</td></tr>
-<tr><td>npm config set registry http://registry.npmjs.org</td></tr>
-<tr><td>npm config set strict-ssl false</td></tr>
-</table>
-<table>
-<tr><th>NPM - Proxy Commands : </th></tr>
-<tr><td>npm config set https-proxy http://${uname}:${pword}@${prox}:${port}--global</td></tr>
-<tr><td>npm config set https-proxy http://${uname}:${pword}@${prox}:${port}</td></tr>
-<tr><td>npm config set proxy http://${uname}:${pword}@${prox}:${port}--global</td></tr>
-<tr><td>npm config set proxy http://${uname}:${pword}@${prox}:${port}</td></tr>
-
-</table>
-
-## Alternative Outputs/ Issues & Fix:
-*  npm ERR! code ECONNRESET  <a href="https://github.com/EtricKombat/KOBDevOps/issues/12">#11</a>
-
-
----
-
-# 07-VON Network Setting up
-
-<table>
-<tr><th>VON Installation </th><th>VON Build - playback</th><th>VON Start playback</th></tr>
-<tr><td><a href="https://www.youtube.com/watch?v=g19VNv3DAd0&t=6s"><img src="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/VON-Logo.png" width="150"/></a>
-</td><td><a href="https://asciinema.org/a/yP3owPUZyXPfOAutnc0iyPH0s"><img src="https://asciinema.org/a/yP3owPUZyXPfOAutnc0iyPH0s.png" width="50"/></a></td><td><a href="https://asciinema.org/a/fNUJbkWiH5AtalMnfEo5mHDSX"><img src="https://asciinema.org/a/fNUJbkWiH5AtalMnfEo5mHDSX.png" width="150"/></a></td></tr>
-</table>
-
-
-<table>
-<tr><th>VON Network Build - Commands : </th></tr>
-<tr><td>apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev</td></tr>
-<tr><td>mkdir -p /home/KOB</td></tr>
-<tr><td>cd /home/KOB</td></tr>
+<tr><th>3.0:</th><th>Python installation - Commands</th></tr>
+<tr><td>3.1</td><td>apt install software-properties-common -y</td></tr>
+ <tr><td>3.2</td><td>sudo -E add-apt-repository ppa:ubuntu-toolchain-r/ppa</td></tr>
+<tr><td>3.3</td><td>apt install Python3.7 -y</td></tr>
+<tr><th>4.0:</th><th>Docker installation - Commands</th></tr>
+<tr><td>4.1</td><td>sudo apt-get remove docker docker-engine docker-ce docker-ce-cli docker.io</td></tr>
+ <tr><td>4.2</td><td>apt-get update -y</td></tr>
+ <tr><td>4.3</td><td>apt install docker.io</td></tr>
+ <tr><td>4.4</td><td>apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y</td></tr>
+ <tr><td>4.5</td><td>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</td></tr>
+ <tr><td>4.6</td><td>apt-key fingerprint 0EBFCD88</td></tr>
+ <tr><td>4.7</td><td>lsb_release -cs</td></tr>
+ <tr><td>4.8</td><td>add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable"</td<</tr>
+ <tr><td>4.9</td><td>apt-get update -y</td></tr>
+<tr><td>4.10</td><td>apt-get install docker-ce docker-ce-cli containerd.io -y</td></tr>
+<tr><td>4.11</td><td>docker run hello-world</td></tr>
+<tr><th>5.0:</th><th>Docker Compose installation - Commands</th></tr>
+<tr><td>5.1</td><td>curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose</td></tr>
+<tr><td>5.2</td><td>chmod +x /usr/local/bin/docker-compose</td></tr>
+<tr><td>5.3</td><td>docker --version</td></tr>
+<tr><td>5.4</td><td>docker-compose --version</td></tr>
+<tr><td>5.5</td><td>systemctl start docker</td></tr>
+<tr><td>5.6</td><td>systemctl enable docker</td></tr>
+<tr><td>5.7</td><td>docker login</td></tr>
+<tr><th>6.0:</th><th>NPM installation - Commands</th></tr>
+<tr><td>6.1</td><td>npm config rm proxy</td></tr>
+<tr><td>6.2</td><td>npm config rm proxy --global</td></tr>
+<tr><td>6.3</td><td>npm config rm https-proxy</td></tr>
+<tr><td>6.4</td><td>npm config rm https-proxy --global</td></tr>
+<tr><td>6.5</td><td>npm config rm registry</td></tr>
+<tr><td>6.6</td><td>npm cache clean</td></tr>
+<tr><td>6.7</td><td>sudo apt-get remove nodejs nodejs-dev node-gyp libssl1.0-dev npm</td></tr>
+<tr><td>6.8</td><td>sudo apt-get install nodejs nodejs-dev node-gyp libssl1.0-dev npm</td></tr>
+<tr><td>6.9</td><td>npm config set registry http://registry.npmjs.org</td></tr>
+<tr><td>6.10</td><td>npm config set strict-ssl false</td></tr>
+<tr><th>7.0:</th><th>VON Network installation - Commands</th></tr>
+<tr><td>7.</td><td>apt-get -y install build-essential nghttp2 libnghttp2-dev libssl-dev</td></tr>
+<tr><td>7.</td><td>mkdir -p /home/KOB</td></tr>
+<tr><td>7.</td><td>cd /home/KOB</td></tr>
 <tr><td>git clone https://github.com/hyperledgerkochi/von-network.git</td></tr>
 <tr><td>/home/KOB/von-network/manage rm</td></tr>
 <tr><td>/home/KOB/von-network/manage build</td></tr>
 <tr><td>/home/KOB/von-network/manage start</td></tr>
+
+</table>
+
 </table>
 
 
