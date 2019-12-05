@@ -1,14 +1,6 @@
 ## Proxy Steps
 * You should follow these steps if you are facing issue while proceeding with the <a href="https://github.com/EtricKombat/KOBDevOps/blob
 
-
-
-
-### Numbering Order
-* Use 64 bit <a href="https://ubuntu.com/download/desktop/thank-you?version=18.04.3&architecture=amd64">Ubuntu 18.04 ISO</a> Distribution 
-* Use <a href="https://download.virtualbox.org/virtualbox/6.0.14/VirtualBox-6.0.14-133895-Win.exe">VirtualBox </a> as Hypervisor
-
-
 <table>
 <tr><th>No: </th><th>Commands</th></tr>
 <tr><th>1.0</th><th>If behind proxy server- add below listed proxy config to /etc/apt/apt.conf </th></tr>
