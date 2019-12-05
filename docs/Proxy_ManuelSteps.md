@@ -11,174 +11,29 @@
 
 <table>
 <tr><th>No: </th><th>Commands</th></tr>
-<tr><td>1.1</td><td></td></tr>
-</table>
-
-
-<table>
-<tr><th>No:1</th><th>If behind proxy server- add below listed proxy config to /etc/apt/apt.conf </th></tr>
-<tr><td>1.0</td><td>Acquire::http::proxy "http://username:password@domain.name.com:port/";</td></tr>
-<tr><td>1.1</td><td>Acquire::ftp::proxy "ftp://username:password@domain.name.com:port/";</td></tr>
-<tr><td>1.2</td><td>Acquire::https::proxy "https://username:password@domain.name.com:port/";</td></tr>
-<tr><td>1.3</td><td>Acquire::socks::proxy "socks://username:password@domain.name.com:port/";</td></tr>
-<tr><td>1.4</td><th>Exporting Proxy Env variable</th></tr>
-<tr><td>1.5</td><td>export http_proxy=http://username:password@domain.name.com:port/</td></tr>
-<tr><td>1.6</td><td>export https_proxy=http://username:password@domain.name.com:port/</td></tr>
-<tr><td>1.7</td><td>export ftp_proxy=ftp://username:password@domain.name.com:port/</td></tr>
-<tr><td>1.8</td><td>export socks_proxy=socks://username:password@domain.name.com:port/</td></tr>
-</table>
-
-
-
-
-# 01-Ubuntu 18.04LTS -Update,Upgrade: 
-<table>
-<tr><th>Ubuntu 18.04 installation - youtube</th><th>KOB Ubuntu Commands</th></tr>
-<tr><td><a href="https://www.youtube.com/watch?v=QbmRXJJKsvs&t=5s"><img src="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/Ubuntu_16.04_LTS_Starting.gif" width="150"/></a></td><td><a href="https://asciinema.org/a/A9CkbTz68Z178cElkWsUc3b45"><img src="https://asciinema.org/a/A9CkbTz68Z178cElkWsUc3b45.png" width="150"/></a></td></tr>
-</table>
-This steps should perform on an 64 bit 
-<a href="https://ubuntu.com/download/desktop/thank-you?version=18.04.3&architecture=amd64">Ubuntu 18.04 </a> Distribution (preferably use <a href="https://download.virtualbox.org/virtualbox/6.0.14/VirtualBox-6.0.14-133895-Win.exe">VirtualBox </a> as Hypervisor ) .
-
-
-
-<table>
-<tr><th>Commands : </th></tr>
-<tr><td>apt-get update -y</td></tr>
-<tr><td>apt-get dist-upgrade -y</td></tr>
-</table>
-
-<table>
-<tr><th>If behind proxy server- add below listed proxy config to /etc/apt/apt.conf </th></tr>
-<tr><td>Acquire::http::proxy "http://username:password@domain.name.com:port/";</td></tr>
-<tr><td>Acquire::ftp::proxy "ftp://username:password@domain.name.com:port/";</td></tr>
-<tr><td>Acquire::https::proxy "https://username:password@domain.name.com:port/";</td></tr>
-<tr><td>Acquire::socks::proxy "socks://username:password@domain.name.com:port/";</td></tr>
-<tr><th>Exporting Proxy Env variable</th></tr>
-<tr><td>export http_proxy=http://username:password@domain.name.com:port/</td></tr>
-<tr><td>export https_proxy=http://username:password@domain.name.com:port/</td></tr>
-<tr><td>export ftp_proxy=ftp://username:password@domain.name.com:port/</td></tr>
-<tr><td>export socks_proxy=socks://username:password@domain.name.com:port/</td></tr>
-</table>
-
-
-
-
-## Expected Output:
-Checkout the expected <a href="https://github.com/EtricKombat/KOBDevOps/wiki/Contact-us-------Contribute-with-us-!">OutPut</a>  
-
-## Alternative Outputs/ Issues & Fix:
-* If you are not able to select the 64 bit option in Virtual box please refer <a href="https://github.com/EtricKombat/KOBDevOps/issues/1#issue-508252019">#1</a>
-* If you get error while updating your Ubuntu please refer , <a href="https://github.com/EtricKombat/KOBDevOps/issues/2">#2</a>,<a href="https://github.com/EtricKombat/KOBDevOps/issues/3">#3</a>
-<a href="https://github.com/EtricKombat/KOBDevOps/issues/10">#10</a>
-
-
----
-
-# 02-Git Setting up 
-<table>
-<tr><th>Git installation - youtube</th><th>KOB Git Commands</th></tr>
-<tr><td><a href="https://www.youtube.com/watch?v=ZMgLZUYd8Cw"><img src="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/git.gif" width="150"/></a></td><td><a href="https://asciinema.org/a/c7kyhrbH0UTdLp5kIQt4019F7"><img src="https://asciinema.org/a/c7kyhrbH0UTdLp5kIQt4019F7.png" width="150"/></a></td></tr>
-</table>
-
-Once your Ubuntu system is upto date with updates and upgrades , you can install git and configure it.
-
-<table>
- <tr><th>Commands : </th></tr>
- <tr><td>apt install git -y</td></tr>
- <tr><td>git --version</td></tr>
- <tr><td>git config --global user.name "username"</td></tr>
- <tr><td>git config --global user.email "email"</td></tr>\
- <tr><td>git config --global http.sslVerify false</td></tr>
- <tr><td>apt install ca-certificates</td></tr>
- <tr><td>git config --system http.sslcainfo /bin/curl-ca-bundle.crt</td></tr>
-</table>
-<table>
- <tr><th>If behind proxy server- run the below listed config commands </th></tr>
- <tr><td>git config --global http.proxy http://username:password@domain.name.com:port</td></tr>
- <tr><td>git config --global https.proxy http://username:password@domain.name.com:port</td></tr>
-  </table>
-
-
-
-## Expected Output:
-Checkout the expected <a href="https://github.com/EtricKombat/KOBDevOps/wiki/Contact-us-------Contribute-with-us-!">OutPut</a>  
-
-
-## Alternative Outputs/ Issues & Fix:
-* git : Depends : liberror-perl but it is not installable :  <a href="https://github.com/EtricKombat/KOBDevOps/issues/5">#5</a>
-
-
----
-
-# 03-Python Installation
-
-<table>
-<tr><th>Python installation - youtube</th><th>KOB Python Commands</th></tr>
-<tr><td><a href="https://www.youtube.com/watch?v=uqiAvlL_7qY"><img src="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/Python2.gif" width="150"/></a></td><td><a href="https://asciinema.org/a/eEJPf7HvAuqUA2pDGYLSwOcVh"><img src="https://asciinema.org/a/eEJPf7HvAuqUA2pDGYLSwOcVh.png" width="150"/></a></td></tr>
-</table>
-
-<table>
- <tr><th>Commands : </th></tr>
- <tr><td>apt install software-properties-common -y</td></tr>
- <tr><td>sudo -E add-apt-repository ppa:ubuntu-toolchain-r/ppa</td></tr>
-<tr><td>apt install Python3.7 -y</td></tr>
- </table>
-
----
-
-
-
-# 04-Docker Setting up
-<table>
-<tr><th>Docker Installation - Youtube </th><th>KOB Docker Commands</th></tr>
-<tr><td><a href="https://www.youtube.com/watch?v=W7BvS942UZA&t=1s"><img src="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/docker.gif" width="150"/></a>
-</td><td><a href="https://asciinema.org/a/dETEoH3PlVprCMKbOECJ5WTmS"><img src="https://asciinema.org/a/dETEoH3PlVprCMKbOECJ5WTmS.png" width="150"/></a></td></tr>
-</table>
-
-
-<table>
- <tr><th>Docker - Commands : </th></tr>
- <tr><td>sudo apt-get remove docker docker-engine docker-ce docker-ce-cli docker.io</td></tr>
- <tr><td>apt-get update -y</td></tr>
- <tr><td>apt install docker.io</td></tr>
- <tr><td>apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y</td></tr>
- <tr><td>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</td></tr>
- <tr><td>apt-key fingerprint 0EBFCD88</td></tr>
- <tr><td>lsb_release -cs</td></tr>
- <tr><td>add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable"</td<</tr>
- <tr><td>apt-get update -y</td></tr>
-<tr><td>apt-get install docker-ce docker-ce-cli containerd.io -y</td></tr>
-<tr><td>docker run hello-world</td></tr>
-</table>
-
-# 05- Docker-Compose Setup
-<table>
-<tr><th>Docker Compose Installation - Youtube </th><th>KOB Docker Compose Commands</th></tr>
-<tr><td><a href="https://www.youtube.com/watch?v=Fc66mzA0DMs"><img src="https://github.com/EtricKombat/KOBDevOps/blob/master/docs/assets/dc.png" width="150"/></a>
-</td><td><a href="https://asciinema.org/a/CaMiEB4oF5jKTklsV0Jy5dSIp"><img src="https://asciinema.org/a/CaMiEB4oF5jKTklsV0Jy5dSIp.png" width="150"/></a></td></tr>
-</table>
-
-<table>
-<tr><th>Docker Compose - Commands : </th></tr>
-<tr><td>curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose</td></tr>
-<tr><td>chmod +x /usr/local/bin/docker-compose</td></tr>
-<tr><td>docker --version</td></tr>
-<tr><td>docker-compose --version</td></tr>
-<tr><td>systemctl start docker</td></tr>
-<tr><td>systemctl enable docker</td></tr>
-<tr><td>docker login</td></tr>
-</table>
-
-<table>
-<tr><th>Docker behind proxy </th></tr>
-<tr><td>mkdir -p /etc/systemd/system/docker.service.d/</td></tr>
-<tr><td>touch /etc/systemd/system/docker.service.d/https-proxy.conf</td></tr>
-<tr><td>echo -e "[Service]\nEnvironment="HTTPS_PROXY=http://username:password@domain.name.com:port"">>/etc/systemd/system/docker.service.d/https-proxy.conf </td></tr>
-<tr><td>rm -rf /root/.docker/config.json</td></tr>
-<tr><td>docker login</td></tr>
-<tr><td>sed -i '$ d' /root/.docker/config.json</td></tr>
-<tr><td>echo -e ",\n "\""proxies"\"": {\n\t "\""default"\"": {\n\t\t "\""httpProxy"\"": "\""http://username:password@domain.name.com:port"\"",\n\t\t "\""httpsProxy"\"": "\""https://username:password@domain.name.com:port"\"",\n\t\t "\""noProxy"\"": "\""localhost,127.0.0.0/8,*.local,host.docker.internal"\"" \n\t\t}\n\t}\n}">>/root/.docker/config.json
+<tr><th>1.0</th><th>If behind proxy server- add below listed proxy config to /etc/apt/apt.conf </th></tr>
+<tr><td>1.1</td><td>Acquire::http::proxy "http://username:password@domain.name.com:port/";</td></tr>
+<tr><td>1.2</td><td>Acquire::ftp::proxy "ftp://username:password@domain.name.com:port/";</td></tr>
+<tr><td>1.3</td><td>Acquire::https::proxy "https://username:password@domain.name.com:port/";</td></tr>
+<tr><td>1.4</td><td>Acquire::socks::proxy "socks://username:password@domain.name.com:port/";</td></tr>
+<tr><th>2.0</th><th>Exporting Proxy Env variable</th></tr>
+<tr><td>2.1</td><td>export http_proxy=http://username:password@domain.name.com:port/</td></tr>
+<tr><td>2.2</td><td>export https_proxy=http://username:password@domain.name.com:port/</td></tr>
+<tr><td>2.3</td><td>export ftp_proxy=ftp://username:password@domain.name.com:port/</td></tr>
+<tr><td>2.4</td><td>export socks_proxy=socks://username:password@domain.name.com:port/</td></tr>
+ <tr><th>3.0</th><th>For git, behind proxy server- run the below listed config commands </th></tr>
+ <tr><td>3.1</td><td>git config --global http.proxy http://username:password@domain.name.com:port</td></tr>
+ <tr><td>3.2</td><td>git config --global https.proxy http://username:password@domain.name.com:port</td></tr>
+<tr><th>4.0</th><th>Docker behind proxy </th></tr>
+<tr><td>4.1</td><td>mkdir -p /etc/systemd/system/docker.service.d/</td></tr>
+<tr><td>4.2</td><td>touch /etc/systemd/system/docker.service.d/https-proxy.conf</td></tr>
+<tr><td>4.3</td><td>echo -e "[Service]\nEnvironment="HTTPS_PROXY=http://username:password@domain.name.com:port"">>/etc/systemd/system/docker.service.d/https-proxy.conf </td></tr>
+<tr><td>4.4</td><td>rm -rf /root/.docker/config.json</td></tr>
+<tr><td>4.5</td><td>docker login</td></tr>
+<tr><td>4.6</td><td>sed -i '$ d' /root/.docker/config.json</td></tr>
+<tr><td>4.7</td><td>echo -e ",\n "\""proxies"\"": {\n\t "\""default"\"": {\n\t\t "\""httpProxy"\"": "\""http://username:password@domain.name.com:port"\"",\n\t\t "\""httpsProxy"\"": "\""https://username:password@domain.name.com:port"\"",\n\t\t "\""noProxy"\"": "\""localhost,127.0.0.0/8,*.local,host.docker.internal"\"" \n\t\t}\n\t}\n}">>/root/.docker/config.json
 </td></tr>
+
 </table>
 
 
