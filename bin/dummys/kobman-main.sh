@@ -1,5 +1,20 @@
 #!/usr/bin/env bash
 
+#
+#   Copyright 2017 Marco Vermeulen
+#
+#   Licensed under the Apache License, Version 2.0 (the "License");
+#   you may not use this file except in compliance with the License.
+#   You may obtain a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS,
+#   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+#   See the License for the specific language governing permissions and
+#   limitations under the License.
+#
 
 function kob {
 
@@ -37,22 +52,22 @@ function kob {
 
 	# Check version and candidates cache
 	if [[ "$COMMAND" != "update" ]]; then
-		___kobdevops_check_candidates_cache "$KOBDEVOPS_CANDIDATES_CACHE" || return 1
-		___kobdevops_check_version_cache
+		___kobman_check_candidates_cache "$KOBMAN_CANDIDATES_CACHE" || return 1
+		___kobman_check_version_cache
 	fi
 
 	# Always presume internet availability
-	KOBDEVOPS_AVAILABLE="true"
-	if [ -z "$KOBDEVOPS_OFFLINE_MODE" ]; then
-		KOBDEVOPS_OFFLINE_MODE="false"
+	KOBMAN_AVAILABLE="true"
+	if [ -z "$KOBMAN_OFFLINE_MODE" ]; then
+		KOBMAN_OFFLINE_MODE="false"
 	fi
 
 	# ...unless proven otherwise
-	__kobdevops_update_broadcast_and_service_availability
+	__kobman_update_broadcast_and_service_availability
 
-	# Load the kobdevops config if it exists.
-	if [ -f "${KOBDEVOPS_DIR}/etc/config" ]; then
-		source "${KOBDEVOPS_DIR}/etc/config"
+	# Load the kobman config if it exists.
+	if [ -f "${KOBMAN_DIR}/etc/config" ]; then
+		source "${KOBMAN_DIR}/etc/config"
 	fi
 
 	# no command provided
@@ -63,13 +78,13 @@ function kob {
 
 	# Check if it is a valid command
 	CMD_FOUND=""
-	CMD_TARGET="${KOBDEVOPS_DIR}/src/kobdevops-${COMMAND}.sh"
+	CMD_TARGET="${KOBMAN_DIR}/src/kobman-${COMMAND}.sh"
 	if [[ -f "$CMD_TARGET" ]]; then
 		CMD_FOUND="$CMD_TARGET"
 	fi
 
 	# Check if it is a sourced function
-	CMD_TARGET="${KOBDEVOPS_DIR}/ext/kobdevops-${COMMAND}.sh"
+	CMD_TARGET="${KOBMAN_DIR}/ext/kobman-${COMMAND}.sh"
 	if [[ -f "$CMD_TARGET" ]]; then
 		CMD_FOUND="$CMD_TARGET"
 	fi
@@ -81,17 +96,17 @@ function kob {
 	fi
 
 	# Check whether the candidate exists
-	local kobdevops_valid_candidate=$(echo ${KOBDEVOPS_CANDIDATES[@]} | grep -w "$QUALIFIER")
-	if [[ -n "$QUALIFIER" && "$COMMAND" != "offline" && "$COMMAND" != "flush" && "$COMMAND" != "selfupdate" && -z "$kobdevops_valid_candidate" ]]; then
+	local kobman_valid_candidate=$(echo ${KOBMAN_CANDIDATES[@]} | grep -w "$QUALIFIER")
+	if [[ -n "$QUALIFIER" && "$COMMAND" != "offline" && "$COMMAND" != "flush" && "$COMMAND" != "selfupdate" && -z "$kobman_valid_candidate" ]]; then
 		echo ""
-		__kobdevops_echo_red "Stop! $QUALIFIER is not a valid candidate."
+		__kobman_echo_red "Stop! $QUALIFIER is not a valid candidate."
 		return 1
 	fi
 
 	# Validate offline qualifier
 	if [[ "$COMMAND" == "offline" && -n "$QUALIFIER" && -z $(echo "enable disable" | grep -w "$QUALIFIER") ]]; then
 		echo ""
-		__kobdevops_echo_red "Stop! $QUALIFIER is not a valid offline mode."
+		__kobman_echo_red "Stop! $QUALIFIER is not a valid offline mode."
 	fi
 
 	# Check whether the command exists as an internal function...
@@ -112,7 +127,7 @@ function kob {
 
 	# Attempt upgrade after all is done
 	if [[ "$COMMAND" != "selfupdate" ]]; then
-		__kobdevops_auto_update "$KOBDEVOPS_REMOTE_VERSION" "$KOBDEVOPS_VERSION"
+		__kobman_auto_update "$KOBMAN_REMOTE_VERSION" "$KOBMAN_VERSION"
 	fi
 	return $final_rc
 }
