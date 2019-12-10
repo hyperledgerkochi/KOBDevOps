@@ -171,7 +171,7 @@ mkdir -p "$kobman_archives_folder"
 mkdir -p "$kobman_candidates_folder"
 
 echo "Getting available candidates..."
-KOBMAN_CANDIDATES_CSV=$(curl -s "${KOBMAN_SERVICE}/candidates/all")
+KOBMAN_CANDIDATES_CSV=$(curl -s "${KOBMAN_SERVICE}/${KOBMAN_NAMESPACE}/KOBDevOps/master/all")
 echo "$KOBMAN_CANDIDATES_CSV" > "${KOBMAN_DIR}/var/candidates"
 
 echo "Prime the config file..."
