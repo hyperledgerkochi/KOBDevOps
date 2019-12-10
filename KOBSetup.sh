@@ -7,7 +7,17 @@
 
 # Global variables
 # KOBPROJECT_SERVICE="https://api.KOBDevOps.io/2"
-
+echo "   "
+echo "   "
+echo "   "
+echo "   "
+echo "   "
+echo "   "
+echo "   "
+echo "   "
+echo "   "
+echo "   "
+echo "   "
 echo "     __ ______  ____       _____      __           " 
 echo "    / //_/ __ \/ __ )     / ___/___  / /___  ______ "  
 echo "   / ,< / / / / __  |_____\__ \/ _ \/ __/ / / / __ \ " 
