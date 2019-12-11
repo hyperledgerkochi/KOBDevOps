@@ -194,14 +194,18 @@ function __kobman_vim_fix {
 }
 
 function __kobman_ubuntu_update_upgrade {
+
 }
 
 function __kobman_proxy_environment {
 }
+
 function __kobman_check_proxy {
 }
+
 function __kobman_git_install {
 }
+
 function __kobman_python_install {
 }
 
