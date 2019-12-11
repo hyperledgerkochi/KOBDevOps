@@ -190,29 +190,36 @@ function __kobman_validate_zip {
 
 
 function __kobman_vim_fix {
-
+echo "vim fix"
 }
 
 function __kobman_ubuntu_update_upgrade {
 
+echo "ubuntu update & upgrade"
 }
 
 function __kobman_proxy_environment {
+echo "proxy environment"
 }
 
 function __kobman_check_proxy {
+echo "check proxy"
 }
 
 function __kobman_git_install {
+echo "git install"
 }
 
 function __kobman_python_install {
+echo "python install"
 }
 
 function __kobman_docker_install {
+echo "docker install"
 }
 
 function __kobman_npm_install {
+echo " npm install "
 }
 
 
