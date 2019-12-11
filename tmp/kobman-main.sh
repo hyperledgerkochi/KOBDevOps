@@ -55,16 +55,16 @@ function kob {
 		___kobman_check_candidates_cache "$KOBMAN_CANDIDATES_CACHE" || return 1
 		___kobman_check_version_cache
 	fi
-
-	# Always presume internet availability
-	KOBMAN_AVAILABLE="true"
-	if [ -z "$KOBMAN_OFFLINE_MODE" ]; then
-		KOBMAN_OFFLINE_MODE="false"
-	fi
-
-	# ...unless proven otherwise
-	__kobman_update_broadcast_and_service_availability
-
+#
+#	# Always presume internet availability
+#	KOBMAN_AVAILABLE="true"
+#	if [ -z "$KOBMAN_OFFLINE_MODE" ]; then
+#		KOBMAN_OFFLINE_MODE="false"
+#	fi
+#
+#	# ...unless proven otherwise
+#	__kobman_update_broadcast_and_service_availability
+#
 	# Load the kobman config if it exists.
 	if [ -f "${KOBMAN_DIR}/etc/config" ]; then
 		source "${KOBMAN_DIR}/etc/config"
