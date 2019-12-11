@@ -37,4 +37,16 @@ function __kob_uninstall {
 	else
 		__kobman_echo_red "${candidate} ${version} is not installed."
 	fi
+
+}
+
+
+function __kobman_unset_proxy_environment {
+
+}
+
+function __kobman_unset_ubuntu_proxy {
+}
+
+function __kobman_uninstall_basic {
 }

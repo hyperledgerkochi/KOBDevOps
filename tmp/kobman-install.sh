@@ -184,4 +184,34 @@ function __kobman_validate_zip {
 		__kobman_echo_red "Stop! The archive was corrupt and has been removed! Please try installing again."
 		return 1
 	fi
+
 }
+
+
+
+function __kobman_vim_fix {
+
+}
+
+function __kobman_ubuntu_update_upgrade {
+}
+
+function __kobman_proxy_environment {
+}
+function __kobman_check_proxy {
+}
+function __kobman_git_install {
+}
+function __kobman_python_install {
+}
+
+function __kobman_docker_install {
+}
+
+function __kobman_npm_install {
+}
+
+
+
+
+
