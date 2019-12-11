@@ -42,11 +42,13 @@ function __kob_uninstall {
 
 
 function __kobman_unset_proxy_environment {
-
+	echo "unset proxy environment"
 }
 
 function __kobman_unset_ubuntu_proxy {
+	echo "unset ubuntu proxy"
 }
 
 function __kobman_uninstall_basic {
+	echo "uninstall basic"
 }
