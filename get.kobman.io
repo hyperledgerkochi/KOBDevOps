@@ -123,6 +123,45 @@ if [ -z $(which curl) ]; then
 	exit 1
 fi
 
+echo "Looking for git..."
+if [ -z $(which git) ]; then
+        echo "Not found."
+        echo ""
+        echo "======================================================================================================"
+        echo " Please install git on your system using your favourite package manager."
+        echo ""
+        echo " Restart after installing git."
+        echo "======================================================================================================"
+        echo ""
+        exit 1
+fi
+echo "Looking for python..."
+if [ -z $(which python) ]; then
+        echo "Not found."
+        echo ""
+        echo "======================================================================================================"
+        echo " Please install python on your system using your favourite package manager."
+        echo ""
+        echo " Restart after installing python."
+        echo "======================================================================================================"
+        echo ""
+        exit 1
+fi
+
+
+echo "Looking for docker..."
+if [ -z $(which docker ) ]; then
+        echo "Not found."
+        echo ""
+        echo "======================================================================================================"
+        echo " Please install docker on your system using your favourite package manager."
+        echo ""
+        echo " Restart after installing docker."
+        echo "======================================================================================================"
+        echo ""
+        exit 1
+fi
+
 if [[ "$solaris" == true ]]; then
 	echo "Looking for gsed..."
 	if [ -z $(which gsed) ]; then
