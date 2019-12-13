@@ -354,6 +354,7 @@ sudo echo -e "\n\r**********************************";
                 sudo sed -i '$ d' /root/.docker/config.json
                 sudo echo -e ",\n "\""proxies"\"": {\n\t "\""default"\"": {\n\t\t "\""httpProxy"\"": "\""http://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""httpsProxy"\"": "\""https://${uname}:${pword}@${prox}:${port}"\"",\n\t\t "\""noProxy"\"": "\""localhost,127.0.0.0/8,*.local,host.docker.internal"\"" \n\t\t}\n\t}\n}">>/root/.docker/config.json
 
+	fi
 }
 
 function __kobman_npm_install {
