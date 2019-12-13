@@ -193,12 +193,14 @@ function __kobman_vim_fix {
 
 	sudo cd
         sudo echo "set nocompatible" > /root/.vimrc
+
 }
 
 function __kobman_ubuntu_update_upgrade {
 
 	sudo apt-get update -y
         sudo apt-get dist-upgrade -y
+
 }
 
 function __kobman_proxy_environment {
@@ -222,24 +224,26 @@ function __kobman_proxy_environment {
         export socks_proxy=socks://${uname}:${pword}@${prox}:${port}/
         env | grep -i proxy
 
+
 }
 
 function __kobman_check_proxy {
 
-read -p "Are you behind a corporate proxy?" reply
-        if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ]
-then
-        proxychk=1
-        sudo dpkg --configure -a
-        read -s -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
-        sudo echo -e "\n"
-        read -s -p "Enter the port?[eg :8080,443..etc]          :" port
-        sudo echo -e "\n"
-        read -s -p "Enter AD ID? [eg :ai318974]                 :" uname
-        read -s -p "Enter password?[your login password]        : " pword
-        sudo echo -e "\n"
-        read -s -p "Enter email ID?                             :" emil
-        Function_ProxyEnv
+	read -p "Are you behind a corporate proxy?" reply 
+        if [ [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ] ]
+	then
+		proxychk=1
+        
+		sudo dpkg --configure -a
+        	read -s -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
+        	sudo echo -e "\n"
+         	read -s -p "Enter the port?[eg :8080,443..etc]          :" port
+         	sudo echo -e "\n"
+         	read -s -p "Enter AD ID? [eg :ai318974]                 :" uname
+         	read -s -p "Enter password?[your login password]        : " pword
+         	sudo echo -e "\n"
+         	read -s -p "Enter email ID?                             :" emil
+         	Function_ProxyEnv
         for proto in http https ftp socks;
         do
                 if [ "$proto" = "https" ];
@@ -262,8 +266,14 @@ then
         sudo git config --global http.sslVerify false
         sudo git config --global http.proxy http://${uname}:${pword}@${prox}:${port}
 
+else 
+       sudo echo "Skipping the proxy settings"
+fi
 
 }
+
+
+
 
 function __kobman_git_install {
 
