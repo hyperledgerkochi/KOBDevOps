@@ -118,6 +118,7 @@ function kob {
     			__kobman_python_install
  			__kobman_docker_install
 	     		__kobman_npm_install
+			__kobman_tobvon_build
 			elif [[ "$THREE" = "tob" ]]; then	
 				echo "Building tob..."	
 			elif [[ "$THREE" = "greenlight" ]]; then	
