@@ -230,10 +230,8 @@ function __kobman_proxy_environment {
 function __kobman_check_proxy {
 
 	read -p "Are you behind a corporate proxy?" reply 
-        if [ [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ] ]
-	then
+        if [[ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ]]; then
 		proxychk=1
-        
 		sudo dpkg --configure -a
         	read -s -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
         	sudo echo -e "\n"
@@ -243,7 +241,7 @@ function __kobman_check_proxy {
          	read -s -p "Enter password?[your login password]        : " pword
          	sudo echo -e "\n"
          	read -s -p "Enter email ID?                             :" emil
-         	Function_ProxyEnv
+         	__kobman_proxy_environment
         for proto in http https ftp socks;
         do
                 if [ "$proto" = "https" ];
@@ -262,7 +260,7 @@ function __kobman_check_proxy {
         sudo echo "**********************"
         sudo git config --global user.name "${uname}"
         sudo git config --global user.email "${emil}"
-	 sudo apt install ca-certificates -y
+	sudo apt install ca-certificates -y
         sudo git config --global http.sslVerify false
         sudo git config --global http.proxy http://${uname}:${pword}@${prox}:${port}
 
@@ -291,11 +289,12 @@ function __kobman_python_install {
 
 function __kobman_docker_install {
 
-sudo sudo apt-get remove docker docker-engine docker-ce docker-ce-cli docker.io -y
+        sudo apt-get remove docker docker-engine docker-ce docker-ce-cli docker.io -y
         sudo echo -e "\n\r**********************************";
         sudo echo "*    Installing Docker...         *";
         sudo echo -e "**********************************\n\n\r";
-        sudo apt-get update -y
+	sudo figlet Installing Docker ..
+	sudo apt-get update -y
         sudo apt install docker.io -y
         sudo echo -e "\n\r************************************************************************";
         sudo echo "*    Installing packages to allow apt to use a repository over HTTPS...   *";
