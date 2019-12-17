@@ -95,6 +95,10 @@ function kob {
 		__kob_help
 	fi
 
+
+	if [[ "$QUALIFIER" = "tobvon" ]]; then
+		echo "tobvon building.."
+	fi
 #	# Check whether the candidate exists
 #	local kobman_valid_candidate=$(echo ${KOBMAN_CANDIDATES[@]} | grep -w "$QUALIFIER")
 #	if [[ -n "$QUALIFIER" && "$COMMAND" != "offline" && "$COMMAND" != "flush" && "$COMMAND" != "selfupdate" && -z "$kobman_valid_candidate" ]]; then
