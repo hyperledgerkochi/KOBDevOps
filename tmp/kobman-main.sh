@@ -112,6 +112,12 @@ function kob {
 				echo "Building kobregistory..."	
 			elif [[ "$THREE" = "tobvon" ]]; then	
 				echo "Building tobvon..."	
+			__kobman_check_proxy
+			__kobman_ubuntu_update_upgrade
+			__kobman_git_install
+    			__kobman_python_install
+ 			__kobman_docker_install
+	     		__kobman_npm_install
 			elif [[ "$THREE" = "tob" ]]; then	
 				echo "Building tob..."	
 			elif [[ "$THREE" = "greenlight" ]]; then	
