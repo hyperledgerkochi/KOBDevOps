@@ -20,7 +20,7 @@ function kob {
 
 	COMMAND="$1"
 	QUALIFIER="$2"
-
+	THREE="$3"
 	case "$COMMAND" in
 		l)
 			COMMAND="list";;
@@ -87,8 +87,7 @@ function kob {
 	CMD_TARGET="${KOBMAN_DIR}/ext/kobman-${COMMAND}.sh"
 	if [[ -f "$CMD_TARGET" ]]; then
 		CMD_FOUND="$CMD_TARGET"
-	fi
-
+	fi 
 	# couldn't find the command
 	if [[ -z "$CMD_FOUND" ]]; then
 		echo "Invalid command: $COMMAND"
@@ -96,10 +95,65 @@ function kob {
 	fi
 
 
-	if [[ "$QUALIFIER" = "tobvon" ]]; then
-		echo "tobvon building.."
-	fi
-#	# Check whether the candidate exists
+
+	case $QUALIFIER in
+		--dev)
+			if [[ "$THREE" = "all" ]]; then
+				echo "working all parameter"
+			elif [[ "$THREE" = "kobvon" ]]; then	
+				echo "Building kobvon..."	
+			elif [[ "$THREE" = "kob" ]]; then	
+				echo "Building kob..."	
+			elif [[ "$THREE" = "kobdflow" ]]; then	
+				echo "Building kobdflow..."	
+			elif [[ "$THREE" = "kobconnect" ]]; then	
+				echo "Building kobconnect..."	
+			elif [[ "$THREE" = "kobregistory" ]]; then	
+				echo "Building kobregistory..."	
+			elif [[ "$THREE" = "tobvon" ]]; then	
+				echo "Building tobvon..."	
+			elif [[ "$THREE" = "tob" ]]; then	
+				echo "Building tob..."	
+			elif [[ "$THREE" = "greenlight" ]]; then	
+				echo "Building greenlight ..."	
+			else
+				echo "verifiy your command and try again"
+			fi		
+		;;
+
+		kobvon)
+				echo "starting kobvon..."	
+		;;
+		kob)
+				echo "starting kob..."	
+		;;
+				
+		kobdflow)
+				echo "starting kobdflow..."	
+		;;
+		kobconnect)
+				echo "starting kobconnect..."	
+		;;
+		kobregistory)
+				echo "starting kobregistory..."	
+		;;
+		tobvon)
+				echo "starting tobvon..."	
+		;;
+		tob)
+				echo "starting tob..."	
+		;;
+		greenlight)
+				echo "starting greenlight ..."	
+		;;
+		*)
+			if [[ -z $QUALIFIER ]]; then
+				echo "Default Projects are tobvon,tob,greenlight"	
+			fi			
+		;;
+
+	esac
+				#	# Check whether the candidate exists
 #	local kobman_valid_candidate=$(echo ${KOBMAN_CANDIDATES[@]} | grep -w "$QUALIFIER")
 #	if [[ -n "$QUALIFIER" && "$COMMAND" != "offline" && "$COMMAND" != "flush" && "$COMMAND" != "selfupdate" && -z "$kobman_valid_candidate" ]]; then
 #		echo ""
