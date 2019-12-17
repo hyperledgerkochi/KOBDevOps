@@ -230,7 +230,8 @@ function __kobman_proxy_environment {
 function __kobman_check_proxy {
 
 	read -p "Are you behind a corporate proxy?" reply 
-        if [[ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ]]; then
+        if [ "$reply" = "y" ] || [ "$reply" = "Y" ] || [ "$reply" = "yes" ] || [ "$reply" = "YES" ] 
+	then
 		proxychk=1
 		sudo dpkg --configure -a
         	read -s -p "Enter the proxy?[eg: Kochin.dummy.com..etc] :" prox
