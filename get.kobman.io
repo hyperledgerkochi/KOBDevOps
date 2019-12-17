@@ -58,6 +58,8 @@ case "$(uname)" in
         freebsd=true
 esac
 
+sudo apt install figlet -y
+figlet KOB-Setup ...
 echo "     __ ______  ____       _____      __           "
 echo "    / //_/ __ \/ __ )     / ___/___  / /___  ______ "
 echo "   / ,< / / / / __  |_____\__ \/ _ \/ __/ / / / __ \ "
