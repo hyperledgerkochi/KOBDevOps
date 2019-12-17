@@ -13,12 +13,6 @@ echo " |___/\____/_/ |_/     /_/  \____/_____/  "
 
 function __kobman_tobvon_build
 {
-echo "     ____        _ __    ___                   "
-echo "    / __ )__  __(_) /___/ (_)___  ____ _       "
-echo "   / __  / / / / / / __  / / __ \/ __  /       "
-echo "  / /_/ / /_/ / / / /_/ / / / / / /_/ /  _ _ _ "
-echo " /_____/\__,_/_/_/\__,_/_/_/ /_/\__, /  (_|_|_) "
-echo "                               /____/           "
 
 		figlet Building the Von Network
 		cd ${KOBMAN_CANDIDATES_DIR}
