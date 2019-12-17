@@ -11,10 +11,7 @@ echo " | |/ / /_/ / /|  /_____/ / / /_/ / /_/ / "
 echo " |___/\____/_/ |_/     /_/  \____/_____/  "
 
 
-
-
-
-Function_VonBuild()
+function __kobman_tobvon_build
 {
 echo "     ____        _ __    ___                   "
 echo "    / __ )__  __(_) /___/ (_)___  ____ _       "
@@ -32,7 +29,7 @@ echo "                               /____/           "
 
 }
 
-Function_VonStart()
+function __kobman_tobvon_start
 {
 
 echo "    _____ __             __  _                  "
@@ -48,7 +45,7 @@ echo "                                 /____/           "
 }
 
 
-fun_uninstall_TOBVON()
+function __kobman_tobvon_uninstall
 {
 
 	cd $TOB_env_Dir

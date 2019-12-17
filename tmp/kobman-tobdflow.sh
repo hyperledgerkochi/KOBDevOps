@@ -9,10 +9,7 @@ echo "  \__, /_/   \___/\___/_/ /_/_/_/\__, /_/ /_/\__/  "
 echo " /____/                         /____/             "
 
 
-
-
-
-Function_greenlight_build()
+function __kobman_greenlight_build
 {
 
 echo "     ____        _ __    ___                   "
@@ -34,7 +31,7 @@ echo "                               /____/           "
 
 }
 
-fun_greenlight_start()
+function __kobman_greenlight_start
 {
 
 echo "    _____ __             __  _                  "
@@ -52,7 +49,7 @@ echo "                                 /____/           "
         fi
 }
 
-fun_uninstall_greenlight()
+function __kobman_greenlight_uninstall
 {
 	
 	cd $TOB_env_Dir

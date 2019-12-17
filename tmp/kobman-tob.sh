@@ -9,10 +9,7 @@ echo " /_/ /_/ /_/\___/\____/_/   \__, /_____/\____/\____/_/|_|  "
 echo "                           /____/                          "
 
 
-
-
-
-Function_TOBBuild()
+function __kobman_tob_build
 {
            
 echo "     ____        _ __    ___                   "
@@ -36,7 +33,7 @@ echo "                               /____/           "
 
 }
 
-Function_TobStart()
+function __kobman_tob_start
 {
 
 echo "    _____ __             __  _                  "
@@ -55,7 +52,7 @@ echo "                                 /____/           "
         fi
 }
 
-fun_uninstall_TOB()
+function __kobman_tob_uninstall
 {
 	cd $TOB_env_Dir
 	sudo TheOrgBook/docker/manage rm
