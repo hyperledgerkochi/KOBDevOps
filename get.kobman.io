@@ -59,16 +59,9 @@ case "$(uname)" in
 esac
 
 sudo apt install figlet -y
+
 figlet KOB-Setup ...
 
-figlet hai
-
-echo "     __ ______  ____       _____      __           "
-echo "    / //_/ __ \/ __ )     / ___/___  / /___  ______ "
-echo "   / ,< / / / / __  |_____\__ \/ _ \/ __/ / / / __ \ "
-echo "  / /| / /_/ / /_/ /_____/__/ /  __/ /_/ /_/ / /_/ / "
-echo " /_/ |_\____/_____/     /____/\___/\__/\__,_/  ___/  "
-echo "                                           /_/       "
 
 # Sanity checks
 
