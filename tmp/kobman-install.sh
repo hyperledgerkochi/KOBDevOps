@@ -290,49 +290,33 @@ function __kobman_python_install {
 function __kobman_docker_install {
 
         sudo apt-get remove docker docker-engine docker-ce docker-ce-cli docker.io -y
-        sudo echo -e "\n\r**********************************";
-        sudo echo "*    Installing Docker...         *";
-        sudo echo -e "**********************************\n\n\r";
 	sudo figlet Installing Docker ..
 	sudo apt-get update -y
         sudo apt install docker.io -y
-        sudo echo -e "\n\r************************************************************************";
-        sudo echo "*    Installing packages to allow apt to use a repository over HTTPS...   *";
-        sudo echo -e "*************************************************************************\n\n\r";
-
+	sudo figlet package permission - allowing apt to use a repository over HTTPS
 
 
         sudo apt-get install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
 
-        sudo echo -e "\n\r******************************";
-        sudo echo "*    Add Dockers official GPG key... *";
-        sudo echo -e "*********************************\n\n\r";
-        curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+       	sudo figlet Adding Docker official GPG key 
+	curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 
-        sudo echo -e "\n\r***********************************************************";
-        sudo echo "*    Verifying that you now have the key with the fingerprint: *";
-        sudo echo -e "*********************************************************\n\n\r";
-        sudo apt-key fingerprint 0EBFCD88
+        sudo figlet Verifitying apt key fingerprint 
+	sudo apt-key fingerprint 0EBFCD88
 
 
-        sudo echo -e "\n\n\r**********************************";
-        sudo echo "*     setting up the stable repository...  *";
-        sudo echo "**********************************";
-        lsb_release -cs
+        sudo figlet docker-stable repository setting up 
+	lsb_release -cs
         sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu  $(lsb_release -cs) stable"
 
-        sudo echo -e "\n\r**********************************";
-        sudo echo "*    Installing Docker Engine...*";
-        sudo echo "**********************************";
-        sudo apt-get update -y
+        sudo figlet Docker engine installation ... 
+	sudo apt-get update -y
         sudo apt-get install docker-ce docker-ce-cli containerd.io -y
         sudo docker run hello-world
 
 
-        sudo echo -e "\n\r***********************************";
-        sudo echo "*    Installing Docker Compose?   *";
-        sudo echo "***********************************";
-        sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        sudo figlet Docker-Compose Installation
+	sudo curl -L "https://github.com/docker/compose/releases/download/1.24.1/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 
         sudo chmod +x /usr/local/bin/docker-compose
         sudo echo -e "\n\r**********************************";
@@ -342,10 +326,8 @@ function __kobman_docker_install {
         sudo systemctl enable docker
         sudo docker --version
         sudo docker-compose --version
-sudo echo -e "\n\r**********************************";
-        sudo echo -e "\n\r*    Docker Login                *"
-        sudo echo -e "\n\r**********************************";
-        sudo rm -rf /root/.docker/
+        sudo figlet Docker Login 
+	sudo rm -rf /root/.docker/
         sudo docker login
 
         if [[ "$proxychk" -eq 1 ]]
@@ -358,10 +340,9 @@ sudo echo -e "\n\r**********************************";
 
 function __kobman_npm_install {
 
-	 sudo echo -e "\n\r***********************************";
-        sudo echo "*    Purging NPM Components              *";
-        sudo echo -e "\n\r***********************************";
-        npm config rm proxy
+        sudo figlet Purging already existing NPM Components... 
+	
+	npm config rm proxy
         npm config rm proxy --global
 
         npm config rm https-proxy
@@ -373,10 +354,7 @@ function __kobman_npm_install {
         sudo sudo apt-get remove nodejs nodejs-dev node-gyp libssl1.0-dev npm
         sudo echo "Ignore!! these errors"
 
-        sudo echo -e "\n\r***********************************";
-        sudo echo "*    Installing NPM Components              *";
-        sudo echo -e "\n\r***********************************";
-
+	sudo figlet NPM installation
         sudo sudo apt-get install nodejs nodejs-dev node-gyp libssl1.0-dev npm -y
 
         npm config set https-proxy http://${uname}:${pword}@${prox}:${port}--global
