@@ -121,8 +121,22 @@ function kob {
 			__kobman_tobvon_build
 			elif [[ "$THREE" = "tob" ]]; then	
 				echo "Building tob..."	
+			__kobman_check_proxy
+			__kobman_ubuntu_update_upgrade
+			__kobman_git_install
+    			__kobman_python_install
+ 			__kobman_docker_install
+	     		__kobman_npm_install
+			__kobman_tob_build
 			elif [[ "$THREE" = "greenlight" ]]; then	
 				echo "Building greenlight ..."	
+			__kobman_check_proxy
+			__kobman_ubuntu_update_upgrade
+			__kobman_git_install
+    			__kobman_python_install
+ 			__kobman_docker_install
+	     		__kobman_npm_install
+			__kobman_greenlight_build
 			else
 				echo "verifiy your command and try again"
 			fi		
@@ -146,12 +160,36 @@ function kob {
 		;;
 		tobvon)
 				echo "starting tobvon..."	
+				__kobman_check_proxy
+				__kobman_ubuntu_update_upgrade
+				__kobman_git_install
+    				__kobman_python_install
+ 				__kobman_docker_install
+	     			__kobman_npm_install
+				__kobman_tobvon_build
+				__kobman_tobvon_start
 		;;
 		tob)
 				echo "starting tob..."	
+				__kobman_check_proxy
+				__kobman_ubuntu_update_upgrade
+				__kobman_git_install
+    				__kobman_python_install
+ 				__kobman_docker_install
+	     			__kobman_npm_install
+				__kobman_tob_build
+				__kobman_tob_start
 		;;
 		greenlight)
 				echo "starting greenlight ..."	
+				__kobman_check_proxy
+				__kobman_ubuntu_update_upgrade
+				__kobman_git_install
+    				__kobman_python_install
+ 				__kobman_docker_install
+	     			__kobman_npm_install
+				__kobman_greenlight_build
+				__kobman_greenlight_start
 		;;
 		*)
 			if [[ -z $QUALIFIER ]]; then

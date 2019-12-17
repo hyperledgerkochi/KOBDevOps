@@ -20,9 +20,9 @@ echo "  / /_/ / /_/ / / / /_/ / / / / / /_/ /  _ _ _ "
 echo " /_____/\__,_/_/_/\__,_/_/_/ /_/\__, /  (_|_|_) "
 echo "                               /____/           "
 
-
-		cd $TOB_env_Dir
-                sudo echo "Build TOB-Von instance in your system"
+		figlet Building the Von Network
+		cd ${KOBMAN_CANDIDATES_DIR}
+		sudo echo "Build TOB-Von instance in your system"
                 sudo git clone https://github.com/hyperledgerkochi/von-network.git
                 sudo von-network/manage rm
                 sudo von-network/manage build
@@ -40,7 +40,7 @@ echo " /____/\__/\__,_/_/   \__/_/_/ /_/\__, /  (_|_|_) "
 echo "                                 /____/           "
 
 
-	cd $TOB_env_Dir
+	cd ${KOBMAN_CANDIDATES_DIR}
         sudo von-network/manage start
 }
 
@@ -48,6 +48,6 @@ echo "                                 /____/           "
 function __kobman_tobvon_uninstall
 {
 
-	cd $TOB_env_Dir
+	cd ${KOBMAN_CANDIDATES_DIR}
 	sudo rm -rf von-network/	
 }
