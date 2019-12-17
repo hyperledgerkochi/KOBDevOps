@@ -26,14 +26,8 @@ function __kobman_tobvon_build
 function __kobman_tobvon_start
 {
 
-echo "    _____ __             __  _                  "
-echo "   / ___// /_____ ______/ /_(_)___  ____ _      "
-echo "   \__ \/ __/ __  / ___/ __/ / __ \/ __  /       "
-echo "  ___/ / /_/ /_/ / /  / /_/ / / / / /_/ /  _ _ _"
-echo " /____/\__/\__,_/_/   \__/_/_/ /_/\__, /  (_|_|_) "
-echo "                                 /____/           "
 
-
+	figlet tobvon starting-up 
 	cd ${KOBMAN_CANDIDATES_DIR}
         sudo von-network/manage start
 }
@@ -41,7 +35,7 @@ echo "                                 /____/           "
 
 function __kobman_tobvon_uninstall
 {
-
+	figlet tobvon removing
 	cd ${KOBMAN_CANDIDATES_DIR}
 	sudo rm -rf von-network/	
 }
