@@ -21,6 +21,7 @@ function kob {
 	COMMAND="$1"
 	QUALIFIER="$2"
 	THREE="$3"
+	FOUR= "$4"	
 	case "$COMMAND" in
 		l)
 			COMMAND="list";;
@@ -95,7 +96,7 @@ function kob {
 	fi
 
 
-
+if [[ "$COMMAND" = "install" ]]; then
 	case $QUALIFIER in
 		--dev)
 			if [[ "$THREE" = "all" ]]; then
@@ -186,7 +187,23 @@ function kob {
 		;;
 
 	esac
-				#	# Check whether the candidate exists
+			
+elif [[ "$COMMAND" = "uninstall"  ]]; then
+	case $QUALIFIER in
+		tobvon)
+			__kobman_tobvon_uninstall
+		;;
+		tob)
+			__kobman_tob_uninstall
+		;;
+		greenlight)
+			__kobman_greenlight_uninstall
+		;;
+		*)
+			echo "check uninstall command"	
+		;;
+fi
+	#	# Check whether the candidate exists
 #	local kobman_valid_candidate=$(echo ${KOBMAN_CANDIDATES[@]} | grep -w "$QUALIFIER")
 #	if [[ -n "$QUALIFIER" && "$COMMAND" != "offline" && "$COMMAND" != "flush" && "$COMMAND" != "selfupdate" && -z "$kobman_valid_candidate" ]]; then
 #		echo ""
