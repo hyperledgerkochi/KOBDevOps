@@ -202,6 +202,9 @@ elif [[ "$COMMAND" = "uninstall"  ]]; then
 		*)
 			echo "check uninstall command"	
 		;;
+else
+	echo "check command"
+
 fi
 	#	# Check whether the candidate exists
 #	local kobman_valid_candidate=$(echo ${KOBMAN_CANDIDATES[@]} | grep -w "$QUALIFIER")
